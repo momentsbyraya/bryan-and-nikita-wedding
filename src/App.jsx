@@ -5,9 +5,9 @@ import NavIndex from './components/NavIndex'
 import Footer from './components/Footer'
 import RSVPModal from './components/RSVPModal'
 import DynamicTitle from './components/DynamicTitle'
-// import OpeningScreen from './components/OpeningScreen'
+import OpeningScreen from './components/OpeningScreen'
 import Loader from './components/Loader'
-// import Watermark from './components/Watermark'
+import Watermark from './components/Watermark'
 import ScrollToTop from './components/ScrollToTop'
 import Details from './components/pages/Details'
 import Entourage from './components/pages/Entourage'
@@ -16,7 +16,7 @@ import { AudioProvider, useAudio } from './contexts/AudioContext'
 
 function AppContent() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
-  const [showInvitation, setShowInvitation] = useState(true) // Set to true to skip opening screen
+  const [showInvitation, setShowInvitation] = useState(false) // Set to false to show opening screen
   const [isLoading, setIsLoading] = useState(true)
   const { play } = useAudio()
   const navigate = useNavigate()
@@ -35,10 +35,6 @@ function AppContent() {
         '/assets/images/graphics/flower-1.png',
         '/assets/images/graphics/flower-3.png',
         '/assets/images/graphics/flower-4.png',
-        '/assets/images/graphics/flower-5.png',
-        '/assets/images/graphics/flower-7.png',
-        '/assets/images/graphics/flower-8.png',
-        '/assets/images/graphics/textured-bg-1.png',
         '/assets/images/graphics/textured-bg-2.png',
         '/assets/images/graphics/bg-1.png'
       ]
@@ -126,7 +122,7 @@ function AppContent() {
   return (
     <div className="App min-h-screen wedding-gradient">
       <DynamicTitle />
-      {/* <Watermark /> */}
+      <Watermark />
       <ScrollToTop />
       {/* Loader - shows while preloading */}
       {isLoading && (
@@ -135,11 +131,11 @@ function AppContent() {
         </div>
       )}
       {/* OpeningScreen - shows after loading, before invitation */}
-      {/* {!isLoading && !showInvitation && (
+      {!isLoading && !showInvitation && (
         <OpeningScreen onEnvelopeOpen={handleEnvelopeOpen} />
-      )} */}
-      {/* Main content - shows after invitation is opened */}
-      {!isLoading && (
+      )}
+      {/* Main content - shows after invitation is opened (stamp clicked) */}
+      {!isLoading && showInvitation && (
         <>
           <Routes>
             <Route path="/" element={<NavIndex onOpenRSVP={() => setIsRSVPModalOpen(true)} />} />

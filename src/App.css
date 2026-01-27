@@ -45,8 +45,8 @@
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  --envelope-bg: #f5f5dc;
-  --envelope-shadow: #e8e8d3;
+  --envelope-bg: #6B8FA3;
+  --envelope-shadow: #3A5563;
   --heart-bg: darkred;
   --heart-text: white;
   --letter-font: "Dancing Script", serif;
@@ -171,6 +171,16 @@
   cursor: pointer;
   transition: opacity 0.3s ease, transform 0.3s ease;
   padding: 0;
+  animation: stampRotate 8s linear infinite;
+}
+
+@keyframes stampRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .stamp-image {
@@ -190,6 +200,13 @@
 .heart:active,
 .heart:focus {
   transform: translate(-50%, -50%) scale(1.1);
+  animation: stampRotate 8s linear infinite, stampHover 0.3s ease forwards;
+}
+
+@keyframes stampHover {
+  to {
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
+  }
 }
 
 .heart:hover .stamp-image,

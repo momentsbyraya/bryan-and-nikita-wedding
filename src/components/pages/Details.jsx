@@ -295,7 +295,7 @@ const Details = () => {
            className="w-full h-full object-contain"
            style={{ transform: 'scale(2.5) rotate(5deg)' }}
          />
-       </div>
+            </div>
 
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center pt-12">

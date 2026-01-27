@@ -88,7 +88,7 @@ const DressCode = () => {
           gsap.set(category2Content, { opacity: 0, x: -30 })
         }
         
-        ScrollTrigger.create({
+      ScrollTrigger.create({
           trigger: category2Ref.current,
           start: "top 75%",
           onEnter: () => {
@@ -206,8 +206,8 @@ const DressCode = () => {
                             src={section.image} 
                             alt={section.title} 
                             className="w-full h-full object-cover rounded"
-                          />
-                        </div>
+              />
+            </div>
                       </div>
                     )}
                   </div>
@@ -216,7 +216,7 @@ const DressCode = () => {
             </div>
           );
         })()}
-
+            
         {/* Vertical Divider - Hidden on mobile, shown on 992px and above */}
         {dresscode.sections && dresscode.sections.length > 1 && (
           <>
@@ -230,7 +230,7 @@ const DressCode = () => {
         {/* Guests Category */}
         {dresscode.sections && dresscode.sections[1] && (() => {
           const section = dresscode.sections[1];
-          return (
+              return (
             <div className="relative overflow-visible flex-1">
               <div className="relative overflow-hidden">
                 <div 
@@ -270,11 +270,11 @@ const DressCode = () => {
                       </div>
                     </div>
                   </div>
+                      </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          );
-        })()}
+              );
+            })()}
       </div>
     </div>
   )

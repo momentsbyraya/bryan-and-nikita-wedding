@@ -14,13 +14,12 @@ const NavIndex = ({ onOpenRSVP }) => {
   const coupleNameRef = useRef(null)
   const envelopeRef = useRef(null)
   const flower1Ref = useRef(null)
+  const flower3Ref = useRef(null)
   const flower4Ref = useRef(null)
   const ovalContainerRef = useRef(null)
   const polaroidRef = useRef(null)
   const rsvpContainerRef = useRef(null)
   const detailsContainerRef = useRef(null)
-  const momentsImagesRef = useRef(null)
-  const momentsTextRef = useRef(null)
 
   // Countdown state
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -44,15 +43,12 @@ const NavIndex = ({ onOpenRSVP }) => {
       if (coupleNameRef.current) gsap.set(coupleNameRef.current, { opacity: 0, y: 30 })
       if (envelopeRef.current) gsap.set(envelopeRef.current, { opacity: 0, y: 30 })
       if (flower1Ref.current) gsap.set(flower1Ref.current, { opacity: 0, scale: 0, rotation: 0 })
+      if (flower3Ref.current) gsap.set(flower3Ref.current, { opacity: 0, scale: 0 })
       if (flower4Ref.current) gsap.set(flower4Ref.current, { opacity: 0, scale: 0, rotation: 0 })
       if (ovalContainerRef.current) gsap.set(ovalContainerRef.current, { opacity: 0, y: 30 })
       if (polaroidRef.current) gsap.set(polaroidRef.current, { opacity: 0, y: 30 })
       if (rsvpContainerRef.current) gsap.set(rsvpContainerRef.current, { opacity: 0, y: 30 })
       if (detailsContainerRef.current) gsap.set(detailsContainerRef.current, { opacity: 0, y: 30 })
-      if (momentsImagesRef.current) {
-        gsap.set(momentsImagesRef.current.children, { opacity: 0, y: 30 })
-      }
-      if (momentsTextRef.current) gsap.set(momentsTextRef.current, { opacity: 0, y: 20 })
       
       // Small delay to ensure opening screen is fully gone
       setTimeout(() => {
@@ -69,11 +65,9 @@ const NavIndex = ({ onOpenRSVP }) => {
             
             // Flower 1 - animate after envelope
             if (flower1Ref.current) {
-              // Use more rotation on screens 992px and above
-              const rotationAngle = window.innerWidth >= 992 ? -35 : -25
               tl.fromTo(flower1Ref.current,
                 { opacity: 0, scale: 0, rotation: 0 },
-                { opacity: 1, scale: 1, rotation: rotationAngle, duration: 0.6, ease: "back.out(1.7)" },
+                { opacity: 1, scale: 1, rotation: 25, duration: 0.6, ease: "back.out(1.7)" },
                 "-=0.3"
               )
             }
@@ -114,6 +108,15 @@ const NavIndex = ({ onOpenRSVP }) => {
               )
             }
             
+            // Flower 3 - bottom left of polaroid
+            if (flower3Ref.current) {
+              tl.fromTo(flower3Ref.current,
+                { opacity: 0, scale: 0 },
+                { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" },
+                "-=0.4"
+              )
+            }
+            
             // RSVP container - simple slide in
             if (rsvpContainerRef.current) {
               tl.fromTo(rsvpContainerRef.current,
@@ -127,30 +130,6 @@ const NavIndex = ({ onOpenRSVP }) => {
             if (detailsContainerRef.current) {
               tl.fromTo(detailsContainerRef.current,
                 { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
-                "-=0.4"
-              )
-            }
-            
-            // Moments images - simple slide in with stagger
-            if (momentsImagesRef.current) {
-              tl.fromTo(momentsImagesRef.current.children,
-                { opacity: 0, y: 30 },
-                { 
-                  opacity: 1, 
-                  y: 0, 
-                  duration: 0.5, 
-                  ease: "power2.out",
-                  stagger: 0.1
-                },
-                "-=0.4"
-              )
-            }
-            
-            // Moments text - simple slide in
-            if (momentsTextRef.current) {
-              tl.fromTo(momentsTextRef.current,
-                { opacity: 0, y: 20 },
                 { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
                 "-=0.4"
               )
@@ -216,12 +195,12 @@ const NavIndex = ({ onOpenRSVP }) => {
              ref={flower1Ref}
              src="/assets/images/graphics/flower-1.png" 
              alt="Flower decoration" 
-             className="absolute bottom-[0%] -left-[10%] w-[45vw] h-auto object-contain flower-1-rotate flower-1-container"
+             className="absolute bottom-[0%] -left-[10%] w-[35vw] h-auto object-contain flower-1-rotate flower-1-container"
            />
         </div>
 
         {/* Container with border radius 50% and Polaroid Image */}
-        <div className="flex justify-start items-start gap-6 relative z-20 oval-polaroid-container">
+        <div className="flex justify-start items-start gap-6 relative oval-polaroid-container">
           {/* Oval Container */}
           <div 
             ref={ovalContainerRef}
@@ -266,26 +245,7 @@ const NavIndex = ({ onOpenRSVP }) => {
           
           {/* Polaroid Container Wrapper */}
           <div 
-            className="relative cursor-pointer hover:scale-105 transition-transform duration-300 polaroid-wrapper"
-            onClick={() => {
-              window.scrollTo(0, 0)
-              // Slide out animation before navigation
-              if (navRef.current) {
-                gsap.to(navRef.current, {
-                  x: '-100%',
-                  opacity: 0,
-                  duration: 0.5,
-                  ease: "power2.in",
-                  onComplete: () => {
-                    navigate('/moments')
-                    setTimeout(() => window.scrollTo(0, 0), 0)
-                  }
-                })
-              } else {
-                navigate('/moments')
-                setTimeout(() => window.scrollTo(0, 0), 0)
-              }
-            }}
+            className="relative polaroid-wrapper"
           >
             {/* Flower 4 - Top Right (under the image and container) */}
             <img 
@@ -295,24 +255,65 @@ const NavIndex = ({ onOpenRSVP }) => {
               className="absolute h-auto object-contain flower-4"
             />
             
-            {/* Polaroid-style Image Container */}
-            <div 
-              ref={polaroidRef}
-              className="bg-white relative polaroid-container"
-            >
-              <img 
-                src="/assets/images/prenup/prenup-5.jpg" 
-                alt="Prenup photo" 
-                className="w-full object-cover polaroid-image"
-              />
+             {/* Rectangle Container with Thick Border */}
+             <div 
+               ref={polaroidRef}
+               className="bg-white relative polaroid-container border-8 flex flex-col p-2"
+               style={{ borderColor: '#6B8FA3', transform: 'none' }}
+             >
+              {/* Date, Month, Year at Top */}
+              <div className="flex justify-between items-center w-full mb-2">
+                <p className="font-boska polaroid-text-date uppercase text-[#333333]">
+                  {couple.wedding.day}
+                  <span className="polaroid-text-date-superscript align-top">th</span>
+                </p>
+                <p className="font-boska polaroid-text-date uppercase text-[#333333]">
+                  {couple.wedding.month}
+                </p>
+                <p className="font-boska polaroid-text-date uppercase text-[#333333]">
+                  {couple.wedding.year}
+                </p>
+              </div>
               
-              {/* Flower 3 - Bottom Left (above the image) */}
+              {/* Please join us text */}
+              <p className="imperial-script-regular text-center polaroid-text-invitation text-[#333333] mb-2">
+                Please join us for the<br />
+                wedding of
+              </p>
+              
+              {/* Couple's Name */}
+              <div className="text-center flex-1 flex flex-col items-center justify-center">
+                {/* Groom's Name */}
+                <div>
+                  <p className="font-tebranos polaroid-text-name uppercase text-[#6B8FA3] leading-tight">
+                    {couple.groom.firstName}
+                  </p>
+                  <p className="font-ballet polaroid-text-name text-[#333333] leading-tight -mt-4">
+                    {couple.groom.lastName}
+                  </p>
+                </div>
+                <p className="caudex-bold polaroid-text-and uppercase text-[#333333] leading-tight my-1">
+                  AND
+                </p>
+                {/* Bride's Name */}
+                <div>
+                  <p className="font-tebranos polaroid-text-name uppercase text-[#6B8FA3] leading-tight">
+                    {couple.bride.firstName}
+                  </p>
+                  <p className="font-ballet polaroid-text-name text-[#333333] leading-tight -mt-4">
+                    {couple.bride.lastName}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Flower 3 - Bottom Left */}
               <img 
+                ref={flower3Ref}
                 src="/assets/images/graphics/flower-3.png" 
                 alt="Flower decoration" 
                 className="absolute bottom-0 left-0 h-auto object-contain flower-3"
               />
-            </div>
+             </div>
           </div>
         </div>
 
@@ -339,15 +340,6 @@ const NavIndex = ({ onOpenRSVP }) => {
               }
             }}
           >
-            {/* Prenup Photo - 30% of container height */}
-            <div className="w-full overflow-hidden rsvp-photo-container">
-              <img 
-                src="/assets/images/prenup/prenup-6.jpg" 
-                alt="Prenup photo" 
-                className="w-full h-full object-cover rsvp-photo"
-              />
-            </div>
-            
             {/* Kindly RSVP Text */}
             <div className="flex-1 flex flex-col items-center justify-center px-4 py-4">
               <p className="nanum-myeongjo-regular text-center uppercase rsvp-text-kindly">
@@ -384,13 +376,6 @@ const NavIndex = ({ onOpenRSVP }) => {
               }
             }}
           >
-            {/* Flower 5 - Bottom Left */}
-            <img 
-              src="/assets/images/graphics/flower-5.png" 
-              alt="Flower decoration" 
-              className="absolute h-auto object-contain flower-5"
-            />
-            
             {/* Text Content */}
             <div className="text-center px-4 relative z-10">
               <p className="nanum-myeongjo-regular text-[#333333] details-text-view">
@@ -403,128 +388,6 @@ const NavIndex = ({ onOpenRSVP }) => {
           </div>
         </div>
 
-        {/* Three Polaroid Images Below RSVP and Details */}
-        <div ref={momentsImagesRef} className="flex justify-center items-start gap-0 relative moments-images-container">
-          {/* Flower 7 - Under the images */}
-          <img 
-            src="/assets/images/graphics/flower-7.png" 
-            alt="Flower decoration" 
-            className="absolute h-auto object-contain flower-7"
-          />
-          
-          {/* VIEW OUR MOMENTS Text - Top Right */}
-          <button
-            ref={momentsTextRef}
-            type="button"
-            className="absolute cursor-pointer hover:opacity-80 transition-opacity duration-300 bg-transparent border-none outline-none moments-text-button"
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              console.log('OUR MOMENTS clicked, navigating to /moments')
-              // Slide out animation before navigation
-              if (navRef.current) {
-                gsap.to(navRef.current, {
-                  x: '-100%',
-                  opacity: 0,
-                  duration: 0.5,
-                  ease: "power2.in",
-                  onComplete: () => {
-                    console.log('Animation complete, navigating...')
-                    try {
-                      navigate('/moments')
-                    } catch (error) {
-                      console.error('Navigation error:', error)
-                      window.location.href = '/moments'
-                    }
-                  }
-                })
-              } else {
-                console.log('No navRef, navigating directly...')
-                try {
-                  navigate('/moments')
-                } catch (error) {
-                  console.error('Navigation error:', error)
-                  window.location.href = '/moments'
-                }
-              }
-            }}
-          >
-             <span className="nanum-myeongjo-regular text-center underline pulsating-moments moments-text">
-               OUR MOMENTS
-             </span>
-          </button>
-          
-          {/* Polaroid Image 1 */}
-          <div 
-            className="relative cursor-pointer hover:scale-105 transition-transform duration-300 polaroid-1"
-            onClick={() => {
-              window.scrollTo(0, 0)
-              // Slide out animation before navigation
-              if (navRef.current) {
-                gsap.to(navRef.current, {
-                  x: '-100%',
-                  opacity: 0,
-                  duration: 0.5,
-                  ease: "power2.in",
-                  onComplete: () => {
-                    navigate('/moments')
-                    setTimeout(() => window.scrollTo(0, 0), 0)
-                  }
-                })
-              } else {
-                navigate('/moments')
-                setTimeout(() => window.scrollTo(0, 0), 0)
-              }
-            }}
-          >
-            <div className="bg-white relative polaroid-1-container">
-              <img 
-                src="/assets/images/prenup/prenup-7.jpg" 
-                alt="Prenup photo" 
-                className="w-full object-cover polaroid-1-image"
-              />
-            </div>
-          </div>
-
-          {/* Polaroid Image 2 */}
-          <div 
-            className="relative cursor-pointer hover:scale-105 transition-transform duration-300 polaroid-2"
-            onClick={() => {
-              window.scrollTo(0, 0)
-              // Slide out animation before navigation
-              if (navRef.current) {
-                gsap.to(navRef.current, {
-                  x: '-100%',
-                  opacity: 0,
-                  duration: 0.5,
-                  ease: "power2.in",
-                  onComplete: () => {
-                    navigate('/moments')
-                    setTimeout(() => window.scrollTo(0, 0), 0)
-                  }
-                })
-              } else {
-                navigate('/moments')
-                setTimeout(() => window.scrollTo(0, 0), 0)
-              }
-            }}
-          >
-            <div className="bg-white relative polaroid-2-container">
-              <img 
-                src="/assets/images/prenup/prenup-4.jpg" 
-                alt="Prenup photo" 
-                className="w-full object-cover polaroid-2-image"
-              />
-              
-              {/* Flower 8 - Bottom Right */}
-              <img 
-                src="/assets/images/graphics/flower-8.png" 
-                alt="Flower decoration" 
-                className="absolute h-auto object-contain flower-8"
-              />
-            </div>
-          </div>
-        </div>
 
           {/* Navigation Boxes Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">

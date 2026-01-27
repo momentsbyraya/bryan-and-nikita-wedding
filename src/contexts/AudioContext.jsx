@@ -30,6 +30,7 @@ export const AudioProvider = ({ children }) => {
   const play = async () => {
     if (audioRef.current) {
       try {
+        audioRef.current.currentTime = 2 // Start at 2 seconds
         await audioRef.current.play()
         setIsPlaying(true)
       } catch (error) {

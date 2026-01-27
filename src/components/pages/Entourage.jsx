@@ -47,6 +47,12 @@ const Entourage = () => {
       gsap.set(backButtonRef.current, { opacity: 0, scale: 0 })
     }
     
+    // Set initial hidden states for all name elements to prevent flash
+    const allNameElements = sectionRef.current?.querySelectorAll('p.font-poppins, .ninong-item, .ninang-item, .groomsmen-item, .bridesmaids-item')
+    if (allNameElements && allNameElements.length > 0) {
+      gsap.set(allNameElements, { opacity: 0, y: 20 })
+    }
+    
     // Page slide-in animation on mount
     if (sectionRef.current) {
       gsap.fromTo(sectionRef.current,
@@ -79,182 +85,186 @@ const Entourage = () => {
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
-    // Groom and Bride names - animate together as a pair
-    if (groomRef.current) {
-      ScrollTrigger.create({
-        trigger: groomRef.current,
-        start: "top 80%",
-        animation: gsap.fromTo(groomRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-        ),
-        toggleActions: "play none none reverse"
-      })
-    }
 
-    // Parents section animation - animate each name one after the other
+    // Collect all names from Parents down to Flower Girls for sequential row-by-row animation
+    const allNameRows = []
+    let currentTime = 0
+    
+    // Parents section - collect rows
     if (parentsRef.current) {
-      const parentNames = parentsRef.current.querySelectorAll('p.font-poppins')
-      if (parentNames.length > 0) {
-        gsap.set(parentNames, { opacity: 0, y: 20 })
-      ScrollTrigger.create({
-          trigger: parentsRef.current,
-        start: "top 80%",
-          onEnter: () => {
-            gsap.to(parentNames, {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              stagger: 0.1
-            })
-          },
-        toggleActions: "play none none reverse"
-      })
+      const groomParents = parentsRef.current.querySelectorAll('.flex-1:first-child p.font-poppins')
+      const brideParents = parentsRef.current.querySelectorAll('.flex-1:last-child p.font-poppins')
+      
+      if (groomParents.length > 0 && brideParents.length > 0) {
+        const maxLength = Math.max(groomParents.length, brideParents.length)
+        gsap.set([...groomParents, ...brideParents], { opacity: 0, y: 20 })
+        
+        for (let i = 0; i < maxLength; i++) {
+          const row = []
+          if (groomParents[i]) row.push(groomParents[i])
+          if (brideParents[i]) row.push(brideParents[i])
+          if (row.length > 0) {
+            allNameRows.push({ elements: row, time: currentTime })
+            currentTime += 0.2
+          }
+        }
       }
     }
 
-    // Principal Sponsors animation - animate each name one after the other
-    if (principalSponsorsRef.current) {
-      const ninongElements = principalSponsorsRef.current?.querySelectorAll('.ninong-item')
-      const ninangElements = principalSponsorsRef.current?.querySelectorAll('.ninang-item')
-      
-      // Combine all items and animate sequentially
-      const allItems = []
-      if (ninongElements) allItems.push(...Array.from(ninongElements))
-      if (ninangElements) allItems.push(...Array.from(ninangElements))
-      
-      if (allItems.length > 0) {
-        gsap.set(allItems, { opacity: 0, y: 20 })
-      ScrollTrigger.create({
-        trigger: principalSponsorsRef.current,
-        start: "top 80%",
-          onEnter: () => {
-            gsap.to(allItems, {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              stagger: 0.1
-            })
-          },
-        toggleActions: "play none none reverse"
-      })
-      }
-    }
-
-    // Secondary Sponsors animation - animate each name one after the other
-    if (secondarySponsorsRef.current) {
-      const groomsmenElements = secondarySponsorsRef.current?.querySelectorAll('.groomsmen-item')
-      const bridesmaidsElements = secondarySponsorsRef.current?.querySelectorAll('.bridesmaids-item')
-      
-      // Combine all items and animate sequentially
-      const allItems = []
-      if (groomsmenElements) allItems.push(...Array.from(groomsmenElements))
-      if (bridesmaidsElements) allItems.push(...Array.from(bridesmaidsElements))
-      
-      if (allItems.length > 0) {
-        gsap.set(allItems, { opacity: 0, y: 20 })
-      ScrollTrigger.create({
-        trigger: secondarySponsorsRef.current,
-        start: "top 80%",
-          onEnter: () => {
-            gsap.to(allItems, {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              stagger: 0.1
-            })
-          },
-        toggleActions: "play none none reverse"
-      })
-    }
-    }
-
-    // Bestman and Maid of Honor - animate each name one after the other
+    // Bestman and Maid of Honor - collect rows (right after Parents)
     if (bestmanRef.current && maidOfHonorRef.current) {
       const bestmanNames = bestmanRef.current.querySelectorAll('p.font-poppins')
       const maidOfHonorNames = maidOfHonorRef.current.querySelectorAll('p.font-poppins')
       
-      // Combine all names and animate sequentially
-      const allNames = []
-      if (bestmanNames) allNames.push(...Array.from(bestmanNames))
-      if (maidOfHonorNames) allNames.push(...Array.from(maidOfHonorNames))
-      
-      if (allNames.length > 0) {
-        const pairContainer = bestmanRef.current.parentElement
-        if (pairContainer) {
-          gsap.set(allNames, { opacity: 0, y: 20 })
-      ScrollTrigger.create({
-            trigger: pairContainer,
-        start: "top 80%",
-            onEnter: () => {
-              gsap.to(allNames, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power2.out",
-                stagger: 0.1
-              })
-            },
-        toggleActions: "play none none reverse"
-      })
-    }
+      if (bestmanNames.length > 0 || maidOfHonorNames.length > 0) {
+        const maxLength = Math.max(bestmanNames.length, maidOfHonorNames.length)
+        gsap.set([...bestmanNames, ...maidOfHonorNames], { opacity: 0, y: 20 })
+        
+        for (let i = 0; i < maxLength; i++) {
+          const row = []
+          if (bestmanNames[i]) row.push(bestmanNames[i])
+          if (maidOfHonorNames[i]) row.push(maidOfHonorNames[i])
+          if (row.length > 0) {
+            allNameRows.push({ elements: row, time: currentTime })
+            currentTime += 0.2
+          }
+        }
       }
     }
 
-    // Bible Bearer, Ring Bearer, Coin Bearer, and Flower Boys - animate each name one after the other
-    const bearerRefs = [bibleBearerRef, ringBearerRef, coinBearerRef, flowerBoysRef].filter(ref => ref.current)
-    if (bearerRefs.length > 0) {
-      const allNames = []
-      bearerRefs.forEach(ref => {
-        const names = ref.current.querySelectorAll('p.font-poppins')
-        if (names) allNames.push(...Array.from(names))
-      })
+    // Principal Sponsors - collect rows
+    if (principalSponsorsRef.current) {
+      const ninongElements = principalSponsorsRef.current?.querySelectorAll('.ninong-item')
+      const ninangElements = principalSponsorsRef.current?.querySelectorAll('.ninang-item')
       
-      if (allNames.length > 0) {
-        const container = bearerRefs[0].current.parentElement
-        if (container) {
-          gsap.set(allNames, { opacity: 0, y: 20 })
-          ScrollTrigger.create({
-            trigger: container,
-            start: "top 80%",
-            onEnter: () => {
-              gsap.to(allNames, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power2.out",
-                stagger: 0.1
-              })
-            },
-            toggleActions: "play none none reverse"
+      if (ninongElements && ninangElements && ninongElements.length > 0) {
+        const maxLength = Math.max(ninongElements.length, ninangElements.length)
+        gsap.set([...ninongElements, ...ninangElements], { opacity: 0, y: 20 })
+        
+        // Collect paired rows
+        for (let i = 0; i < maxLength; i++) {
+          const row = []
+          if (ninongElements[i]) row.push(ninongElements[i])
+          if (ninangElements[i]) row.push(ninangElements[i])
+          if (row.length > 0) {
+            allNameRows.push({ elements: row, time: currentTime })
+            currentTime += 0.2
+          }
+        }
+        
+        // Collect unpaired ninangs
+        const unpairedNinangs = principalSponsorsRef.current?.querySelectorAll('.mt-4 .ninang-item')
+        if (unpairedNinangs && unpairedNinangs.length > 0) {
+          gsap.set(unpairedNinangs, { opacity: 0, y: 20 })
+          Array.from(unpairedNinangs).forEach(ninang => {
+            allNameRows.push({ elements: [ninang], time: currentTime })
+            currentTime += 0.1
           })
         }
       }
     }
 
-    // Here comes the bride - animate each name one after the other
+    // Secondary Sponsors - collect Candle, Veil, Cord Sponsors (single column - one name per row)
+    const sponsorRefs = [candleSponsorsRef, veilSponsorsRef, cordSponsorsRef].filter(ref => ref.current)
+    sponsorRefs.forEach(ref => {
+      const names = ref.current.querySelectorAll('p.font-poppins')
+      if (names.length > 0) {
+        gsap.set(names, { opacity: 0, y: 20 })
+        Array.from(names).forEach(name => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    })
+    
+    // Bible Bearer, Ring Bearer, Coin Bearer, Flower Boys - collect (single column - one name per row)
+    const bearerRefs = [bibleBearerRef, ringBearerRef, coinBearerRef, flowerBoysRef].filter(ref => ref.current)
+    bearerRefs.forEach(ref => {
+      const names = ref.current.querySelectorAll('p.font-poppins')
+      if (names.length > 0) {
+        gsap.set(names, { opacity: 0, y: 20 })
+        Array.from(names).forEach(name => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    })
+    
+    // Groomsmen + Bridesmaids - collect rows
+    if (secondarySponsorsRef.current) {
+      const groomsmenElements = secondarySponsorsRef.current?.querySelectorAll('.groomsmen-item')
+      const bridesmaidsElements = secondarySponsorsRef.current?.querySelectorAll('.bridesmaids-item')
+      
+      if (groomsmenElements && bridesmaidsElements && groomsmenElements.length > 0) {
+        const maxLength = Math.max(groomsmenElements.length, bridesmaidsElements.length)
+        gsap.set([...groomsmenElements, ...bridesmaidsElements], { opacity: 0, y: 20 })
+        
+        for (let i = 0; i < maxLength; i++) {
+          const row = []
+          if (groomsmenElements[i]) row.push(groomsmenElements[i])
+          if (bridesmaidsElements[i]) row.push(bridesmaidsElements[i])
+          if (row.length > 0) {
+            allNameRows.push({ elements: row, time: currentTime })
+            currentTime += 0.2
+          }
+        }
+      }
+    }
+
+    // Junior Flower Girls - collect (single column - one name per row)
+    if (juniorFlowerGirlsRef.current) {
+      const names = juniorFlowerGirlsRef.current.querySelectorAll('p.font-poppins')
+      if (names.length > 0) {
+        gsap.set(names, { opacity: 0, y: 20 })
+        Array.from(names).forEach(name => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    }
+
+    // Little Flower Girls - collect (single column - one name per row)
+    if (littleFlowerGirlsRef.current) {
+      const names = littleFlowerGirlsRef.current.querySelectorAll('p.font-poppins')
+      if (names.length > 0) {
+        gsap.set(names, { opacity: 0, y: 20 })
+        Array.from(names).forEach(name => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    }
+
+    // Here comes the bride - collect (single column - one name per row)
     if (hereComesTheBrideRef.current) {
       const names = hereComesTheBrideRef.current.querySelectorAll('p.font-poppins')
       if (names.length > 0) {
         gsap.set(names, { opacity: 0, y: 20 })
-        ScrollTrigger.create({
-          trigger: hereComesTheBrideRef.current,
-          start: "top 80%",
-          onEnter: () => {
-            gsap.to(names, {
+        Array.from(names).forEach(name => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    }
+    
+    // Animate all collected rows sequentially when any section comes into view
+    if (allNameRows.length > 0 && parentsRef.current) {
+      ScrollTrigger.create({
+        trigger: parentsRef.current,
+        start: "top 80%",
+        onEnter: () => {
+          const masterTl = gsap.timeline()
+          allNameRows.forEach(({ elements, time }) => {
+            masterTl.to(elements, {
               opacity: 1,
               y: 0,
               duration: 0.6,
-              ease: "power2.out",
-              stagger: 0.1
-            })
-          },
-          toggleActions: "play none none reverse"
-        })
-      }
+              ease: "power2.out"
+            }, time)
+          })
+        },
+        toggleActions: "play none none reverse"
+      })
     }
 
     // Cleanup function
@@ -294,92 +304,47 @@ const Entourage = () => {
           paddingBottom: '4rem'
         }}
       >
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(/assets/images/graphics/texture-bg2.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
-        {/* Line-1 Image - Top */}
-        <img 
-          src="/assets/images/graphics/line-1.png" 
-          alt="Line decoration" 
-          className="absolute left-1/2 transform -translate-x-1/2 z-30"
-          style={{ 
-            width: '50%',
-            height: 'auto',
-            maxWidth: '50%',
-            objectFit: 'cover',
-            top: '1rem'
-          }}
-        />
-        {/* Line-1 Image - Bottom */}
-        <img 
-          src="/assets/images/graphics/line-1.png" 
-          alt="Line decoration" 
-          className="absolute left-1/2 transform -translate-x-1/2 z-30"
-          style={{ 
-            width: '50%',
-            height: 'auto',
-            maxWidth: '50%',
-            objectFit: 'cover',
-            bottom: '1rem'
-          }}
-        />
-        {/* Content */}
-        <div className="relative z-20 flex items-center justify-center py-12" style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)' }}>
-          {/* Beige-1 Image Overlay */}
-          <div 
-            className="absolute inset-0 z-10"
-            style={{
-              backgroundImage: 'url(/assets/images/graphics/beige-1.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              opacity: 0.25
-            }}
+        {/* Flower Divider - Top */}
+        <div className="relative w-full h-16 sm:h-20 md:h-24 flex items-center justify-center">
+          <img 
+            src="/assets/images/graphics/flower-divider.png" 
+            alt="Flower divider"
+            className="w-full h-full object-contain"
+            style={{ transform: 'scale(2.5) rotate(5deg)' }}
           />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-20 flex items-center justify-center py-12">
           <div className="max-w-xs sm:max-w-md lg:max-w-4xl w-full mx-auto px-4 sm:px-6 md:px-6 lg:px-8">
             {/* Header Section */}
             <div className="text-center mb-12">
               <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8">
-                <span className="imperial-script-regular text-2xl inline-block leading-none capitalize" style={{ lineHeight: '0.8', color: '#006666' }}>Entourage</span>
+                {/* Couple Names */}
+                <div className="font-tebranos text-4xl sm:text-5xl md:text-6xl lg:text-7xl block leading-none uppercase" style={{ lineHeight: '0.8', color: '#006666' }}>
+                  MARK & EMMARIEL
+                </div>
+                {/* NUPTIALS */}
+                <div className="caudex-bold text-base sm:text-lg md:text-xl lg:text-2xl block leading-none uppercase mt-1" style={{ lineHeight: '0.8', color: '#006666' }}>
+                  NUPTIALS
+                </div>
               </h2>
-            </div>
-
-            {/* Groom and Bride Names - Side by Side */}
-            <div ref={groomRef} className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-center">
-              {/* Groom Name */}
-              <div className="flex-1">
-                <p className="text-lg imperial-script-regular mb-2 text-right capitalize" style={{ color: '#006666' }}>Name Of Groom</p>
-                <p className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{removeMiddleInitial(entourage.couple.groom.name)}</p>
-              </div>
-
-              {/* Bride Name */}
-              <div className="flex-1">
-                <p className="text-lg imperial-script-regular mb-2 text-left capitalize" style={{ color: '#006666' }}>Name Of Bride</p>
-                <p className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{removeMiddleInitial(entourage.couple.bride.name)}</p>
-              </div>
             </div>
 
             {/* Parents Section */}
             <div ref={parentsRef} className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-center">
               {/* Groom's Parents */}
               <div className="flex-1">
-                <p className="text-lg imperial-script-regular mb-2 text-right capitalize" style={{ color: '#006666' }}>Groom's Parents</p>
-                <p className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{entourage.parents.groom.father}</p>
-                <p className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{entourage.parents.groom.mother}</p>
+                <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: '#006666' }}>Groom's Parents</p>
+                <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{entourage.parents.groom.father}</p>
+                <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{entourage.parents.groom.mother}</p>
               </div>
 
               {/* Bride's Parents */}
               <div className="flex-1">
-                <p className="text-lg imperial-script-regular mb-2 text-left capitalize" style={{ color: '#006666' }}>Bride's Parents</p>
-                <p className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.parents.bride.father}</p>
-                <p className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.parents.bride.mother}</p>
+                <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: '#006666' }}>Bride's Parents</p>
+                <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.parents.bride.father}</p>
+                <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.parents.bride.mother}</p>
               </div>
             </div>
 
@@ -388,9 +353,9 @@ const Entourage = () => {
               {/* Bestman */}
               {bestman && (
                 <div ref={bestmanRef} className="flex-1">
-                  <p className="text-lg imperial-script-regular mb-2 text-right capitalize" style={{ color: '#006666' }}>Bestman</p>
+                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: '#006666' }}>Bestman</p>
                   {bestman.names && bestman.names.map((name, index) => (
-                    <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-right">
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-right">
                       {name}
                     </p>
                   ))}
@@ -400,9 +365,9 @@ const Entourage = () => {
               {/* Maid of Honor */}
               {maidOfHonor && (
                 <div ref={maidOfHonorRef} className="flex-1">
-                  <p className="text-lg imperial-script-regular mb-2 text-left capitalize" style={{ color: '#006666' }}>Maid Of Honor</p>
+                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: '#006666' }}>Maid Of Honor</p>
                   {maidOfHonor.names && maidOfHonor.names.map((name, index) => (
-                    <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-left">
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-left">
                       {name}
                     </p>
                   ))}
@@ -419,13 +384,13 @@ const Entourage = () => {
               
               return (
                 <div ref={principalSponsorsRef} className="mb-6">
-                  <h3 className="text-lg imperial-script-regular mb-6 text-center capitalize" style={{ color: '#006666' }}>Principal Sponsors</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl imperial-script-regular mb-6 text-center capitalize whitespace-nowrap" style={{ color: '#006666' }}>Principal Sponsors</h3>
                   <div className="flex flex-row gap-4 sm:gap-6 justify-center items-start">
                     {/* NINONG Column */}
                     <div className="flex-1">
                       <div className="space-y-2">
                         {ninongs.map((name, index) => (
-                          <p key={index} className="ninong-item text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] text-right whitespace-nowrap overflow-hidden text-ellipsis">
+                          <p key={index} className="ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-right whitespace-nowrap overflow-hidden text-ellipsis">
                             {name}
                           </p>
                         ))}
@@ -435,7 +400,7 @@ const Entourage = () => {
                     <div className="flex-1">
                       <div className="space-y-2">
                         {pairedNinangs.map((name, index) => (
-                          <p key={index} className="ninang-item text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] text-left whitespace-nowrap overflow-hidden text-ellipsis">
+                          <p key={index} className="ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-left whitespace-nowrap overflow-hidden text-ellipsis">
                             {name}
                           </p>
                         ))}
@@ -447,7 +412,7 @@ const Entourage = () => {
                     <div className="mt-4 flex justify-center">
                       <div className="space-y-2">
                         {unpairedNinangs.map((name, index) => (
-                          <p key={`unpaired-${index}`} className="ninang-item text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] text-center whitespace-nowrap overflow-hidden text-ellipsis">
+                          <p key={`unpaired-${index}`} className="ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-center whitespace-nowrap overflow-hidden text-ellipsis">
                             {name}
                           </p>
                         ))}
@@ -461,7 +426,7 @@ const Entourage = () => {
             {/* Secondary Sponsors */}
             {secondarySponsors && (
               <div ref={secondarySponsorsRef} className="mb-6">
-                <h3 className="text-lg imperial-script-regular mb-6 text-center capitalize" style={{ color: '#006666' }}>Secondary Sponsors</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl imperial-script-regular mb-6 text-center capitalize whitespace-nowrap" style={{ color: '#006666' }}>Secondary Sponsors</h3>
 
                 {/* Three Sponsors in One Row */}
                 <div className="flex flex-row gap-4 sm:gap-6 justify-center items-start mb-6">
@@ -469,9 +434,9 @@ const Entourage = () => {
                   {candleSponsors && (
                     <div className="flex-1">
                       <div ref={candleSponsorsRef} className="flex flex-col gap-2 justify-center items-center">
-                        <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Candle Sponsors</p>
+                        <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Candle Sponsors</p>
                         {candleSponsors.names && candleSponsors.names.map((name, index) => (
-                          <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                             {name}
                           </p>
                         ))}
@@ -483,9 +448,9 @@ const Entourage = () => {
                   {veilSponsors && (
                     <div className="flex-1">
                       <div ref={veilSponsorsRef} className="flex flex-col gap-2 justify-center items-center">
-                        <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Veil Sponsors</p>
+                        <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Veil Sponsors</p>
                         {veilSponsors.names && veilSponsors.names.map((name, index) => (
-                          <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                             {name}
                           </p>
                         ))}
@@ -497,9 +462,9 @@ const Entourage = () => {
                   {cordSponsors && (
                     <div className="flex-1">
                       <div ref={cordSponsorsRef} className="flex flex-col gap-2 justify-center items-center">
-                        <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Cord Sponsors</p>
+                        <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Cord Sponsors</p>
                         {cordSponsors.names && cordSponsors.names.map((name, index) => (
-                          <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                             {name}
                           </p>
                         ))}
@@ -515,9 +480,9 @@ const Entourage = () => {
                         {/* Bible Bearer */}
                         {bibleBearer && (
                           <div ref={bibleBearerRef}>
-                          <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Bible Bearer</p>
+                          <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Bible Bearer</p>
                             {bibleBearer.names && bibleBearer.names.map((name, index) => (
-                            <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                            <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                                 {name}
                               </p>
                             ))}
@@ -527,9 +492,9 @@ const Entourage = () => {
                         {/* Ring Bearer */}
                         {ringBearer && (
                           <div ref={ringBearerRef}>
-                          <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Ring Bearer</p>
+                          <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Ring Bearer</p>
                             {ringBearer.names && ringBearer.names.map((name, index) => (
-                            <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                            <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                                 {name}
                               </p>
                             ))}
@@ -539,9 +504,9 @@ const Entourage = () => {
                         {/* Coin Bearer */}
                         {coinBearer && (
                           <div ref={coinBearerRef}>
-                          <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Coin Bearer</p>
+                          <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Coin Bearer</p>
                             {coinBearer.names && coinBearer.names.map((name, index) => (
-                            <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                            <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                                 {name}
                               </p>
                             ))}
@@ -551,9 +516,9 @@ const Entourage = () => {
                         {/* Flower Boys */}
                         {flowerBoys && (
                           <div ref={flowerBoysRef}>
-                          <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Flower Boys</p>
+                          <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Flower Boys</p>
                             {flowerBoys.names && flowerBoys.names.map((name, index) => (
-                            <p key={index} className="text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                            <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                                 {name}
                               </p>
                             ))}
@@ -566,10 +531,10 @@ const Entourage = () => {
                 <div className="flex flex-row gap-4 sm:gap-6 justify-center items-start">
                   {/* GROOMSMEN Column */}
                   <div className="flex-1">
-                    <p className="text-lg imperial-script-regular mb-2 text-right capitalize" style={{ color: '#006666' }}>Groomsmen</p>
+                    <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: '#006666' }}>Groomsmen</p>
                     <div className="space-y-2">
                       {secondarySponsors.groomsmen && secondarySponsors.groomsmen.map((name, index) => (
-                        <p key={index} className="groomsmen-item text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] text-right whitespace-nowrap overflow-hidden text-ellipsis">
+                        <p key={index} className="groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-right whitespace-nowrap overflow-hidden text-ellipsis">
                           {name}
                         </p>
                       ))}
@@ -577,10 +542,10 @@ const Entourage = () => {
                   </div>
                   {/* BRIDESMAID Column */}
                   <div className="flex-1">
-                    <p className="text-lg imperial-script-regular mb-2 text-left capitalize" style={{ color: '#006666' }}>Bridesmaids</p>
+                    <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: '#006666' }}>Bridesmaids</p>
                     <div className="space-y-2">
                       {secondarySponsors.bridesmaid && secondarySponsors.bridesmaid.map((name, index) => (
-                        <p key={index} className="bridesmaids-item text-[9.5px] sm:text-[13.5px] md:text-[15.5px] lg:text-[17.5px] font-poppins uppercase text-[#333333] text-left whitespace-nowrap overflow-hidden text-ellipsis">
+                        <p key={index} className="bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-left whitespace-nowrap overflow-hidden text-ellipsis">
                           {name}
                         </p>
                       ))}
@@ -594,7 +559,7 @@ const Entourage = () => {
             {juniorFlowerGirls && (
               <div className="mb-6">
                 <div ref={juniorFlowerGirlsRef} className="flex flex-col gap-2 justify-center items-center mt-6">
-                  <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Junior Flower Girls</p>
+                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Junior Flower Girls</p>
                   {juniorFlowerGirls.names && juniorFlowerGirls.names.map((name, index) => (
                     <p key={index} className="text-[10px] sm:text-sm md:text-base lg:text-lg font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
@@ -608,7 +573,7 @@ const Entourage = () => {
             {littleFlowerGirls && (
               <div className="mb-6">
                 <div ref={littleFlowerGirlsRef} className="flex flex-col gap-2 justify-center items-center mt-6">
-                  <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Little Flower Girls</p>
+                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Little Flower Girls</p>
                   {littleFlowerGirls.names && littleFlowerGirls.names.map((name, index) => (
                     <p key={index} className="text-[10px] sm:text-sm md:text-base lg:text-lg font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
@@ -622,7 +587,7 @@ const Entourage = () => {
             {hereComesTheBride && (
               <div className="mb-6">
                 <div ref={hereComesTheBrideRef} className="flex flex-col gap-2 justify-center items-center mt-6">
-                  <p className="text-lg imperial-script-regular mb-2 text-center capitalize" style={{ color: '#006666' }}>Here comes the bride</p>
+                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Here comes the bride</p>
                   {hereComesTheBride.names && hereComesTheBride.names.map((name, index) => (
                     <p key={index} className="text-[10px] sm:text-sm md:text-base lg:text-lg font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
@@ -632,6 +597,19 @@ const Entourage = () => {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Flower Divider - Bottom - Flipped horizontally and vertically */}
+        <div className="relative w-full h-16 sm:h-20 md:h-24 flex items-center justify-center my-8">
+          <img 
+            src="/assets/images/graphics/flower-divider.png" 
+            alt="Flower divider" 
+            className="w-full h-full object-contain"
+            style={{ 
+              transform: 'scale(2.5) rotate(5deg) scaleX(-1) scaleY(-1)',
+              transformOrigin: 'center'
+            }}
+          />
         </div>
       </section>
       

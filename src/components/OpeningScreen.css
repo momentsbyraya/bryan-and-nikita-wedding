@@ -1,0 +1,44 @@
+.opening-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #f5f5f0 0%, #e8e8e0 100%);
+  overflow: hidden;
+}
+
+.opening-screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.opening-screen-text {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #6B8FA3;
+  text-align: center;
+  opacity: 0;
+  cursor: default;
+  user-select: none;
+}
+
+.opening-screen-envelope {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.opening-screen-envelope:hover {
+  transform: scale(1.05);
+}
+
+.envelope-image {
+  width: clamp(200px, 40vw, 400px);
+  height: auto;
+  object-fit: contain;
+}
