@@ -6,16 +6,17 @@ const Counter = ({ countdown }) => {
   const countdownRef = useRef(null)
 
   useEffect(() => {
-    // Countdown numbers stagger animation
+    // Countdown numbers stagger animation (run once so numbers stay visible)
     if (countdownRef.current) {
-      gsap.fromTo(".countdown-number", 
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.8, 
+      const els = countdownRef.current.querySelectorAll(".countdown-number")
+      gsap.fromTo(els,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
           ease: "power2.out",
-          stagger: 0.2
+          stagger: 0.15
         }
       )
     }
@@ -30,37 +31,37 @@ const Counter = ({ countdown }) => {
       {/* Countdown Timer */}
       <div ref={countdownRef} className="flex justify-center items-center space-x-3 px-4">
         <div className="text-center">
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-albert font-semibold mb-1 countdown-number tabular-nums" style={{ color: '#4D0011' }}>
             {countdown.days}
           </div>
-          <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Days</div>
+          <div className="text-xs sm:text-sm font-medium" style={{ color: '#4D0011', opacity: 0.9 }}>Days</div>
         </div>
         
-        <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
+        <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin" style={{ color: '#4D0011' }}>:</div>
         
         <div className="text-center">
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-albert font-semibold mb-1 countdown-number tabular-nums" style={{ color: '#4D0011' }}>
             {countdown.hours}
           </div>
-          <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Hours</div>
+          <div className="text-xs sm:text-sm font-medium" style={{ color: '#4D0011', opacity: 0.9 }}>Hours</div>
         </div>
         
-        <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
+        <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin" style={{ color: '#4D0011' }}>:</div>
         
         <div className="text-center">
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-albert font-semibold mb-1 countdown-number tabular-nums" style={{ color: '#4D0011' }}>
             {countdown.minutes}
           </div>
-          <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Minutes</div>
+          <div className="text-xs sm:text-sm font-medium" style={{ color: '#4D0011', opacity: 0.9 }}>Minutes</div>
         </div>
         
-        <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
+        <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin" style={{ color: '#4D0011' }}>:</div>
         
         <div className="text-center">
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-albert font-semibold mb-1 countdown-number tabular-nums" style={{ color: '#4D0011' }}>
             {countdown.seconds}
           </div>
-          <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Seconds</div>
+          <div className="text-xs sm:text-sm font-medium" style={{ color: '#4D0011', opacity: 0.9 }}>Seconds</div>
         </div>
       </div>
     </div>

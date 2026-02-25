@@ -19,7 +19,7 @@
 }
 
 .preloader span {
-  --c: #CC5500;
+  --c: #7B1830;
   position: absolute;
   display: block;
   height: 64px;
@@ -77,8 +77,8 @@
   height: 16px;
   width: 64px;
   border-radius: 50%;
-  background-color: #CC5500;
-  border: 1px solid #CC5500;
+  background-color: #7B1830;
+  border: 1px solid #7B1830;
   animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
 }
 

@@ -211,13 +211,13 @@ const DressCode = () => {
                       {/* Category Name and Description Container */}
                       <div className="w-full">
                         {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-[#333333] mb-2 text-right lg-custom:text-left">
+                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-burgundy-dark mb-2 text-right lg-custom:text-left">
                           {section.title}
             </div>
             
                         {/* Description */}
                         {section.description && (
-                          <p className="text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 text-right lg-custom:text-left">
+                          <p className="text-sm sm:text-base font-albert font-thin italic text-burgundy-dark mb-3 text-right lg-custom:text-left">
                             {section.description}
                           </p>
                         )}
@@ -234,9 +234,9 @@ const DressCode = () => {
                     >
                               <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
                               {activeTooltip === `sponsors-${index}` && (
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#333333] text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-burgundy-dark text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
                                   {colorNames[color]}
-                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#333333]"></div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-burgundy-dark"></div>
                       </div>
                               )}
                     </div>
@@ -267,7 +267,7 @@ const DressCode = () => {
         {/* Vertical Divider - Hidden on mobile, shown on 992px and above */}
         {dresscode.sections && dresscode.sections.length > 1 && (
           <>
-            <div className="hidden lg-custom:block w-px bg-[#333333] opacity-40 self-stretch"></div>
+            <div className="hidden lg-custom:block w-px bg-burgundy-dark opacity-40 self-stretch"></div>
             <div className="lg-custom:hidden w-full">
               <Line />
             </div>
@@ -304,13 +304,13 @@ const DressCode = () => {
                       {/* Category Name and Description Container */}
                       <div>
                         {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-[#333333] mb-2 text-left lg-custom:text-left">
+                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-burgundy-dark mb-2 text-left lg-custom:text-left">
                           {section.title}
                         </div>
                         
                         {/* Short General Description */}
                         {section.shortDescription && (
-                          <p className="text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 text-left lg-custom:text-left">
+                          <p className="text-sm sm:text-base font-albert font-thin italic text-burgundy-dark mb-3 text-left lg-custom:text-left">
                             {section.shortDescription}
                           </p>
                         )}
@@ -328,9 +328,9 @@ const DressCode = () => {
                             >
                               <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
                               {activeTooltip === `guests-${index}` && (
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#333333] text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-burgundy-dark text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
                                   {colorNames[color]}
-                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#333333]"></div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-burgundy-dark"></div>
                                 </div>
                               )}
                             </div>

@@ -1,140 +1,118 @@
 {
   "couple": {
-    "groom": {
-      "name": "ALVIN P. IGNACIO"
-    },
-    "bride": {
-      "name": "NIKKA CHRISTINE T. BILLONES"
-    }
+    "groom": { "name": "ALVIN P. IGNACIO" },
+    "bride": { "name": "NIKKA CHRISTINE T. BILLONES" }
   },
   "parents": {
     "groom": {
-      "father": "ALVARADO IGNACIO",
-      "mother": "IMELDA P. IGNACIO"
+      "father": "Mr. Lando B. Macheca",
+      "mother": "Mrs. Cristita L. Macheca"
     },
     "bride": {
-      "father": "RENATO BILLONES",
-      "mother": "NATIVIDAD JOENINE BILLONES"
+      "father": "",
+      "mother": "Nelly C. Molina"
     }
   },
   "entourageList": [
     {
-      "category": "Officiating Minister",
-      "names": [
-        "Ptr. Nolito M. Pragas"
-      ]
-    },
-    {
       "category": "Principal Sponsors",
       "ninong": [
-        "Pastor Nolito M. Pragas",
-        "Pastor Eusebey D. Varona",
-        "Rev. Jess D. Sibug",
-        "Mr. Rolly C. Arango",
-        "Engr. Fred O. Dela Cruz",
-        "Mr. Enrique S. Lucero",
-        "Mr. Ronaldo L. Salonga",
-        "Arch. Leonardo B. San Diego",
-        "Hon. Renilo M. Teves",
-        "Engr. Ronald M. Frencillo",
-        "Mr. Danilo B. Rodriguez",
-        "Mr. Ariel C. Estudillo",
-        "Mr. Ricardo B. Animas",
-        "Mr. Ariel L. Magpantay"
+        "Mr. Allan B. Mondalo",
+        "Mr. Crisente F. Bernales",
+        "Mr. Francisco Doque dela Casa",
+        "Mr. Erlindo L. Sala",
+        "Mr. Lito B. Macheca",
+        "Mr. Ronie Breviescas",
+        "Mr. Vironico Macheca",
+        "Mr. Armando Reyes",
+        "Mr. Rogelio M. Nozares Sr.",
+        "Mr. Berto Tolentino",
+        "Mr. Elibert T. Momo",
+        "Mr. Eddie Logronio",
+        "Mr. Lolito L. Pelaez",
+        "Mr. Jerry Pepino",
+        "Mr. Fernando Liparanon"
       ],
       "ninang": [
-        "Mrs. Jinky C. Pragas",
-        "Mrs. Rosemarie R. Varona",
-        "Mrs. Mishael L. Sibug",
-        "Mrs. Maribeth D. Arango",
-        "Mrs. Milagros P. Dela Cruz",
-        "Mrs. Rolyn A. Lucero",
-        "Mrs. Cheryl S. Salonga",
-        "Mrs. Imee San Diego",
-        "Mrs. Marilou B. Teves",
-        "Mrs. Emily T. Carillo",
-        "Mrs. Adelfa O. Rodriguez",
-        "Mrs. May Ann D. Estudillo",
-        "Mrs. Nelie H. Animas",
-        "Mrs. Bernadette A. Magpantay"
-      ]
-    },
-    {
-      "category": "Secondary Sponsors",
-      "groomsmen": [
-        "Jeremy F. Amante",
-        "Daniel C. Tampipi",
-        "Aljun P. Ignacio"
-      ],
-      "bridesmaid": [
-        "Pauline C. Gavin",
-        "Faith L. San Diego",
-        "Jelli P. Ignacio",
-        "Rose Constans S. Salonga"
+        "Ms. Anji Prado",
+        "Mrs. Chona Eunice S. Jarina",
+        "Mrs. Irene Sala-Brucheseifer",
+        "Mrs. Julieta Tolentino",
+        "Mrs. Vicheryl D. Tamagos",
+        "Mrs. Ma. Rizalyn Sala-Jung",
+        "Mrs. Francisca Lagrama",
+        "Mrs. Elme L. Senarillos",
+        "Ms. Joecilyn L. Sala",
+        "Mrs. Joelyn T. Galgo",
+        "Mrs. Lelibeth C. Sala",
+        "Mrs. Juanita Baito",
+        "Mrs. Myrna U. Evilla",
+        "Mrs. Arlene S. Estrada",
+        "Mrs. Rowena S. Sanchez"
       ]
     },
     {
       "category": "Bestman",
-      "names": [
-        "Allan P. Ignacio"
-      ]
+      "names": ["Mr. Christian Denzo P. Lacerna"]
     },
     {
-      "category": "Matron",
-      "names": [
-        "Nikki Grace B. Loterina"
-      ]
+      "category": "Maid of Honor",
+      "names": ["Ms. Diocel A. Alvizo"]
     },
     {
       "category": "Candle Sponsors",
-      "names": [
-        "Kerl Xandrea D. Pabunan",
-        "Lenard Daniell B. Teves"
-      ]
-    },
-    {
-      "category": "Veil Sponsors",
-      "names": [
-        "Claudine P. Ignacio",
-        "Leo F. Pilar"
-      ]
+      "names": ["Mr. Joevanny Gabenite", "Mrs. Merlinda V. Sala"]
     },
     {
       "category": "Cord Sponsors",
-      "names": [
-        "Dariz P. Ignacio",
-        "Wilmer Pilar"
+      "names": ["Mr. Jay-ar Macheca", "Ms. Ivy Michelle S. Mantilla"]
+    },
+    {
+      "category": "Veil Sponsors",
+      "names": ["Mr. Dave S. Mantilla", "Mrs. Karylle S. Acevedo"]
+    },
+    {
+      "category": "Secondary Sponsors",
+      "groomsmen": [
+        "Aries Deliger",
+        "Ethan Bobieles",
+        "Fritz Ivan Miguel",
+        "Joseff Gertrude C. Macheca",
+        "Mr. Christopher Sala",
+        "Mr. Hero Macheca",
+        "Mr. Kiven Sala",
+        "Jade Cabadonga"
+      ],
+      "bridesmaid": [
+        "Ms. Samantha G. Paynandos",
+        "Miss Calexta Tiffany Barriga",
+        "Miss Bella Consad",
+        "Miss Ryza L. Macheca",
+        "Miss Criza Sala",
+        "Ms. Jane Mary Macheca",
+        "Miss Dianne L. Macheca",
+        "Miss Xiannah Mantilla"
       ]
     },
     {
       "category": "Ring Bearer",
-      "names": [
-        "Kael G. Ignacio"
-      ]
+      "names": ["Sulaiman Molina"]
     },
     {
       "category": "Bible Bearer",
-      "names": [
-        "Kian D. Pabunan"
-      ]
+      "names": ["Joecary jr. Gabenite"]
     },
     {
       "category": "Coin Bearer",
-      "names": [
-        "Isaac R. Pilar"
-      ]
+      "names": ["Kerzon Mantilla"]
     },
     {
       "category": "Flower Girls",
       "names": [
-        "Reine Felize I. Billones",
-        "Yllia Keeana B. Billones"
-      ]
-    },
-    {
-      "category": "Little Bride",
-      "names": [
-        "Yllora Elisse B. Billones"
+        "Jhan flore Noel M. Villarina",
+        "Andrea M. De Jesus",
+        "Kimberly L. Macheca",
+        "Kathaleeyah Blaire L. Subricaray"
       ]
     }
   ]

@@ -1,22 +1,22 @@
 {
   "bride": {
-    "firstName": "Nikka Christine",
-    "lastName": "Billones",
-    "fullName": "NIKKA CHRISTINE BILLONES"
+    "firstName": "Heece",
+    "lastName": "Molina",
+    "fullName": "HEECE CABADONGA MOLINA"
   },
   "groom": {
-    "firstName": "Alvin",
-    "lastName": "Ignacio",
-    "fullName": "ALVIN IGNACIO"
+    "firstName": "Joshua",
+    "lastName": "Andres",
+    "fullName": "JOSHUA LACERNA ANDRES"
   },
-  "together": "Alvin & Nikka Christine",
-  "nickname": "Alvin and Nikka Christine",
+  "together": "Heece & Joshua",
+  "nickname": "Heece and Joshua",
   "wedding": {
-    "date": "2026-04-07",
+    "date": "2026-05-08",
     "time": "3:00 PM",
-    "dayOfWeek": "Tuesday",
-    "month": "April",
-    "day": "7",
+    "dayOfWeek": "Friday",
+    "month": "May",
+    "day": "8",
     "year": "2026"
   },
   "rsvpDeadline": {

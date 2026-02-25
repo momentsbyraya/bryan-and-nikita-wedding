@@ -185,7 +185,7 @@ const LoveStory = () => {
           alt={`Love story moment ${index + 1}`}
           className="w-full aspect-square object-cover"
           style={{
-            border: '2px solid #f5f5f0',
+            border: '2px solid #F8F1D6',
             borderBottom: 'none',
             display: 'block'
           }}
@@ -221,11 +221,45 @@ const LoveStory = () => {
         <h3 ref={titleRef} className="relative inline-block px-6 py-3">
           <span 
             className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none capitalize"
-            style={{ color: themeConfig.text.burntOrange }}
+            style={{ color: themeConfig.text.wine }}
           >
             {loveStory.title}
           </span>
         </h3>
+        {/* Center decorative curved line + dot */}
+        <div className="flex justify-center my-8 sm:my-10 pointer-events-none" aria-hidden="true">
+          <div className="relative" style={{ width: '140px', height: '100px' }}>
+            <svg
+              width="140"
+              height="100"
+              viewBox="0 0 140 100"
+              fill="none"
+              className="absolute inset-0"
+              style={{ overflow: 'visible' }}
+            >
+              <path
+                d="M 70 0 Q 100 25, 70 50 Q 40 75, 70 100"
+                stroke="#4D0011"
+                strokeWidth="2"
+                fill="none"
+                strokeDasharray="6 5"
+                opacity="0.5"
+              />
+            </svg>
+            <div
+              className="absolute rounded-full"
+              style={{
+                width: '10px',
+                height: '10px',
+                left: '50%',
+                bottom: 0,
+                transform: 'translate(-50%, 50%)',
+                backgroundColor: '#4D0011',
+                opacity: 0.5,
+              }}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
@@ -274,7 +308,7 @@ const LoveStory = () => {
                       >
                         <path
                           d="M 60 0 Q 40 25, 60 50 T 60 100"
-                          stroke={themeConfig.text.burntOrange}
+                          stroke="#4D0011"
                           strokeWidth="2"
                           fill="none"
                           strokeDasharray="4,4"
@@ -285,8 +319,8 @@ const LoveStory = () => {
                       <div 
                         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full"
                         style={{ 
-                          backgroundColor: themeConfig.text.burntOrange,
-                          opacity: 0.5
+                          backgroundColor: '#4D0011',
+                          opacity: 0.45
                         }}
                       />
                     </div>
@@ -312,7 +346,7 @@ const LoveStory = () => {
                         )}
                       </div>
                       <div className="flex-1 text-center sm:text-left">
-                        <p className="text-base sm:text-lg font-albert font-thin text-[#333333] leading-relaxed">
+                        <p className="text-base sm:text-lg font-albert font-thin text-burgundy-dark leading-relaxed">
                           {formatParagraph(paragraph)}
                         </p>
                       </div>
@@ -331,7 +365,7 @@ const LoveStory = () => {
                         )}
                       </div>
                       <div className="flex-1 text-center sm:text-left order-2 sm:order-2">
-                        <p className="text-base sm:text-lg font-albert font-thin text-[#333333] leading-relaxed">
+                        <p className="text-base sm:text-lg font-albert font-thin text-burgundy-dark leading-relaxed">
                           {formatParagraph(paragraph)}
                         </p>
                       </div>

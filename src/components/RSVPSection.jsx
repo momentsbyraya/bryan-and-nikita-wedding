@@ -105,10 +105,10 @@ const RSVPSection = ({ onOpenRSVP }) => {
           </span>
         </h3>
         <div className="w-full max-w-3xl mx-auto mb-4">
-          <div className="w-full h-px bg-[#6B8FA3] opacity-40"></div>
+          <div className="w-full h-px bg-burgundy-tan opacity-40"></div>
         </div>
         <div ref={rsvpContentRef}>
-          <p className="text-sm sm:text-base font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed text-center mb-6">
+          <p className="text-sm sm:text-base font-albert font-thin text-burgundy-dark max-w-3xl mx-auto leading-relaxed text-center mb-6">
                 Kindly respond on or before<br /><strong className="!font-bold" style={{ fontWeight: 700 }}>{couple.rsvpDeadline ? `${couple.rsvpDeadline.month} ${couple.rsvpDeadline.day}, ${couple.rsvpDeadline.year}` : 'March 7, 2026'}</strong>.<br />
                 After this date, arrangements are final.
           </p>
@@ -116,7 +116,7 @@ const RSVPSection = ({ onOpenRSVP }) => {
             <div className="flex flex-col items-center gap-4">
               <button
                 onClick={onOpenRSVP}
-                    className="px-6 py-3 bg-[#333333] text-white rounded-full hover:bg-[#333333]/80 transition-colors duration-200 font-albert flex items-center gap-2"
+                    className="px-6 py-3 bg-burgundy-dark text-white rounded-full hover:bg-burgundy-wine transition-colors duration-200 font-albert flex items-center gap-2"
               >
                     Respond
                     <Mail size={18} />

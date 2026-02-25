@@ -29,11 +29,11 @@ export const weddingConfig = {
     message: "Please RSVP by March 7th, 2026"
   },
 
-  // Theme and Styling
+  // Theme and Styling - Burgundy Red Wine
   theme: {
-    primaryColor: "dusty-blue-600",
-    secondaryColor: "silver-500",
-    accentColor: "dusty-blue-600",
+    primaryColor: "burgundy-dark",
+    secondaryColor: "burgundy-tan",
+    accentColor: "burgundy-wine",
     fontFamily: "serif",
     style: "elegant" // Options: elegant, modern, rustic, vintage
   },

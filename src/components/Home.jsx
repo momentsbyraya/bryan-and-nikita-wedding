@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from './Hero'
 import Venue from './Venue'
 import Schedule from './Schedule'
+import EntourageSection from './EntourageSection'
 import RSVPSection from './RSVPSection'
 import GiftRegistry from './GiftRegistry'
 import LoveStory from './LoveStory'
@@ -52,6 +53,9 @@ const Home = ({ onOpenRSVP }) => {
           <Schedule />
         </div>
       </div>
+
+      {/* Entourage Section - between Order of Events and Dress Code */}
+      <EntourageSection />
 
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center pt-12">

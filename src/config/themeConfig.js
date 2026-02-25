@@ -1,64 +1,59 @@
-// Theme Configuration - Easy to customize colors
+// Theme Configuration - Burgundy Red Wine palette
+// 1 = #F8F1D6 (minor/cream), 2 = #DBBE9B (tan), 3 = #7B1830 (wine), 4 = #4D0011 (main)
 export const themeConfig = {
     // Background Colors
     backgrounds: {
-        primary: 'bg-gray-900',        // Main dark background
-        secondary: 'bg-gray-800',      // Secondary dark background (modals, cards)
-        accent: 'bg-[#CC5500]',        // Accent background (Burnt Orange)
-        light: 'bg-white/50',          // Light overlay backgrounds
-        theme: 'bg-[#F5F5DC]',         // Custom theme color (Beige/Ivory)
-        garden: 'bg-[#F0F8F0]',       // Garden wedding light background
-        crumpledPaper: 'bg-[url("/assets/images/crumpled-paper.png")] bg-cover bg-center bg-no-repeat', // Crumpled paper background
+        primary: 'bg-burgundy-dark',     // #4D0011 - main
+        secondary: 'bg-burgundy-wine',   // #7B1830 - secondary
+        accent: 'bg-burgundy-wine',     // #7B1830
+        light: 'bg-white/50',
+        theme: 'bg-burgundy-cream',      // #F8F1D6 - minor/cream
+        garden: 'bg-burgundy-cream',     // light sections
+        crumpledPaper: 'bg-[url("/assets/images/crumpled-paper.png")] bg-cover bg-center bg-no-repeat',
     },
 
-    // Text Colors - Garden Wedding Theme
+    // Text Colors
     text: {
-        primary: 'text-[#CC5500]',     // Main heading text color (Burnt Orange)
-        secondary: 'text-gray-300',    // Subheading and body text color
-        accent: 'text-[#CC5500]',      // Accent text color (Burnt Orange)
-        muted: 'text-gray-400',        // Muted text color (icons, small text)
-        dark: 'text-wedding-800',      // Dark text for light backgrounds
-        theme: 'text-[#E07A5F]',       // Custom theme text color (Terracotta)
-        pause: 'text-[#dcdcdc]',       // Pause button text color
-        custom: 'text-[#44484d]',      // Custom text color
-        light: '#6b7280',              // Light shade text color (gray-500)
-        lightBlack: '#4a5568',         // Lighter black shade (gray-600)
-        // Garden Wedding Color Palette
-        terracotta: '#E07A5F',         // Terracotta color
-        burntOrange: '#CC5500',        // Burnt Orange color (main)
-        lightBurntOrange: '#E67E5F',   // Light Burnt Orange color
-        sageGreen: '#87AE73',          // Sage Green color
-        darkSageGreen: '#6B8F5A',       // Dark Sage Green color
-        ivory: '#FFFFF0',              // Ivory color
-        beige: '#F5F5DC',              // Beige color
-        brown: '#8B4513',              // Brown color
-        gardenGreen: '#9CAF88',        // Garden green variant
+        primary: 'text-burgundy-dark',     // #4D0011 - main
+        secondary: 'text-burgundy-tan',    // #DBBE9B - support
+        accent: 'text-burgundy-wine',      // #7B1830
+        muted: 'text-burgundy-tan/80',
+        dark: 'text-burgundy-dark',        // #4D0011
+        theme: 'text-burgundy-wine',       // #7B1830
+        pause: 'text-[#F8F1D6]',
+        custom: 'text-burgundy-dark',
+        light: '#DBBE9B',
+        lightBlack: '#7B1830',
+        cream: '#F8F1D6',
+        tan: '#DBBE9B',
+        wine: '#7B1830',
+        burgundyDark: '#4D0011',
     },
 
-    // Border Colors - Garden Wedding Theme
+    // Border Colors
     borders: {
-        primary: 'border-gray-700',    // Main border color
-        secondary: 'border-gray-600',  // Secondary border color
-        accent: 'border-[#CC5500]',    // Accent border color (Burnt Orange)
-        theme: 'border-[#E07A5F]',     // Custom theme border color (Terracotta)
-        garden: 'border-[#87AE73]',    // Garden green border
+        primary: 'border-burgundy-wine',
+        secondary: 'border-burgundy-tan',
+        accent: 'border-burgundy-wine',
+        theme: 'border-burgundy-tan',
+        garden: 'border-burgundy-tan',
     },
 
-    // Button Colors - Garden Wedding Theme
+    // Button Colors
     buttons: {
-        primary: 'bg-[#CC5500] hover:bg-[#B84A00]',  // Primary button (Burnt Orange)
-        secondary: 'border border-gray-600 hover:border-gray-400', // Secondary button
-        text: 'text-gray-300 hover:text-white', // Button text color
-        theme: 'bg-[#E07A5F] hover:bg-[#E07A5F]/80', // Custom theme button (Terracotta)
-        garden: 'bg-[#87AE73] hover:bg-[#7A9D66]',   // Garden green button
+        primary: 'bg-burgundy-wine hover:bg-burgundy-dark',   // #7B1830 → #4D0011
+        secondary: 'border border-burgundy-tan hover:border-burgundy-wine',
+        text: 'text-burgundy-cream hover:text-white',
+        theme: 'bg-burgundy-wine hover:bg-burgundy-wine/90',
+        garden: 'bg-burgundy-tan hover:bg-burgundy-wine',
     },
 
-    // Hover Effects - Garden Wedding Theme
+    // Hover Effects
     hover: {
-        primary: 'hover:bg-[#B84A00]',     // Primary button hover (Dark Burnt Orange)
-        secondary: 'hover:border-gray-400 hover:text-white', // Secondary button hover
-        theme: 'hover:bg-[#E07A5F]/80',     // Custom theme hover (Terracotta)
-        garden: 'hover:bg-[#7A9D66]',      // Garden green hover
+        primary: 'hover:bg-burgundy-dark',
+        secondary: 'hover:border-burgundy-wine hover:text-burgundy-cream',
+        theme: 'hover:bg-burgundy-wine/90',
+        garden: 'hover:bg-burgundy-wine',
     },
 
     // Container Configuration
@@ -68,104 +63,96 @@ export const themeConfig = {
         center: 'mx-auto',
     },
 
-    // Calendar Configuration - Garden Wedding Theme
+    // Calendar Configuration
     calendar: {
-        weddingDate: '2026-04-07',          // Wedding date (YYYY-MM-DD format)
-        highlightColor: 'bg-[#87AE73]',      // Color for wedding date highlight (Sage Green)
-        heartColor: 'text-[#CC5500]',        // Color for heart icon (Burnt Orange)
-        textColor: 'text-gray-700',         // Calendar text color
-        headerColor: 'text-[#CC5500]',       // Month header color (Burnt Orange)
-        dayNamesColor: 'text-[#87AE73]',     // Day names color (Sage Green)
-        background: 'bg-[#F0F8F0]',          // Calendar background color (Garden)
+        weddingDate: '2026-05-08',
+        highlightColor: 'bg-burgundy-wine',
+        heartColor: 'text-burgundy-wine',
+        textColor: 'text-burgundy-dark',
+        headerColor: 'text-burgundy-wine',
+        dayNamesColor: 'text-burgundy-tan',
+        background: 'bg-burgundy-cream',
     },
 
-    // Paragraph Configuration - Garden Wedding Theme
+    // Paragraph Configuration
     paragraph: {
-        background: 'bg-[#F5F5DC]',         // Paragraph background color (Beige/Ivory)
-        garden: 'bg-[#F0F8F0]',            // Garden wedding background
+        background: 'bg-burgundy-cream',
+        garden: 'bg-burgundy-cream',
     },
 
-    // Custom CSS Variables - Garden Wedding Theme (for advanced customization)
+    // Custom CSS Variables
     cssVariables: {
-        '--primary-bg': '#111827',           // #111827 (gray-900)
-        '--secondary-bg': '#1f2937',        // #1f2937 (gray-800)
-        '--accent-bg': '#CC5500',           // #CC5500 (Burnt Orange) - Main color
-        '--accent-hover': '#B84A00',        // #B84A00 (Dark Burnt Orange Hover)
-        '--primary-text': '#CC5500',        // #CC5500 (Burnt Orange)
-        '--secondary-text': '#d1d5db',      // #d1d5db (gray-300)
-        '--accent-text': '#CC5500',         // #CC5500 (Burnt Orange)
-        '--muted-text': '#9ca3af',          // #9ca3af (gray-400)
-        '--border-color': '#E07A5F',        // #E07A5F (Terracotta)
-        '--custom-theme': '#E07A5F',        // #E07A5F (Terracotta)
-        // Garden Wedding Color Palette
-        '--terracotta': '#E07A5F',          // Terracotta
-        '--burnt-orange': '#CC5500',        // Burnt Orange (Main)
-        '--sage-green': '#87AE73',          // Sage Green
-        '--garden-green': '#9CAF88',        // Garden Green variant
-        '--ivory': '#FFFFF0',               // Ivory
-        '--beige': '#F5F5DC',               // Beige
-        '--brown': '#8B4513',               // Brown
-        '--garden-bg': '#F0F8F0',           // Garden wedding background
+        '--primary-bg': '#4D0011',
+        '--secondary-bg': '#7B1830',
+        '--accent-bg': '#7B1830',
+        '--accent-hover': '#4D0011',
+        '--primary-text': '#4D0011',
+        '--secondary-text': '#DBBE9B',
+        '--accent-text': '#7B1830',
+        '--muted-text': '#DBBE9B',
+        '--border-color': '#7B1830',
+        '--custom-theme': '#7B1830',
+        '--cream': '#F8F1D6',
+        '--tan': '#DBBE9B',
+        '--wine': '#7B1830',
+        '--burgundy-dark': '#4D0011',
+        '--garden-bg': '#F8F1D6',
     }
 }
 
 // Quick color presets for different themes
 export const themePresets = {
-    // Dark Elegant (Current)
     darkElegant: {
         backgrounds: {
-            primary: 'bg-gray-900',
-            secondary: 'bg-gray-800',
-            accent: 'bg-[#008080]',
+            primary: 'bg-burgundy-dark',
+            secondary: 'bg-burgundy-wine',
+            accent: 'bg-burgundy-wine',
         },
         text: {
-            primary: 'text-white',
-            secondary: 'text-gray-300',
-            accent: 'text-[#008080]',
+            primary: 'text-burgundy-cream',
+            secondary: 'text-burgundy-tan',
+            accent: 'text-burgundy-wine',
         }
     },
 
-    // Light Romantic
     lightRomantic: {
         backgrounds: {
-            primary: 'bg-rose-50',
+            primary: 'bg-burgundy-cream',
             secondary: 'bg-white',
-            accent: 'bg-rose-500',
+            accent: 'bg-burgundy-wine',
         },
         text: {
-            primary: 'text-gray-900',
-            secondary: 'text-gray-600',
-            accent: 'text-rose-600',
+            primary: 'text-burgundy-dark',
+            secondary: 'text-burgundy-wine',
+            accent: 'text-burgundy-wine',
         }
     },
 
-    // Warm Autumn
     warmAutumn: {
         backgrounds: {
-            primary: 'bg-amber-50',
-            secondary: 'bg-orange-100',
-            accent: 'bg-orange-500',
+            primary: 'bg-burgundy-cream',
+            secondary: 'bg-burgundy-tan/30',
+            accent: 'bg-burgundy-wine',
         },
         text: {
-            primary: 'text-amber-900',
-            secondary: 'text-amber-700',
-            accent: 'text-orange-600',
+            primary: 'text-burgundy-dark',
+            secondary: 'text-burgundy-wine',
+            accent: 'text-burgundy-wine',
         }
     },
 
-    // Garden Wedding Theme
     gardenWedding: {
         backgrounds: {
-            primary: 'bg-[#F0F8F0]',        // Garden light background
+            primary: 'bg-burgundy-cream',
             secondary: 'bg-white',
-            accent: 'bg-[#CC5500]',         // Burnt Orange
-            theme: 'bg-[#F5F5DC]',          // Beige/Ivory
+            accent: 'bg-burgundy-wine',
+            theme: 'bg-burgundy-cream',
         },
         text: {
-            primary: 'text-[#CC5500]',       // Burnt Orange
-            secondary: 'text-gray-700',
-            accent: 'text-[#E07A5F]',       // Terracotta
-            garden: 'text-[#87AE73]',       // Sage Green
+            primary: 'text-burgundy-dark',
+            secondary: 'text-burgundy-wine',
+            accent: 'text-burgundy-wine',
+            garden: 'text-burgundy-tan',
         }
     }
 }
@@ -181,4 +168,4 @@ export const applyThemePreset = (presetName) => {
     if (preset) {
         Object.assign(themeConfig, preset)
     }
-} 
+}

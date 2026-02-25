@@ -229,13 +229,13 @@ const NavIndex = ({ onOpenRSVP }) => {
               <div className="rounded-[50%] w-full h-full flex flex-col items-center justify-center relative oval-border">
                 {/* Text Content */}
                 <div className="text-center px-4">
-                  <p className="nanum-myeongjo-regular text-[#333333] mb-2 oval-text-for">
+                  <p className="nanum-myeongjo-regular text-burgundy-dark mb-2 oval-text-for">
                     FOR THE
                   </p>
                   <p className="imperial-script-regular mb-4 underline oval-text-entourage">
                     Entourage
                   </p>
-                  <p className="nanum-myeongjo-regular text-[#333333] oval-text-click">
+                  <p className="nanum-myeongjo-regular text-burgundy-dark oval-text-click">
                     CLICK HERE
                   </p>
                 </div>
@@ -259,24 +259,24 @@ const NavIndex = ({ onOpenRSVP }) => {
             <div 
               ref={polaroidRef}
                className="bg-white relative polaroid-container border-8 flex flex-col p-2"
-               style={{ borderColor: '#6B8FA3', transform: 'none' }}
+               style={{ borderColor: '#7B1830', transform: 'none' }}
              >
               {/* Date, Month, Year at Top */}
               <div className="flex justify-between items-center w-full mb-2">
-                <p className="font-boska polaroid-text-date uppercase text-[#333333]">
+                <p className="font-boska polaroid-text-date uppercase text-burgundy-dark">
                   {couple.wedding.day}
                   <span className="polaroid-text-date-superscript align-top">th</span>
                 </p>
-                <p className="font-boska polaroid-text-date uppercase text-[#333333]">
+                <p className="font-boska polaroid-text-date uppercase text-burgundy-dark">
                   {couple.wedding.month}
                 </p>
-                <p className="font-boska polaroid-text-date uppercase text-[#333333]">
+                <p className="font-boska polaroid-text-date uppercase text-burgundy-dark">
                   {couple.wedding.year}
                 </p>
               </div>
               
               {/* Please join us text */}
-              <p className="imperial-script-regular text-center polaroid-text-invitation text-[#333333] mb-2">
+              <p className="imperial-script-regular text-center polaroid-text-invitation text-burgundy-dark mb-2">
                 Please join us for the<br />
                 wedding of
               </p>
@@ -285,19 +285,19 @@ const NavIndex = ({ onOpenRSVP }) => {
               <div className="text-center flex-1 flex flex-col items-center justify-center">
                 {/* Groom's Name */}
                 <div>
-                  <p className="font-tebranos polaroid-text-name uppercase leading-tight" style={{ color: '#CC5500' }}>
+                  <p className="font-tebranos polaroid-text-name uppercase leading-tight" style={{ color: '#7B1830' }}>
                     {couple.groom.firstName}
                   </p>
                   <p className="font-ballet polaroid-text-name leading-tight -mt-4" style={{ color: themeConfig.text.light }}>
                     {couple.groom.lastName}
                   </p>
                 </div>
-                <p className="caudex-bold polaroid-text-and uppercase text-[#333333] leading-tight my-1">
+                <p className="caudex-bold polaroid-text-and uppercase text-burgundy-dark leading-tight my-1">
                   AND
                 </p>
                 {/* Bride's Name */}
                 <div>
-                  <p className="font-tebranos polaroid-text-name uppercase leading-tight" style={{ color: '#CC5500' }}>
+                  <p className="font-tebranos polaroid-text-name uppercase leading-tight" style={{ color: '#7B1830' }}>
                     {couple.bride.firstName}
                   </p>
                   <p className="font-ballet polaroid-text-name leading-tight -mt-4" style={{ color: themeConfig.text.light }}>
@@ -378,7 +378,7 @@ const NavIndex = ({ onOpenRSVP }) => {
           >
             {/* Text Content */}
             <div className="text-center px-4 relative z-10">
-              <p className="nanum-myeongjo-regular text-[#333333] details-text-view">
+              <p className="nanum-myeongjo-regular text-burgundy-dark details-text-view">
                 VIEW THE
               </p>
                 <p className="imperial-script-regular underline details-text-details">
@@ -404,7 +404,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   >
                     {/* Box with Section Name */}
                     <div 
-                      className="px-4 py-6 rounded-lg border-2 text-center min-h-[80px] flex items-center justify-center bg-white border-[#333333]/30 text-[#333333] shadow-sm"
+                      className="px-4 py-6 rounded-lg border-2 text-center min-h-[80px] flex items-center justify-center bg-white border-burgundy-dark/30 text-burgundy-dark shadow-sm"
                     >
                       <span className="text-sm sm:text-base font-albert font-medium">
                         {section.name}
@@ -430,8 +430,8 @@ const NavIndex = ({ onOpenRSVP }) => {
                   <div 
                     className={`px-4 py-6 rounded-lg border-2 transition-all duration-300 text-center min-h-[80px] flex items-center justify-center ${
                       isActive
-                        ? 'bg-[#333333] border-[#333333] text-white shadow-lg'
-                        : 'bg-white border-[#333333]/40 text-[#333333] hover:border-[#333333]/60 hover:bg-white shadow-md'
+                        ? 'bg-burgundy-dark border-burgundy-dark text-white shadow-lg'
+                        : 'bg-white border-burgundy-dark/40 text-burgundy-dark hover:border-burgundy-dark/60 hover:bg-white shadow-md'
                     }`}
                   >
                     <span className="text-sm sm:text-base font-albert font-medium">
@@ -441,7 +441,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   
                   {/* Active indicator dot */}
                   {isActive && (
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#333333] rounded-full border-2 border-white" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-burgundy-dark rounded-full border-2 border-white" />
                   )}
                 </button>
               )

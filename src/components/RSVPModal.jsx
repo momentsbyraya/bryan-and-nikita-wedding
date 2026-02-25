@@ -104,7 +104,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
           <div className="w-full rounded-lg relative">
             {isIframeLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-[#f4f5ef] rounded-lg">
-                <p className="text-base sm:text-lg font-albert font-thin text-[#6B8FA3]">
+                <p className="text-base sm:text-lg font-albert font-thin text-burgundy-tan">
                   Loading the RSVP form...
                 </p>
               </div>

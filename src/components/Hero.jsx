@@ -171,7 +171,7 @@ const Hero = () => {
           <div className="flex flex-col items-center justify-center">
             {/* Groom's Name */}
             <div>
-              <p ref={groomFirstNameRef} className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-tight" style={{ color: '#CC5500' }}>
+              <p ref={groomFirstNameRef} className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-tight" style={{ color: '#7B1830' }}>
                 {couple.groom.firstName}
               </p>
               <p ref={groomLastNameRef} className="font-ballet text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight -mt-2 sm:-mt-3" style={{ color: themeConfig.text.light }}>
@@ -183,7 +183,7 @@ const Hero = () => {
             </p>
             {/* Bride's Name */}
             <div>
-              <p ref={brideFirstNameRef} className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-tight" style={{ color: '#CC5500' }}>
+              <p ref={brideFirstNameRef} className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-tight" style={{ color: '#7B1830' }}>
                 {couple.bride.firstName}
               </p>
               <p ref={brideLastNameRef} className="font-ballet text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight -mt-2 sm:-mt-3" style={{ color: themeConfig.text.light }}>
@@ -223,9 +223,9 @@ const Hero = () => {
         style={{ pointerEvents: 'auto' }}
       >
         {isPlaying ? (
-          <Pause size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#CC5500]" fill="#CC5500" />
+          <Pause size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-burgundy-wine" fill="#7B1830" />
         ) : (
-          <Play size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#CC5500] ml-1" fill="#CC5500" />
+          <Play size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-burgundy-wine ml-1" fill="#7B1830" />
         )}
       </button>
 

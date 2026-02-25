@@ -12,6 +12,7 @@ import SecondaryButton from '../SecondaryButton'
 import PhotoSection from '../PhotoSection'
 import Venue from '../Venue'
 import Schedule from '../Schedule'
+import EntourageDetailsSection from '../EntourageDetailsSection'
 import DressCode from '../DressCode'
 import GiftRegistry from '../GiftRegistry'
 import PhotoUpload from '../PhotoUpload'
@@ -318,7 +319,7 @@ const Details = () => {
           {/* Header Section */}
           <div className="text-center">
             <div ref={headerContentRef}>
-              <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg font-albert font-thin text-burgundy-dark max-w-3xl mx-auto leading-relaxed">
                 Join us as we exchange our vows
               </p>
               <Divider />
@@ -345,6 +346,9 @@ const Details = () => {
         <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto">
           {/* Schedule Section */}
           <Schedule />
+
+          {/* Entourage Section */}
+          <EntourageDetailsSection />
                     </div>
                 </div>
 
@@ -358,7 +362,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#6B8FA3" 
+            stroke="#7B1830" 
             strokeWidth="2" 
             fill="none"
             opacity="0.4"
@@ -389,7 +393,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#6B8FA3" 
+            stroke="#7B1830" 
             strokeWidth="2" 
             fill="none"
             opacity="0.4"
@@ -441,15 +445,15 @@ const Details = () => {
                 return (
                   <div key={index}>
                     <div className="mb-2">
-                      <p className="text-base sm:text-lg font-albert text-[#f5f5f0] mb-2 faq-question-bold">
+                      <p className="text-base sm:text-lg font-albert text-burgundy-cream mb-2 faq-question-bold">
                         Q: {text}
                       </p>
-                      <p className="text-sm sm:text-base font-albert font-thin text-[#f5f5f0] whitespace-pre-line">
+                      <p className="text-sm sm:text-base font-albert font-thin text-burgundy-cream whitespace-pre-line">
                         A: {parseAnswerWithPhoneNumbers(item.answer)}
                       </p>
                     </div>
                     {index < faqItems.faqData.length - 1 && (
-                      <div className="h-px bg-[#f5f5f0]/30 mt-6"></div>
+                      <div className="h-px bg-burgundy-cream/30 mt-6"></div>
                     )}
                   </div>
                 )
@@ -487,7 +491,7 @@ const Details = () => {
           navigate('/')
         }
       }}
-      className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-[#333333] text-white rounded-full shadow-lg hover:bg-[#333333]/80 hover:scale-110 transition-all duration-300 flex items-center justify-center group back-button"
+      className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-burgundy-dark text-white rounded-full shadow-lg hover:bg-burgundy-wine hover:scale-110 transition-all duration-300 flex items-center justify-center group back-button"
       aria-label="Back to home"
     >
       <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" />

@@ -547,7 +547,7 @@ const Moments = () => {
               className="stylish-calligraphy text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block ml-2" 
               style={{ 
                 lineHeight: '1.2',
-                color: '#006666',
+                color: '#7B1830',
                 display: 'inline-block',
                 paddingTop: '0.5rem',
                 paddingBottom: '0.5rem'
@@ -560,7 +560,7 @@ const Moments = () => {
           {/* First Paragraph */}
           {/* Love Story */}
             <div ref={firstParagraphRef} className="relative z-20 w-full max-w-4xl px-8 sm:px-12 md:px-8 lg:px-16 mt-4">
-              <div className="alice-regular font-black text-[#333333] leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
+              <div className="alice-regular font-black text-burgundy-dark leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
                 <p className="mb-4">
                   At just 15 years old, the bride first encountered her future groom, a colleague of her father. On a lively evening, the groom graciously accompanied her father home from his birthday party. That night, as she studied, a gentle knock at the door sent her heart racing. When she opened it and saw him standing there, she flustered and quickly hid, a fleeting moment of magic passing between them, yet unacknowledged.
                 </p>
@@ -587,7 +587,7 @@ const Moments = () => {
 
            {/* Story text after first photo */}
            <div ref={secondParagraphRef} className="relative z-20 w-full max-w-4xl px-8 sm:px-12 md:px-8 lg:px-16 mt-8">
-             <div className="alice-regular font-black text-[#333333] leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
+             <div className="alice-regular font-black text-burgundy-dark leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
                <p className="mb-4">
                  Life led them down separate journeys but fate had other plans. Many years later, as she prepared to drive her first car, her father called upon the groom to lend a hand.
                </p>
@@ -612,7 +612,7 @@ const Moments = () => {
 
            {/* Story text after second photo */}
            <div ref={thirdParagraphRef} className="relative z-20 w-full max-w-4xl px-8 sm:px-12 md:px-8 lg:px-16 mt-8">
-             <div className="alice-regular font-black text-[#333333] leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
+             <div className="alice-regular font-black text-burgundy-dark leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
                <p className="mb-4">
                  That driving lesson blossomed into a beautiful connection filled with laughter, shared dreams, and rediscovery. Over the past five years, they have not only celebrated milestones but have also faced challenges that have made them better individuals. Supporting one another through thick and thin, they have both grown stronger and more compassionate, embodying the true essence of partnership.
                </p>
@@ -634,7 +634,7 @@ const Moments = () => {
                      backgroundSize: 'cover',
                  backgroundPosition: 'center',
                  backgroundRepeat: 'no-repeat',
-                 color: '#f5f5f0',
+                 color: '#F8F1D6',
                  paddingTop: '4rem',
                  paddingBottom: '4rem',
                  overflow: 'visible',
@@ -747,7 +747,7 @@ const Moments = () => {
 
            {/* Story text before final photo */}
            <div ref={finalParagraphRef} className="relative z-20 w-full max-w-4xl px-8 sm:px-12 md:px-8 lg:px-16 mt-8 mx-auto">
-             <div className="alice-regular font-black text-[#333333] leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
+             <div className="alice-regular font-black text-burgundy-dark leading-relaxed text-center" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
                <p className="mb-4">
                  Join us in celebrating their extraordinary journey—a tale of serendipity, unexpected love, and the joy of two hearts making each other better. Together, they are thrilled to say, "I do," as they embrace a future full of promise and adventure.
                </p>
@@ -795,7 +795,7 @@ const Moments = () => {
             navigate('/')
           }
         }}
-        className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-[#333333] text-white rounded-full shadow-lg hover:bg-[#333333]/80 hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+        className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-burgundy-dark text-white rounded-full shadow-lg hover:bg-burgundy-wine hover:scale-110 transition-all duration-300 flex items-center justify-center group"
         aria-label="Back to home"
         style={{ pointerEvents: 'auto' }}
       >

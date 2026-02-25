@@ -78,9 +78,9 @@ const GiftRegistry = () => {
             </span>
           </h3>
           <div className="w-full max-w-3xl mx-auto mb-4">
-            <div className="w-full h-px bg-[#6B8FA3] opacity-40"></div>
+            <div className="w-full h-px bg-burgundy-tan opacity-40"></div>
           </div>
-          <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed text-center mb-6">
+          <p className="text-base sm:text-lg font-albert font-thin text-burgundy-dark max-w-3xl mx-auto leading-relaxed text-center mb-6">
             Your presence is the greatest gift. If you wish to honor us, we would be grateful for a <strong>monetary gift</strong> to help us start our new life together.
           </p>
           

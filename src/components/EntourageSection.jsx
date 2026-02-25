@@ -281,7 +281,7 @@ const EntourageSection = () => {
             <div className="mb-6 flex flex-col gap-2 justify-center items-center">
               <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>Officiating Minister</p>
               {officiatingMinister.names && officiatingMinister.names.map((name, index) => (
-                <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                   {name}
                 </p>
               ))}
@@ -293,13 +293,13 @@ const EntourageSection = () => {
             {/* Groom */}
             <div className="flex-1">
               <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: themeConfig.text.sageGreen }}>Groom</p>
-              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{entourage.couple.groom.name}</p>
+              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-burgundy-dark">{entourage.couple.groom.name}</p>
             </div>
 
             {/* Bride */}
             <div className="flex-1">
               <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: themeConfig.text.sageGreen }}>Bride</p>
-              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.couple.bride.name}</p>
+              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-burgundy-dark">{entourage.couple.bride.name}</p>
             </div>
           </div>
 
@@ -308,15 +308,15 @@ const EntourageSection = () => {
             {/* Groom's Parents */}
             <div className="flex-1">
               <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: themeConfig.text.sageGreen }}>Groom's Parents</p>
-              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{entourage.parents.groom.father}</p>
-              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-[#333333]">{entourage.parents.groom.mother}</p>
+              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-burgundy-dark">{entourage.parents.groom.father}</p>
+              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-right text-burgundy-dark">{entourage.parents.groom.mother}</p>
             </div>
 
             {/* Bride's Parents */}
             <div className="flex-1">
               <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: themeConfig.text.sageGreen }}>Bride's Parents</p>
-              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.parents.bride.father}</p>
-              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.parents.bride.mother}</p>
+              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-burgundy-dark">{entourage.parents.bride.father}</p>
+              <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-burgundy-dark">{entourage.parents.bride.mother}</p>
             </div>
           </div>
 
@@ -336,7 +336,7 @@ const EntourageSection = () => {
                     <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: themeConfig.text.sageGreen }}>Ninong</p>
                     <div className="space-y-2">
                       {ninongs.map((name, index) => (
-                        <p key={index} className="ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-right whitespace-nowrap overflow-hidden text-ellipsis">
+                        <p key={index} className="ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark text-right whitespace-nowrap overflow-hidden text-ellipsis">
                           {name}
                         </p>
                       ))}
@@ -347,7 +347,7 @@ const EntourageSection = () => {
                     <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: themeConfig.text.sageGreen }}>Ninang</p>
                     <div className="space-y-2">
                       {pairedNinangs.map((name, index) => (
-                        <p key={index} className="ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-left whitespace-nowrap overflow-hidden text-ellipsis">
+                        <p key={index} className="ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark text-left whitespace-nowrap overflow-hidden text-ellipsis">
                           {name}
                         </p>
                       ))}
@@ -359,7 +359,7 @@ const EntourageSection = () => {
                   <div className="mt-4 flex justify-center">
                     <div className="space-y-2">
                       {unpairedNinangs.map((name, index) => (
-                        <p key={`unpaired-${index}`} className="ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-center whitespace-nowrap overflow-hidden text-ellipsis">
+                        <p key={`unpaired-${index}`} className="ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark text-center whitespace-nowrap overflow-hidden text-ellipsis">
                           {name}
                         </p>
                       ))}
@@ -377,7 +377,7 @@ const EntourageSection = () => {
               <div ref={bestmanRef} className="flex-1">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: themeConfig.text.sageGreen }}>Bestman</p>
                 {bestman.names && bestman.names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-right">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-right">
                     {name}
                   </p>
                 ))}
@@ -391,7 +391,7 @@ const EntourageSection = () => {
                   {matron ? "Matron" : "Maid Of Honor"}
                 </p>
                 {(matron || maidOfHonor)?.names && (matron || maidOfHonor).names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-left">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-left">
                     {name}
                   </p>
                 ))}
@@ -405,7 +405,7 @@ const EntourageSection = () => {
               <div ref={candleSponsorsRef} className="flex flex-col gap-2 justify-center items-center">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>To light our path / Candle</p>
                 {candleSponsors.names && candleSponsors.names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                     {name}
                   </p>
                 ))}
@@ -419,7 +419,7 @@ const EntourageSection = () => {
                 <div ref={veilSponsorsRef} className="flex flex-col gap-2 justify-center items-center">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>To clothe us one / Veil</p>
                   {veilSponsors.names && veilSponsors.names.map((name, index) => (
-                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
                     </p>
                   ))}
@@ -433,7 +433,7 @@ const EntourageSection = () => {
                 <div ref={cordSponsorsRef} className="flex flex-col gap-2 justify-center items-center">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>To bind us together / Cord</p>
                   {cordSponsors.names && cordSponsors.names.map((name, index) => (
-                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
                     </p>
                   ))}
@@ -452,7 +452,7 @@ const EntourageSection = () => {
                   <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: themeConfig.text.sageGreen }}>Groomsmen</p>
                   <div className="space-y-2">
                     {secondarySponsors.groomsmen && secondarySponsors.groomsmen.map((name, index) => (
-                      <p key={index} className="groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-right whitespace-nowrap overflow-hidden text-ellipsis">
+                      <p key={index} className="groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark text-right whitespace-nowrap overflow-hidden text-ellipsis">
                         {name}
                       </p>
                     ))}
@@ -463,7 +463,7 @@ const EntourageSection = () => {
                   <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: themeConfig.text.sageGreen }}>Bridesmaids</p>
                   <div className="space-y-2">
                     {secondarySponsors.bridesmaid && secondarySponsors.bridesmaid.map((name, index) => (
-                      <p key={index} className="bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-left whitespace-nowrap overflow-hidden text-ellipsis">
+                      <p key={index} className="bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark text-left whitespace-nowrap overflow-hidden text-ellipsis">
                         {name}
                       </p>
                     ))}
@@ -480,7 +480,7 @@ const EntourageSection = () => {
                       <div ref={ringBearerRef}>
                         <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>To carry our symbol of love / Ring bearer</p>
                         {ringBearer.names && ringBearer.names.map((name, index) => (
-                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                             {name}
                           </p>
                         ))}
@@ -492,7 +492,7 @@ const EntourageSection = () => {
                       <div ref={bibleBearerRef}>
                         <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>To carry our faith / Bible bearer</p>
                         {bibleBearer.names && bibleBearer.names.map((name, index) => (
-                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                             {name}
                           </p>
                         ))}
@@ -504,7 +504,7 @@ const EntourageSection = () => {
                       <div ref={coinBearerRef}>
                         <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>To carry our symbol of treasure / Coin</p>
                         {coinBearer.names && coinBearer.names.map((name, index) => (
-                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                             {name}
                           </p>
                         ))}
@@ -516,7 +516,7 @@ const EntourageSection = () => {
                       <div ref={flowerBoysRef}>
                         <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>Flower Boys</p>
                         {flowerBoys.names && flowerBoys.names.map((name, index) => (
-                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                          <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                             {name}
                           </p>
                         ))}
@@ -534,7 +534,7 @@ const EntourageSection = () => {
               <div ref={juniorFlowerGirlsRef} className="flex flex-col gap-2 justify-center items-center mt-6">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>Junior Flower Girls</p>
                 {juniorFlowerGirls.names && juniorFlowerGirls.names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                     {name}
                   </p>
                 ))}
@@ -548,7 +548,7 @@ const EntourageSection = () => {
               <div className="flex flex-col gap-2 justify-center items-center mt-6">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>To shower our path / Flower girls</p>
                 {flowerGirls.names && flowerGirls.names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                     {name}
                   </p>
                 ))}
@@ -562,7 +562,7 @@ const EntourageSection = () => {
               <div ref={littleFlowerGirlsRef} className="flex flex-col gap-2 justify-center items-center mt-6">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>Little Flower Girls</p>
                 {littleFlowerGirls.names && littleFlowerGirls.names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                     {name}
                   </p>
                 ))}
@@ -576,7 +576,7 @@ const EntourageSection = () => {
               <div className="flex flex-col gap-2 justify-center items-center mt-6">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>Little Bride</p>
                 {littleBride.names && littleBride.names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                     {name}
                   </p>
                 ))}
@@ -590,7 +590,7 @@ const EntourageSection = () => {
               <div ref={hereComesTheBrideRef} className="flex flex-col gap-2 justify-center items-center mt-6">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: themeConfig.text.sageGreen }}>Here comes the bride</p>
                 {hereComesTheBride.names && hereComesTheBride.names.map((name, index) => (
-                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                  <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-burgundy-dark whitespace-nowrap overflow-hidden text-ellipsis text-center">
                     {name}
                   </p>
                 ))}

@@ -133,7 +133,7 @@ const Venue = () => {
                   className="md:hidden flex items-center justify-center transition-opacity duration-200 z-10 flex-shrink-0 hover:opacity-70"
                   aria-label="Previous image"
                 >
-                  <ChevronLeft className="w-8 h-8 text-[#CC5500]" />
+                  <ChevronLeft className="w-8 h-8 text-burgundy-wine" />
                 </button>
                 
                 {/* Mobile Carousel (< 768px) */}
@@ -161,7 +161,7 @@ const Venue = () => {
                         key={index}
                         onClick={() => setCurrentIndex(index)}
                         className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                          index === currentIndex ? 'bg-[#CC5500] w-6' : 'bg-white/60'
+                          index === currentIndex ? 'bg-burgundy-wine w-6' : 'bg-white/60'
                         }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
@@ -175,7 +175,7 @@ const Venue = () => {
                   className="md:hidden flex items-center justify-center transition-opacity duration-200 z-10 flex-shrink-0 hover:opacity-70"
                   aria-label="Next image"
                 >
-                  <ChevronRight className="w-8 h-8 text-[#CC5500]" />
+                  <ChevronRight className="w-8 h-8 text-burgundy-wine" />
                 </button>
 
                 {/* Desktop View - Both Images Side by Side (>= 768px) - Same container as original */}
@@ -197,12 +197,12 @@ const Venue = () => {
                 {/* Venue Name and Location Container */}
                 <div>
                   {/* Venue Name */}
-                  <div className="text-lg sm:text-xl md:text-2xl font-boska text-[#333333] mb-2 text-center">
+                  <div className="text-lg sm:text-xl md:text-2xl font-boska text-burgundy-dark mb-2 text-center">
                     {venue.name}
                   </div>
                   
                   {/* Address */}
-                  <p className="text-sm sm:text-base font-albert font-thin text-[#333333] mb-2 text-center">
+                  <p className="text-sm sm:text-base font-albert font-thin text-burgundy-dark mb-2 text-center">
                     {venue.address && `${venue.address}, `}
                     {venue.city}
                     {venue.state && `, ${venue.state}`}
@@ -210,7 +210,7 @@ const Venue = () => {
                   </p>
 
                   {/* Schedule Times */}
-                  <div className="text-sm sm:text-base font-albert font-thin text-[#333333] mb-4 text-center space-y-1">
+                  <div className="text-sm sm:text-base font-albert font-thin text-burgundy-dark mb-4 text-center space-y-1">
                     <p>Ceremony: {ceremony.time}</p>
                     <p>Reception: {reception.time} onwards</p>
                   </div>

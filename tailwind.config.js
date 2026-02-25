@@ -10,17 +10,24 @@ export default {
         'lg-custom': '992px',
       },
       colors: {
+        // Burgundy Red Wine palette (1=minor → 4=main)
+        'burgundy': {
+          cream: '#F8F1D6',   // 1 - minor, lightest (backgrounds)
+          tan: '#DBBE9B',     // 2 - accent/support
+          wine: '#7B1830',    // 3 - secondary burgundy
+          dark: '#4D0011',    // 4 - main inspiration (primary)
+        },
         'wedding': {
-          50: '#fdf8f6',
-          100: '#f2e8e5',
-          200: '#eaddd7',
-          300: '#e0cec7',
-          400: '#d2bab0',
-          500: '#bfa094',
-          600: '#a18072',
-          700: '#977669',
-          800: '#846358',
-          900: '#43302b',
+          50: '#F8F1D6',
+          100: '#F0E8D0',
+          200: '#DBBE9B',
+          300: '#c9a882',
+          400: '#9d5a6a',
+          500: '#7B1830',
+          600: '#6a1430',
+          700: '#5a1228',
+          800: '#4D0011',
+          900: '#3d000e',
         },
         'rose': {
           50: '#fff1f2',
