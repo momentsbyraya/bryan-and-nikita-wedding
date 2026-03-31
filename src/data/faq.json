@@ -1,16 +1,20 @@
 {
   "faqData": [
     {
+      "question": "What time should I arrive?",
+      "answer": "We’d love to see you between 2:00 PM and 3:00PM! Giving yourself a little extra time ensures you’ll find a great seat before the ceremony begins."
+    },
+    {
       "question": "Can I bring a plus one?",
-      "answer": "No, we are unable to accommodate additional guests. To keep our celebration intimate and simple, we kindly ask that guests attend as indicated on their invitation. We truly appreciate your understanding and can't wait to celebrate with you."
+      "answer": "As much as we’d love to celebrate with everyone, our venue has a limited capacity. We have reserved seats specifically for those named on your invitation and truly appreciate your understanding!"
     },
     {
-      "question": "What to wear?",
-      "answer": "Our dress code is Burgundy Red Wine or a shade close to that color. We'd love our guests to dress in smart casual or semi-formal attire in this palette. Please avoid wearing white so the bride can shine."
+      "question": "What if I can't make it?",
+      "answer": "You will be missed! If your plans change, please kindly let us know as soon as possible via Facebook Messenger or at historillopatriciaann@gmail.com and domnikko.neg@gmail.com"
     },
     {
-      "question": "Where's the reception?",
-      "answer": "Purok Mondalo Barangay Unidad Training Center, Cagwait Surigao del Sur"
+      "question": "Can I take photos?",
+      "answer": "Yes, please! Capture all the love you see. All we ask is that you kindly stay clear of the center aisle so our professional photographers can work their magic."
     }
   ]
 }

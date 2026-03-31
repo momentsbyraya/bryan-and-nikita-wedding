@@ -15,15 +15,16 @@ const ImageBanner = ({
             alt={alt} 
             className="w-full h-full object-cover"
           />
-          {/* Soft transparent white gradient layers at bottom */}
-          <GradientLayer height="h-32" opacity={0.7} gradientId="whiteGradient1" />
-          <GradientLayer height="h-24" opacity={0.5} gradientId="whiteGradient2" />
-          <GradientLayer height="h-12" opacity={0.4} gradientId="whiteGradient3" />
-          <GradientLayer height="h-8" opacity={0.3} gradientId="whiteGradient4" />
-          <GradientLayer height="h-6" opacity={0.25} gradientId="whiteGradient5" />
-          <GradientLayer height="h-4" opacity={0.2} gradientId="whiteGradient6" />
+          {/* Enchanted Forest atmospheric overlay */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-forest/75 via-forest/45 to-forest/20" aria-hidden />
+          <div className="pointer-events-none absolute inset-0 bg-forest/25" aria-hidden />
+          <GradientLayer height="h-32" opacity={0.55} gradientId="whiteGradient1" />
+          <GradientLayer height="h-24" opacity={0.4} gradientId="whiteGradient2" />
+          <GradientLayer height="h-12" opacity={0.35} gradientId="whiteGradient3" />
+          <GradientLayer height="h-8" opacity={0.28} gradientId="whiteGradient4" />
+          <GradientLayer height="h-6" opacity={0.22} gradientId="whiteGradient5" />
+          <GradientLayer height="h-4" opacity={0.18} gradientId="whiteGradient6" />
           
-          {/* Solid transition SVG at bottom */}
           <svg 
             className="absolute bottom-0 left-0 w-full h-[12px] pointer-events-none"
             preserveAspectRatio="none"
@@ -32,24 +33,20 @@ const ImageBanner = ({
           >
             <defs>
               <linearGradient id="solidTransition" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="rgba(255, 255, 255, 0.8)" />
-                <stop offset="50%" stopColor="rgba(255, 255, 255, 0.95)" />
-                <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" />
+                <stop offset="0%" stopColor="rgba(203, 203, 192, 0.85)" />
+                <stop offset="50%" stopColor="rgba(203, 203, 192, 0.95)" />
+                <stop offset="100%" stopColor="rgba(203, 203, 192, 1)" />
               </linearGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#solidTransition)" />
           </svg>
           
-          {/* Details Title at bottom */}
           <div className="absolute bottom-0 left-0 w-full flex flex-col justify-center items-center pb-0.5 z-10">
             <div className="w-full text-center">
-              {/* The in Ballet font */}
-              <h1 className="font-ballet text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-2" style={{ color: '#5A1E2A' }}>
+              <h1 className="font-ballet text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 text-gold drop-shadow-sm">
                 {subtitle}
               </h1>
-              <h2 className="font-tebranos text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase mb-4 -mt-6" style={{ 
-                color: '#5A1E2A'
-              }}>
+              <h2 className="font-tebranos text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase mb-4 -mt-6 text-white drop-shadow-md">
                 {title}
               </h2>
             </div>

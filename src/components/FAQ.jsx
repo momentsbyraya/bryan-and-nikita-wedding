@@ -160,15 +160,15 @@ const FAQ = () => {
               return (
                 <div key={index}>
                   <div className="mb-2">
-                    <p className="text-base sm:text-lg font-albert text-burgundy-cream mb-2 faq-question-bold">
+                    <p className="text-base sm:text-lg font-albert text-forest mb-2 faq-question-bold">
                       Q: {text}
                     </p>
-                    <p className="text-sm sm:text-base font-albert font-thin text-burgundy-cream whitespace-pre-line">
+                    <p className="text-sm sm:text-base font-albert font-thin text-obsidian whitespace-pre-line">
                       A: {parseAnswerWithPhoneNumbers(item.answer)}
                     </p>
                   </div>
                   {index < faqItems.faqData.length - 1 && (
-                    <div className="h-px bg-burgundy-cream/30 mt-6"></div>
+                    <div className="h-px bg-gold/40 mt-6"></div>
                   )}
                 </div>
               )

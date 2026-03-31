@@ -1,169 +1,157 @@
-// Theme Configuration - Burgundy Red Wine palette
-// Primary: #5A1E2A Deep Burgundy | Background: #F3E8E2 Champagne Beige | Secondary: #C08A8F Dusty Rose
+// Enchanted Forest — Forest #1F2B20 | Antique Gold #AA8D5A | Obsidian #000000 | Sage Mist #CBCBC0
 export const themeConfig = {
-    // Background Colors
     backgrounds: {
-        primary: 'bg-burgundy-dark',
-        secondary: 'bg-burgundy-wine',
-        accent: 'bg-burgundy-wine',
+        primary: 'bg-forest',
+        secondary: 'bg-gold',
+        accent: 'bg-gold',
         light: 'bg-white/50',
-        theme: 'bg-burgundy-cream',      // Champagne Beige
-        garden: 'bg-burgundy-cream',
+        theme: 'bg-sage',
+        garden: 'bg-sage',
         crumpledPaper: 'bg-[url("/assets/images/crumpled-paper.png")] bg-cover bg-center bg-no-repeat',
     },
 
-    // Text Colors
     text: {
-        primary: 'text-burgundy-dark',
-        secondary: 'text-burgundy-tan',    // Dusty Rose
-        accent: 'text-burgundy-wine',
-        muted: 'text-burgundy-tan/80',
-        dark: 'text-burgundy-dark',
-        theme: 'text-burgundy-wine',
-        pause: 'text-[#F3E8E2]',
-        custom: 'text-burgundy-dark',
-        light: '#C08A8F',
-        lightBlack: '#5A1E2A',
-        cream: '#F3E8E2',
-        tan: '#C08A8F',
-        wine: '#5A1E2A',
-        burgundyDark: '#5A1E2A',
-        burntOrange: '#5A1E2A',
+        primary: 'text-forest',
+        secondary: 'text-gold',
+        accent: 'text-gold',
+        muted: 'text-gold/80',
+        dark: 'text-forest',
+        theme: 'text-gold',
+        pause: 'text-white',
+        custom: 'text-obsidian',
+        light: '#AA8D5A',
+        lightBlack: '#1F2B20',
+        cream: '#CBCBC0',
+        tan: '#AA8D5A',
+        wine: '#1F2B20',
+        burgundyDark: '#1F2B20',
+        burntOrange: '#1F2B20',
+        sageGreen: '#1F2B20',
     },
 
-    // Border Colors
     borders: {
-        primary: 'border-burgundy-wine',
-        secondary: 'border-burgundy-tan',
-        accent: 'border-burgundy-wine',
-        theme: 'border-burgundy-tan',
-        garden: 'border-burgundy-tan',
+        primary: 'border-gold',
+        secondary: 'border-gold/60',
+        accent: 'border-gold',
+        theme: 'border-gold/40',
+        garden: 'border-gold/40',
     },
 
-    // Button Colors
     buttons: {
-        primary: 'bg-burgundy-wine hover:bg-burgundy-tan',
-        secondary: 'border border-burgundy-tan hover:border-burgundy-wine',
-        text: 'text-burgundy-cream hover:text-white',
-        theme: 'bg-burgundy-wine hover:bg-burgundy-wine/90',
-        garden: 'bg-burgundy-tan hover:bg-burgundy-wine',
+        primary: 'bg-gold hover:bg-gold-dark',
+        secondary: 'border border-gold hover:border-gold-dark',
+        text: 'text-forest hover:text-white',
+        theme: 'bg-gold hover:bg-gold-dark',
+        garden: 'bg-gold/90 hover:bg-gold',
     },
 
-    // Hover Effects
     hover: {
-        primary: 'hover:bg-burgundy-tan',
-        secondary: 'hover:border-burgundy-wine hover:text-burgundy-cream',
-        theme: 'hover:bg-burgundy-wine/90',
-        garden: 'hover:bg-burgundy-wine',
+        primary: 'hover:bg-gold-dark',
+        secondary: 'hover:border-gold-dark hover:text-white',
+        theme: 'hover:bg-gold-dark',
+        garden: 'hover:bg-gold',
     },
 
-    // Container Configuration
     container: {
         maxWidth: 'max-w-[1300px]',
         padding: 'px-4 sm:px-6 lg:px-8',
         center: 'mx-auto',
     },
 
-    // Calendar Configuration
     calendar: {
-        weddingDate: '2026-05-08',
-        highlightColor: 'bg-burgundy-wine',
-        heartColor: 'text-burgundy-wine',
-        textColor: 'text-burgundy-dark',
-        headerColor: 'text-burgundy-wine',
-        dayNamesColor: 'text-burgundy-tan',
-        background: 'bg-burgundy-cream',
+        weddingDate: '2026-06-28',
+        highlightColor: 'bg-gold',
+        heartColor: 'text-gold',
+        textColor: 'text-forest',
+        headerColor: 'text-gold',
+        dayNamesColor: 'text-gold/90',
+        background: 'bg-sage',
     },
 
-    // Paragraph Configuration
     paragraph: {
-        background: 'bg-burgundy-cream',
-        garden: 'bg-burgundy-cream',
+        background: 'bg-sage',
+        garden: 'bg-sage',
     },
 
-    // Custom CSS Variables
     cssVariables: {
-        '--primary-bg': '#5A1E2A',
-        '--secondary-bg': '#5A1E2A',
-        '--accent-bg': '#5A1E2A',
-        '--accent-hover': '#C08A8F',
-        '--primary-text': '#5A1E2A',
-        '--secondary-text': '#C08A8F',
-        '--accent-text': '#5A1E2A',
-        '--muted-text': '#C08A8F',
-        '--border-color': '#5A1E2A',
-        '--custom-theme': '#5A1E2A',
-        '--cream': '#F3E8E2',
-        '--tan': '#C08A8F',
-        '--wine': '#5A1E2A',
-        '--burgundy-dark': '#5A1E2A',
-        '--garden-bg': '#F3E8E2',
+        '--primary-bg': '#1F2B20',
+        '--secondary-bg': '#AA8D5A',
+        '--accent-bg': '#1F2B20',
+        '--accent-hover': '#8a7045',
+        '--primary-text': '#000000',
+        '--secondary-text': '#AA8D5A',
+        '--accent-text': '#AA8D5A',
+        '--muted-text': '#8a7045',
+        '--border-color': '#000000',
+        '--custom-theme': '#1F2B20',
+        '--cream': '#CBCBC0',
+        '--tan': '#AA8D5A',
+        '--wine': '#1F2B20',
+        '--burgundy-dark': '#1F2B20',
+        '--garden-bg': '#CBCBC0',
     }
 }
 
-// Quick color presets for different themes
 export const themePresets = {
     darkElegant: {
         backgrounds: {
-            primary: 'bg-burgundy-dark',
-            secondary: 'bg-burgundy-wine',
-            accent: 'bg-burgundy-wine',
+            primary: 'bg-forest',
+            secondary: 'bg-gold',
+            accent: 'bg-gold',
         },
         text: {
-            primary: 'text-burgundy-cream',
-            secondary: 'text-burgundy-tan',
-            accent: 'text-burgundy-wine',
+            primary: 'text-white',
+            secondary: 'text-gold',
+            accent: 'text-gold',
         }
     },
 
     lightRomantic: {
         backgrounds: {
-            primary: 'bg-burgundy-cream',
+            primary: 'bg-sage',
             secondary: 'bg-white',
-            accent: 'bg-burgundy-wine',
+            accent: 'bg-gold',
         },
         text: {
-            primary: 'text-burgundy-dark',
-            secondary: 'text-burgundy-wine',
-            accent: 'text-burgundy-wine',
+            primary: 'text-forest',
+            secondary: 'text-gold',
+            accent: 'text-gold',
         }
     },
 
     warmAutumn: {
         backgrounds: {
-            primary: 'bg-burgundy-cream',
-            secondary: 'bg-burgundy-tan/30',
-            accent: 'bg-burgundy-wine',
+            primary: 'bg-sage',
+            secondary: 'bg-gold/20',
+            accent: 'bg-gold',
         },
         text: {
-            primary: 'text-burgundy-dark',
-            secondary: 'text-burgundy-wine',
-            accent: 'text-burgundy-wine',
+            primary: 'text-forest',
+            secondary: 'text-gold',
+            accent: 'text-gold',
         }
     },
 
     gardenWedding: {
         backgrounds: {
-            primary: 'bg-burgundy-cream',
+            primary: 'bg-sage',
             secondary: 'bg-white',
-            accent: 'bg-burgundy-wine',
-            theme: 'bg-burgundy-cream',
+            accent: 'bg-gold',
+            theme: 'bg-sage',
         },
         text: {
-            primary: 'text-burgundy-dark',
-            secondary: 'text-burgundy-wine',
-            accent: 'text-burgundy-wine',
-            garden: 'text-burgundy-tan',
+            primary: 'text-forest',
+            secondary: 'text-gold',
+            accent: 'text-gold',
+            garden: 'text-gold',
         }
     }
 }
 
-// Helper function to get theme colors
 export const getThemeColor = (type, variant = 'primary') => {
     return themeConfig[type]?.[variant] || themeConfig.text.primary
 }
 
-// Helper function to apply theme preset
 export const applyThemePreset = (presetName) => {
     const preset = themePresets[presetName]
     if (preset) {

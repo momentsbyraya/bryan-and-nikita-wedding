@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import ImageBanner from '../ImageBanner'
-import { loveStory } from '../../data'
+import { loveStory, prenupImages } from '../../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -22,41 +22,9 @@ const Moments = () => {
   const [selectedImage, setSelectedImage] = useState(null)
   const [selectedImageIndex, setSelectedImageIndex] = useState(null)
 
-  // First gallery image - single image
-  const firstGalleryImage = [
-    '/assets/images/prenup/DSC_3239.jpg'
-  ]
+  const firstGalleryImage = [prenupImages.momentsHero]
 
-  // Second gallery - images NOT used in NavIndex and Details
-  // Used elsewhere: DSC_3239.jpg (NavIndex, Moments), DSC_5234.jpg (NavIndex), DSC_5459.jpg (NavIndex), DSC_3496.jpg (Details)
-  // Pattern: 1 full, 2 (1/3 + 2/3), 2 (2/3 + 1/3), 1 full, repeat
-  const secondGalleryImages = [
-    // First column: 1 full image
-    '/assets/images/prenup/DSC_3122.jpg',
-    // Second column: 1/3 and 2/3
-    '/assets/images/prenup/DSC_3139.jpg', // 1/3
-    '/assets/images/prenup/DSC_3182.jpg', // 2/3
-    // Third column: 2/3 and 1/3
-    '/assets/images/prenup/DSC_3207.jpg', // 2/3
-    '/assets/images/prenup/DSC_3344.jpg', // 1/3
-    // Fourth column: 1 full image
-    '/assets/images/prenup/DSC_3961.jpg',
-    // Continue with remaining images
-    '/assets/images/prenup/DSC_3690.jpg',
-    '/assets/images/prenup/DSC_3809.jpg', // 1/3
-    '/assets/images/prenup/DSC_3543.jpg', // 2/3
-    '/assets/images/prenup/DSC_4073.jpg', // 2/3
-    '/assets/images/prenup/DSC_4076.jpg', // 1/3
-    '/assets/images/prenup/DSC_4154.jpg',
-    '/assets/images/prenup/DSC_4171.jpg', // 1/3
-    '/assets/images/prenup/DSC_4782.jpg', // 2/3
-    '/assets/images/prenup/DSC_4639.jpg', // 2/3
-    '/assets/images/prenup/DSC_4307.jpg', // 1/3
-    '/assets/images/prenup/DSC_4662.jpg',
-    '/assets/images/prenup/DSC_4681.jpg', // 1/3
-    '/assets/images/prenup/DSC_4715.jpg', // 2/3
-    '/assets/images/prenup/DSC_4258.jpg' // 2/3
-  ]
+  const secondGalleryImages = prenupImages.momentsGrid
 
   // Images array for the lightbox (includes all gallery images)
   const lightboxImages = [...firstGalleryImage, ...secondGalleryImages]
@@ -179,7 +147,7 @@ const Moments = () => {
       >
         {/* Image Banner at Top */}
         <ImageBanner
-          src="/assets/images/prenup/prenup1.png"
+          src={prenupImages.pool[0]}
           alt="Moments banner"
           title="Love Story"
           subtitle="Our"
@@ -352,7 +320,7 @@ const Moments = () => {
                       <img
                         src={image}
                         alt={`Gallery ${index + 1}`}
-                        className={`w-full h-full object-cover hover:scale-105 transition-transform duration-300 ${image.includes('DSC_4307') ? 'lg:object-[center_30%]' : ''}`}
+                        className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
                         style={{
                           height: '100%',
                           willChange: 'transform',

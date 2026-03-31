@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { createPortal } from 'react-dom'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { loveStory } from '../data'
+import { loveStory, prenupImages } from '../data'
 import { themeConfig } from '../config/themeConfig'
 import './pages/Details.css'
 
@@ -22,14 +22,7 @@ const LoveStory = () => {
   // Split content into paragraphs
   const paragraphs = loveStory.content.split('\n\n').filter(p => p.trim())
 
-  // Polaroid images — alternating 1 / 2 / 1 per paragraph (3 paragraphs → 4 images).
-  // Intentionally different from Gallery grid + Home FullBleedPhoto / FullBleedPhotoSplit.
-  const polaroidImages = [
-    '/assets/images/prenup/JGM03967.jpg',
-    '/assets/images/prenup/JGM04089.jpg',
-    '/assets/images/prenup/DSC01025.jpg',
-    '/assets/images/prenup/JGM04140.jpg',
-  ]
+  const polaroidImages = prenupImages.loveStory
 
   useEffect(() => {
     // Title animation
@@ -182,7 +175,7 @@ const LoveStory = () => {
           alt={`Love story moment ${index + 1}`}
           className="w-full aspect-square object-cover"
           style={{
-            border: '2px solid #F3E8E2',
+            border: '2px solid #CBCBC0',
             borderBottom: 'none',
             display: 'block'
           }}
@@ -262,7 +255,7 @@ const LoveStory = () => {
                       >
                         <path
                           d="M 50 0 Q 32 22, 50 45 T 50 100"
-                          stroke="#5A1E2A"
+                          stroke="#1F2B20"
                           strokeWidth="2"
                           fill="none"
                           strokeDasharray="4,4"
@@ -273,7 +266,7 @@ const LoveStory = () => {
                       <div 
                         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full"
                         style={{ 
-                          backgroundColor: '#5A1E2A',
+                          backgroundColor: '#1F2B20',
                           opacity: 0.45
                         }}
                       />
@@ -302,7 +295,7 @@ const LoveStory = () => {
                       </div>
                     )}
                     <div className={`text-center sm:text-left ${imageCount > 0 ? 'flex-1' : 'w-full'}`}>
-                      <p className="text-base sm:text-lg font-albert font-thin text-burgundy-dark leading-relaxed">
+                      <p className="text-base sm:text-lg font-albert font-thin text-forest leading-relaxed">
                         {formatParagraph(paragraph)}
                       </p>
                     </div>

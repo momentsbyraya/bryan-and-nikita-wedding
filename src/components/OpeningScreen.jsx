@@ -75,9 +75,9 @@ function OpeningScreen({ onEnvelopeOpen }) {
   return (
     <div 
       ref={openingSectionRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center opening-section"
+      className="fixed inset-0 z-[9999] flex items-center justify-center opening-section bg-forest"
         style={{
-        backgroundImage: 'url(/assets/images/graphics/textured-bg-2.png)',
+        backgroundImage: 'linear-gradient(180deg, rgba(31,43,32,0.92) 0%, rgba(31,43,32,0.88) 50%, rgba(31,43,32,0.94) 100%), url(/assets/images/graphics/textured-bg-2.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -86,7 +86,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
       <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>
         {/* Click me text */}
         <div ref={clickMeRef} className="mb-12 sm:mb-16 md:mb-20 lg:mb-24 text-center click-me-container">
-          <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold" style={{ fontFamily: 'var(--letter-font)', color: '#5A1E2A' }}>
+          <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gold" style={{ fontFamily: 'var(--letter-font)' }}>
             Click me!
           </p>
         </div>
@@ -115,7 +115,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           </div>
           {/* Letter that slides up when envelope opens */}
           <div className="envelope-letter envelope-letter-centered">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-bold">You are invited!</p>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gold">You are invited!</p>
             <img 
               src="/assets/images/graphics/cutlery-sketch.png" 
               alt="Cutlery sketch" 
@@ -130,21 +130,19 @@ function OpeningScreen({ onEnvelopeOpen }) {
         {/* Couple name and date below envelope */}
         <div ref={coupleNameRef} className="mt-12 sm:mt-16 md:mt-20 text-center couple-name-container">
           <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-script leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-script leading-tight text-gold"
             style={{ 
-              color: '#5A1E2A', 
               fontSize: 'clamp(1.5rem, 4vw, 48px)',
-              textShadow: 'none'
+              textShadow: '0 1px 2px rgba(0,0,0,0.35)'
             }}
           >
-            {couple.nickname}
+            {couple.together}
           </h2>
           <p 
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-script mt-1"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-script mt-1 text-white"
             style={{ 
-              color: '#5A1E2A', 
               fontSize: 'clamp(1rem, 2.5vw, 30px)',
-              textShadow: 'none'
+              textShadow: '0 1px 2px rgba(0,0,0,0.35)'
             }}
           >
             {new Date(weddingConfig.wedding.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}

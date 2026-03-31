@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { themeConfig } from '../config/themeConfig'
 import { couple } from '../data'
 import Counter from './Counter'
 import { getTimeUntilWedding } from '../utils/countdown'
@@ -169,12 +168,10 @@ const NavIndex = ({ onOpenRSVP }) => {
   }
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-white to-gray-50 overflow-hidden relative">
-      {/* Background Image */}
-      <div className="absolute inset-0 bg-cover bg-no-repeat nav-index-bg" />
-      
-      {/* Blurry White Overlay */}
-      <div className="absolute inset-0 backdrop-blur-sm nav-index-overlay" />
+    <div className="min-h-screen w-full flex items-center justify-center bg-forest overflow-hidden relative">
+      {/* Background texture (subtle on forest) */}
+      <div className="absolute inset-0 bg-cover bg-no-repeat nav-index-bg opacity-25" />
+      <div className="absolute inset-0 bg-gradient-to-b from-forest via-forest/95 to-[#162018]" />
       
       <div 
         ref={navRef}
@@ -229,13 +226,13 @@ const NavIndex = ({ onOpenRSVP }) => {
               <div className="rounded-[50%] w-full h-full flex flex-col items-center justify-center relative oval-border">
                 {/* Text Content */}
                 <div className="text-center px-4">
-                  <p className="nanum-myeongjo-regular text-burgundy-dark mb-2 oval-text-for">
+                  <p className="nanum-myeongjo-regular text-forest mb-2 oval-text-for">
                     FOR THE
                   </p>
-                  <p className="imperial-script-regular mb-4 underline oval-text-entourage">
+                  <p className="imperial-script-regular mb-4 underline oval-text-entourage text-gold">
                     Entourage
                   </p>
-                  <p className="nanum-myeongjo-regular text-burgundy-dark oval-text-click">
+                  <p className="nanum-myeongjo-regular text-forest oval-text-click">
                     CLICK HERE
                   </p>
                 </div>
@@ -259,24 +256,24 @@ const NavIndex = ({ onOpenRSVP }) => {
             <div 
               ref={polaroidRef}
                className="bg-white relative polaroid-container border-8 flex flex-col p-2"
-               style={{ borderColor: '#5A1E2A', transform: 'none' }}
+               style={{ borderColor: '#AA8D5A', transform: 'none' }}
              >
               {/* Date, Month, Year at Top */}
               <div className="flex justify-between items-center w-full mb-2">
-                <p className="font-boska polaroid-text-date uppercase text-burgundy-dark">
+                <p className="font-boska polaroid-text-date uppercase text-forest">
                   {couple.wedding.day}
                   <span className="polaroid-text-date-superscript align-top">th</span>
                 </p>
-                <p className="font-boska polaroid-text-date uppercase text-burgundy-dark">
+                <p className="font-boska polaroid-text-date uppercase text-forest">
                   {couple.wedding.month}
                 </p>
-                <p className="font-boska polaroid-text-date uppercase text-burgundy-dark">
+                <p className="font-boska polaroid-text-date uppercase text-forest">
                   {couple.wedding.year}
                 </p>
               </div>
               
               {/* Please join us text */}
-              <p className="imperial-script-regular text-center polaroid-text-invitation text-burgundy-dark mb-2">
+              <p className="imperial-script-regular text-center polaroid-text-invitation text-forest mb-2">
                 Please join us for the<br />
                 wedding of
               </p>
@@ -285,22 +282,22 @@ const NavIndex = ({ onOpenRSVP }) => {
               <div className="text-center flex-1 flex flex-col items-center justify-center">
                 {/* Groom's Name */}
                 <div>
-                  <p className="font-tebranos polaroid-text-name uppercase leading-tight" style={{ color: '#5A1E2A' }}>
+                  <p className="font-tebranos polaroid-text-name uppercase leading-tight text-forest">
                     {couple.groom.firstName}
                   </p>
-                  <p className="font-ballet polaroid-text-name leading-tight -mt-4" style={{ color: themeConfig.text.light }}>
+                  <p className="font-ballet polaroid-text-name leading-tight -mt-4 text-gold">
                     {couple.groom.lastName}
                   </p>
                 </div>
-                <p className="caudex-bold polaroid-text-and uppercase text-burgundy-dark leading-tight my-1">
+                <p className="caudex-bold polaroid-text-and uppercase text-forest leading-tight my-1">
                   AND
                 </p>
                 {/* Bride's Name */}
                 <div>
-                  <p className="font-tebranos polaroid-text-name uppercase leading-tight" style={{ color: '#5A1E2A' }}>
+                  <p className="font-tebranos polaroid-text-name uppercase leading-tight text-forest">
                     {couple.bride.firstName}
                   </p>
-                  <p className="font-ballet polaroid-text-name leading-tight -mt-4" style={{ color: themeConfig.text.light }}>
+                  <p className="font-ballet polaroid-text-name leading-tight -mt-4 text-gold">
                     {couple.bride.lastName}
                   </p>
                 </div>
@@ -342,7 +339,7 @@ const NavIndex = ({ onOpenRSVP }) => {
           >
             {/* Kindly RSVP Text */}
             <div className="flex-1 flex flex-col items-center justify-center px-4 py-4">
-              <p className="nanum-myeongjo-regular text-center uppercase rsvp-text-kindly">
+              <p className="nanum-myeongjo-regular text-center uppercase rsvp-text-kindly text-forest">
                 Kindly
               </p>
               <p className="text-center rsvp-text-container">
@@ -378,10 +375,10 @@ const NavIndex = ({ onOpenRSVP }) => {
           >
             {/* Text Content */}
             <div className="text-center px-4 relative z-10">
-              <p className="nanum-myeongjo-regular text-burgundy-dark details-text-view">
+              <p className="nanum-myeongjo-regular text-forest details-text-view">
                 VIEW THE
               </p>
-                <p className="imperial-script-regular underline details-text-details">
+                <p className="imperial-script-regular underline details-text-details text-gold">
                   Details
                 </p>
             </div>
@@ -404,7 +401,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   >
                     {/* Box with Section Name */}
                     <div 
-                      className="px-4 py-6 rounded-lg border-2 text-center min-h-[80px] flex items-center justify-center bg-white border-burgundy-dark/30 text-burgundy-dark shadow-sm"
+                      className="px-4 py-6 rounded-lg border-2 text-center min-h-[80px] flex items-center justify-center bg-sage/90 border-gold/35 text-forest shadow-sm"
                     >
                       <span className="text-sm sm:text-base font-albert font-medium">
                         {section.name}
@@ -430,8 +427,8 @@ const NavIndex = ({ onOpenRSVP }) => {
                   <div 
                     className={`px-4 py-6 rounded-lg border-2 transition-all duration-300 text-center min-h-[80px] flex items-center justify-center ${
                       isActive
-                        ? 'bg-burgundy-dark border-burgundy-dark text-white shadow-lg'
-                        : 'bg-white border-burgundy-dark/40 text-burgundy-dark hover:border-burgundy-dark/60 hover:bg-white shadow-md'
+                        ? 'bg-gold border-gold text-forest shadow-lg'
+                        : 'bg-sage/90 border-gold/45 text-white hover:border-gold hover:bg-sage shadow-md'
                     }`}
                   >
                     <span className="text-sm sm:text-base font-albert font-medium">
@@ -441,7 +438,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   
                   {/* Active indicator dot */}
                   {isActive && (
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-burgundy-dark rounded-full border-2 border-white" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-gold rounded-full border-2 border-forest" />
                   )}
                 </button>
               )

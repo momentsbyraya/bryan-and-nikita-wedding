@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ImageLightbox from './ImageLightbox'
+import { prenupImages } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -21,9 +22,9 @@ const PhotoSection = ({
   
   // Default images if none provided
   const defaultImages = [
-    { src: '/assets/images/prenup/APA_0891.JPG', alt: 'Photo 1', label: 'Memories' },
-    { src: '/assets/images/prenup/APA_0891.JPG', alt: 'Photo 2', label: 'Together' },
-    { src: '/assets/images/prenup/APA_0891.JPG', alt: 'Photo 3', label: 'Love' }
+    { src: prenupImages.pool[0], alt: 'Photo 1', label: 'Memories' },
+    { src: prenupImages.pool[1], alt: 'Photo 2', label: 'Together' },
+    { src: prenupImages.pool[2], alt: 'Photo 3', label: 'Love' }
   ]
   const displayImages = images.length > 0 ? images : defaultImages
   
@@ -341,7 +342,7 @@ const PhotoSection = ({
         
         {/* Paragraph */}
         {paragraph && (
-          <p className="text-base sm:text-lg font-albert font-thin text-burgundy-dark text-center max-w-xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg font-albert font-thin text-forest text-center max-w-xl mx-auto leading-relaxed">
             {paragraph}
           </p>
         )}

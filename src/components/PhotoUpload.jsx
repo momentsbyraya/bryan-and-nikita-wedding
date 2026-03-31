@@ -81,17 +81,17 @@ const PhotoUpload = () => {
               {/* Upload Details - 50% width on mobile, full width on 992px+ */}
               <div className="w-1/2 lg-custom:w-full lg-custom:h-fit lg-custom:flex lg-custom:flex-col lg-custom:justify-center lg-custom:items-center flex flex-col justify-between text-left lg-custom:text-center py-4 sm:py-6 upload-content-container" style={{ overflow: 'visible' }}>
                 {/* Description */}
-                <p className="text-sm sm:text-base font-albert font-thin text-burgundy-dark mb-4 text-left lg-custom:text-center">
+                <p className="text-sm sm:text-base font-albert font-thin text-forest mb-4 text-left lg-custom:text-center">
                   Share your photos and videos from our special day.
                 </p>
 
                 {/* Hashtags */}
                 <div className="mb-4 text-left lg-custom:text-center" style={{ overflow: 'visible', width: '100%' }}>
-                  <p className="text-sm sm:text-base font-albert font-medium text-burgundy-dark whitespace-nowrap" style={{ overflow: 'visible' }}>
-                    #HeeceAndJoshua
+                  <p className="text-sm sm:text-base font-albert font-medium text-forest whitespace-nowrap" style={{ overflow: 'visible' }}>
+                    #DomAndPatricia
                   </p>
-                  <p className="text-sm sm:text-base font-albert font-medium text-burgundy-dark whitespace-nowrap" style={{ overflow: 'visible' }}>
-                    #HeeceAndJoshua
+                  <p className="text-sm sm:text-base font-albert font-medium text-forest whitespace-nowrap" style={{ overflow: 'visible' }}>
+                    #DomAndPatricia
                   </p>
                 </div>
 

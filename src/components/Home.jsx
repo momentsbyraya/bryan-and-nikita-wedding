@@ -6,16 +6,19 @@ import EntourageSection from './EntourageSection'
 import RSVPSection from './RSVPSection'
 import LoveStory from './LoveStory'
 import Gallery from './Gallery'
-import DressCode from './DressCode'
+import GiftRegistry from './GiftRegistry'
 import FAQ from './FAQ'
 import SaveTheDateCounter from './SaveTheDateCounter'
 import FullBleedPhoto from './FullBleedPhoto'
 import FullBleedPhotoSplit from './FullBleedPhotoSplit'
+import { couple, prenupImages } from '../data'
 import './pages/Details.css'
+
+const photoAlt = couple.together.replace('&', 'and')
 
 const Home = ({ onOpenRSVP }) => {
   return (
-    <div className="relative w-full bg-white">
+    <div className="relative w-full bg-sage">
       {/* Hero Section */}
       <Hero />
 
@@ -47,8 +50,8 @@ const Home = ({ onOpenRSVP }) => {
       </div>
 
       <FullBleedPhoto
-        src="/assets/images/prenup/JGM04266.jpg"
-        alt="Joshua and Heece"
+        src={prenupImages.fullBleedMain}
+        alt={photoAlt}
       />
 
       {/* Content */}
@@ -60,10 +63,10 @@ const Home = ({ onOpenRSVP }) => {
       </div>
 
       <FullBleedPhotoSplit
-        leftSrc="/assets/images/prenup/JGM04170.jpg"
-        rightSrc="/assets/images/prenup/JGM03897.jpg"
-        leftAlt="Joshua and Heece"
-        rightAlt="Joshua and Heece"
+        leftSrc={prenupImages.splitA.left}
+        rightSrc={prenupImages.splitA.right}
+        leftAlt={photoAlt}
+        rightAlt={photoAlt}
       />
 
       {/* Entourage Section - between Order of Events and Dress Code */}
@@ -71,34 +74,10 @@ const Home = ({ onOpenRSVP }) => {
 
       <FullBleedPhotoSplit
         invertLayout
-        leftSrc="/assets/images/prenup/prenup5.jpg"
-        rightSrc="/assets/images/prenup/JGM04213.jpg"
-        leftAlt="Joshua and Heece"
-        rightAlt="Joshua and Heece"
-      />
-
-      <div className="relative z-20 flex items-center justify-center pt-12">
-        <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto">
-          <DressCode />
-        </div>
-      </div>
-
-      <FullBleedPhoto
-        src="/assets/images/prenup/DSC01046.jpg"
-        alt="Joshua and Heece"
-      />
-
-      <div className="relative z-20 flex items-center justify-center">
-        <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto">
-          <RSVPSection onOpenRSVP={onOpenRSVP} />
-        </div>
-      </div>
-
-      <FullBleedPhotoSplit
-        leftSrc="/assets/images/prenup/prenup2.jpg"
-        rightSrc="/assets/images/prenup/JGM04077.jpg"
-        leftAlt="Joshua and Heece"
-        rightAlt="Joshua and Heece"
+        leftSrc={prenupImages.splitB.right}
+        rightSrc={prenupImages.splitB.left}
+        leftAlt={photoAlt}
+        rightAlt={photoAlt}
       />
 
       <div className="relative z-20 flex items-center justify-center">
@@ -107,6 +86,23 @@ const Home = ({ onOpenRSVP }) => {
 
           {/* Gallery — masonry-style grid + lightbox */}
           <Gallery />
+        </div>
+      </div>
+
+      <div className="relative z-20 flex items-center justify-center pt-12">
+        <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto">
+          <GiftRegistry />
+        </div>
+      </div>
+
+      <FullBleedPhoto
+        src={prenupImages.splitB.right}
+        alt={photoAlt}
+      />
+
+      <div className="relative z-20 flex items-center justify-center">
+        <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto">
+          <RSVPSection onOpenRSVP={onOpenRSVP} />
         </div>
       </div>
 

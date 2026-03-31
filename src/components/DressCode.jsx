@@ -17,37 +17,22 @@ const DressCode = () => {
   // State for tooltip visibility
   const [activeTooltip, setActiveTooltip] = useState(null)
   
-  // Burgundy Red Wine palette
-  const BURGUNDY_DARK = '#5A1E2A'
-  const BURGUNDY_WINE = '#5A1E2A'
-  const BURGUNDY_TAN = '#C08A8F'
-  const BURGUNDY_CREAM = '#F3E8E2'
+  const EMERALD_GREEN = '#2E7D32'
+  const SAGE_GREEN = '#9CAF88'
+  const OLIVE_GREEN = '#6B8E23'
+  const BROWN = '#8B5E3C'
+  const BEIGE = '#DCC7A1'
 
-  // Color swatches for Principal Sponsors (black for Ninongs, burgundy wine for Ninangs)
-  const sponsorColors = [
-    '#000000',   // Black (for Ninongs)
-    BURGUNDY_WINE  // Burgundy wine (for Ninangs)
-  ]
+  const sponsorColors = [EMERALD_GREEN, SAGE_GREEN]
 
-  // Color swatches for Guests (burgundy red wine palette)
-  const guestColors = [
-    BURGUNDY_DARK,   // Dark burgundy
-    BURGUNDY_WINE,   // Wine
-    BURGUNDY_TAN,    // Tan
-    BURGUNDY_CREAM,  // Cream
-    '#a86d72',       // Lighter dusty rose variant
-    '#F3E8E2'        // Champagne beige
-  ]
+  const guestColors = [EMERALD_GREEN, SAGE_GREEN, OLIVE_GREEN, BROWN, BEIGE]
 
-  // Color name mappings
   const colorNames = {
-    '#000000': 'Black',
-    [BURGUNDY_DARK]: 'Burgundy Dark',
-    [BURGUNDY_WINE]: 'Burgundy Wine',
-    [BURGUNDY_TAN]: 'Burgundy Tan',
-    [BURGUNDY_CREAM]: 'Cream',
-    '#a86d72': 'Light Dusty Rose',
-    '#F3E8E2': 'Champagne Beige'
+    [EMERALD_GREEN]: 'Emerald Green',
+    [SAGE_GREEN]: 'Sage Green',
+    [OLIVE_GREEN]: 'Olive Green',
+    [BROWN]: 'Brown',
+    [BEIGE]: 'Beige',
   }
 
   useEffect(() => {
@@ -210,13 +195,13 @@ const DressCode = () => {
                       {/* Category Name and Description Container */}
                       <div className="w-full">
                         {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-burgundy-dark mb-2 text-right lg-custom:text-left">
+                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-forest mb-2 text-right lg-custom:text-left">
                           {section.title}
             </div>
             
                         {/* Description */}
                         {section.description && (
-                          <p className="text-sm sm:text-base font-albert font-thin italic text-burgundy-dark mb-3 text-right lg-custom:text-left">
+                          <p className="text-sm sm:text-base font-albert font-thin italic text-forest mb-3 text-right lg-custom:text-left">
                             {section.description}
                           </p>
                         )}
@@ -233,9 +218,9 @@ const DressCode = () => {
                     >
                               <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
                               {activeTooltip === `sponsors-${index}` && (
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-burgundy-dark text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-forest text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
                                   {colorNames[color]}
-                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-burgundy-dark"></div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-forest"></div>
                       </div>
                               )}
                     </div>
@@ -266,7 +251,7 @@ const DressCode = () => {
         {/* Vertical Divider - Hidden on mobile, shown on 992px and above */}
         {dresscode.sections && dresscode.sections.length > 1 && (
           <>
-            <div className="hidden lg-custom:block w-px bg-burgundy-dark opacity-40 self-stretch"></div>
+            <div className="hidden lg-custom:block w-px bg-forest opacity-40 self-stretch"></div>
             <div className="lg-custom:hidden w-full">
               <Line />
             </div>
@@ -303,13 +288,13 @@ const DressCode = () => {
                       {/* Category Name and Description Container */}
                       <div>
                         {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-burgundy-dark mb-2 text-left lg-custom:text-left">
+                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-forest mb-2 text-left lg-custom:text-left">
                           {section.title}
                         </div>
                         
                         {/* Short General Description */}
                         {section.shortDescription && (
-                          <p className="text-sm sm:text-base font-albert font-thin italic text-burgundy-dark mb-3 text-left lg-custom:text-left">
+                          <p className="text-sm sm:text-base font-albert font-thin italic text-forest mb-3 text-left lg-custom:text-left">
                             {section.shortDescription}
                           </p>
                         )}
@@ -327,9 +312,9 @@ const DressCode = () => {
                             >
                               <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
                               {activeTooltip === `guests-${index}` && (
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-burgundy-dark text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-forest text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
                                   {colorNames[color]}
-                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-burgundy-dark"></div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-forest"></div>
                                 </div>
                               )}
                             </div>

@@ -1,31 +1,30 @@
 {
   "bride": {
-    "firstName": "Heece",
-    "lastName": "Molina",
-    "fullName": "HEECE CABADONGA MOLINA"
+    "firstName": "Patricia Ann",
+    "lastName": "B. Historillo",
+    "fullName": "PATRICIA ANN B. HISTORILLO"
   },
   "groom": {
-    "firstName": "Joshua",
-    "lastName": "Andres",
-    "fullName": "JOSHUA LACERNA ANDRES"
+    "firstName": "Dom-Nikko",
+    "lastName": "O. Negrite",
+    "fullName": "DOM-NIKKO O. NEGRITE"
   },
-  "together": "Heece & Joshua",
-  "nickname": "Heece and Joshua",
+  "together": "Dom & Patricia",
+  "nickname": "Dom & Patricia",
   "wedding": {
-    "date": "2026-05-08",
+    "date": "2026-06-28",
     "time": "2:00 PM",
-    "dayOfWeek": "Friday",
-    "month": "May",
-    "day": "8",
+    "dayOfWeek": "Sunday",
+    "month": "June",
+    "day": "28",
     "year": "2026"
   },
   "rsvpDeadline": {
-    "date": "2026-04-30",
-    "month": "April",
-    "day": "30",
+    "date": "2026-05-04",
+    "month": "May",
+    "day": "4",
     "year": "2026"
   },
   "rsvpFormUrl": "https://forms.gle/r5yro9sA28BtmXAT9",
   "rsvpGoogleFormEmbedUrl": "https://docs.google.com/forms/d/e/1FAIpQLScigmo-gY2rNBfFwyrPvs9o932AVIQDCFisMVGpf16wsaD7KA/viewform?embedded=true"
 }
-

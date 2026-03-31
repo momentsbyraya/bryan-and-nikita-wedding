@@ -1,5 +1,4 @@
 import React from 'react'
-import { themeConfig } from '../config/themeConfig'
 
 const Footer = () => {
   const handleFooterClick = () => {
@@ -8,16 +7,12 @@ const Footer = () => {
 
   return (
     <footer 
-      className="w-full pb-4 transition-colors duration-300 hover:bg-[#013718] active:bg-[#013718] cursor-pointer"
+      className="w-full bg-forest pb-4 pt-2 transition-colors duration-300 hover:bg-forest/95 active:bg-forest cursor-pointer border-t border-gold/25"
       onClick={handleFooterClick}
     >
-      {/* Divider line on top */}
-      <div className="w-full h-px bg-burgundy-dark opacity-40 mb-4"></div>
-      
-      {/* Footer text */}
       <div className="text-center">
-        <p className="text-sm sm:text-base font-albert font-thin transition-colors duration-300 hover:!text-burgundy-cream active:!text-burgundy-cream" style={{ color: themeConfig.cssVariables['--accent-text'] }}>
-          Made with <ion-icon name="heart" className="inline-block mx-1 align-middle" style={{ fontSize: '1em', verticalAlign: 'middle' }}></ion-icon> by Moments by Raya
+        <p className="text-sm sm:text-base font-albert font-thin text-gold transition-colors duration-300 hover:text-white active:text-white">
+          Made with <ion-icon name="heart" className="inline-block mx-1 align-middle text-gold" style={{ fontSize: '1em', verticalAlign: 'middle' }}></ion-icon> by Moments by Raya
         </p>
       </div>
     </footer>
@@ -25,4 +20,3 @@ const Footer = () => {
 }
 
 export default Footer
-

@@ -2,8 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Mail } from 'lucide-react'
-import { couple } from '../data'
-import { themeConfig } from '../config/themeConfig'
+import { couple, prenupImages } from '../data'
 import './pages/Details.css'
 
 // Register ScrollTrigger plugin
@@ -81,7 +80,7 @@ const RSVPSection = ({ onOpenRSVP }) => {
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url(/assets/images/prenup/prenup3.jpg)',
+          backgroundImage: `url(${prenupImages.rsvpBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -90,7 +89,7 @@ const RSVPSection = ({ onOpenRSVP }) => {
         aria-hidden
       />
       <div className="relative z-10 flex items-center justify-center py-16 sm:py-20 md:py-24">
-        <div className="bg-white/50 px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-11 lg:px-7 lg:py-10 xl:px-6 xl:py-9 max-w-3xl md:max-w-2xl lg:max-w-xl xl:max-w-lg mx-auto w-full">
+        <div className="border border-gold/30 bg-sage/85 px-6 py-8 backdrop-blur-sm sm:px-8 sm:py-10 md:px-10 md:py-11 lg:px-7 lg:py-10 xl:px-6 xl:py-9 max-w-3xl md:max-w-2xl lg:max-w-xl xl:max-w-lg mx-auto w-full shadow-sm">
       <div className="text-center mb-12 sm:mb-16">
             {/* Single Flower 3 Image */}
         <div className="flex justify-center mb-4">
@@ -102,25 +101,25 @@ const RSVPSection = ({ onOpenRSVP }) => {
         </div>
         <h3 ref={rsvpTitleRef} className="relative inline-block px-6 py-3">
           <span 
-            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none"
-            style={{ fontStyle: 'italic', color: themeConfig.text.burntOrange }}
+            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none text-gold"
+            style={{ fontStyle: 'italic' }}
           >
             RSVP
           </span>
         </h3>
         <div className="w-full max-w-3xl mx-auto mb-4">
-          <div className="w-full h-px bg-burgundy-tan opacity-40"></div>
+          <div className="w-full h-px bg-gold/50"></div>
         </div>
         <div ref={rsvpContentRef}>
-          <p className="text-sm sm:text-base font-albert font-thin text-burgundy-dark max-w-3xl mx-auto leading-relaxed text-center mb-6">
-                Kindly respond on or before<br /><strong className="!font-bold" style={{ fontWeight: 700 }}>{couple.rsvpDeadline ? `${couple.rsvpDeadline.month} ${couple.rsvpDeadline.day}, ${couple.rsvpDeadline.year}` : 'April 30, 2026'}</strong>.<br />
+          <p className="text-sm sm:text-base font-albert font-thin text-obsidian max-w-3xl mx-auto leading-relaxed text-center mb-6">
+                Kindly respond on or before<br /><strong className="!font-bold" style={{ fontWeight: 700 }}>{couple.rsvpDeadline ? `${couple.rsvpDeadline.month} ${couple.rsvpDeadline.day}, ${couple.rsvpDeadline.year}` : 'May 4, 2026'}</strong>.<br />
                 After this date, arrangements are final.
           </p>
           {onOpenRSVP && (
             <div className="flex flex-col items-center gap-4">
               <button
                 onClick={onOpenRSVP}
-                className="px-6 py-3 bg-burgundy-dark text-white rounded-full hover:bg-burgundy-wine transition-colors duration-200 font-albert flex items-center gap-2"
+                className="px-6 py-3 bg-gold text-forest rounded-full hover:bg-gold-dark hover:text-white transition-colors duration-200 font-albert font-medium flex items-center gap-2 shadow-md border border-forest/10"
               >
                 Respond
                 <Mail size={18} />

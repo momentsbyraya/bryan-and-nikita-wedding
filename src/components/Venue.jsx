@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { venues as venuesData } from '../data'
 import SecondaryButton from './SecondaryButton'
+import ImageLightbox from './ImageLightbox'
 import './pages/Details.css'
 
 // Register ScrollTrigger plugin
@@ -12,25 +13,18 @@ gsap.registerPlugin(ScrollTrigger)
 const Venue = () => {
   const venueTitleRef = useRef(null)
   const venueRef = useRef(null)
-  const carouselRef = useRef(null)
   const touchStartX = useRef(null)
   const touchEndX = useRef(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [lightboxImage, setLightboxImage] = useState(null)
 
   const ceremony = venuesData.ceremony
-  const reception = venuesData.reception
 
-  const ceremonyPhoto = ceremony.ceremonyPhoto || '/assets/images/venues/ceremony.jpg'
-  const receptionPhoto = reception.receptionPhoto
+  const ceremonyPhoto = '/assets/images/venues/for%20envelopes%20%2817%29.png'
 
   const venueSlides = [
     { src: ceremonyPhoto, alt: 'Ceremony venue', venue: ceremony },
-    {
-      src: receptionPhoto,
-      alt: 'Reception venue',
-      venue: reception,
-      fallbackText: reception.name,
-    },
+    { src: '/assets/images/venues/for%20envelopes%20%2819%29.png', alt: 'Venue map', venue: ceremony },
   ]
 
   const nextImage = () => {
@@ -128,18 +122,16 @@ const Venue = () => {
                 <button
                   onClick={prevImage}
                   className="flex items-center justify-center transition-opacity duration-200 z-10 flex-shrink-0 hover:opacity-70"
-                  aria-label="Previous location"
+                  aria-label="Previous image"
                 >
-                  <ChevronLeft className="w-8 h-8 text-burgundy-wine" />
+                  <ChevronLeft className="w-8 h-8 text-gold" />
                 </button>
-
                 <div
                   className="w-full max-w-[220px] sm:max-w-[240px] aspect-square relative venue-image-container overflow-hidden rounded-full"
                   onTouchStart={handleTouchStart}
                   onTouchEnd={handleTouchEnd}
                 >
                   <div
-                    ref={carouselRef}
                     className="flex transition-transform duration-500 ease-in-out h-full"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                   >
@@ -152,10 +144,11 @@ const Venue = () => {
                           <img
                             src={slide.src}
                             alt={slide.alt}
-                            className="w-full h-full object-cover rounded-full"
+                            className="w-full h-full object-cover rounded-full cursor-pointer"
+                            onClick={() => setLightboxImage({ src: slide.src, alt: slide.alt })}
                           />
                         ) : (
-                          <span className="text-center text-sm sm:text-base font-boska text-burgundy-dark leading-tight px-2">
+                          <span className="text-center text-sm sm:text-base font-boska text-forest leading-tight px-2">
                             {slide.fallbackText}
                           </span>
                         )}
@@ -170,98 +163,112 @@ const Venue = () => {
                         className={`w-2 h-2 rounded-full transition-all duration-200 ${
                           index === currentIndex ? 'bg-burgundy-wine w-6' : 'bg-white/60'
                         }`}
-                        aria-label={`Go to slide ${index + 1}`}
+                        aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
                   </div>
                 </div>
-
                 <button
                   onClick={nextImage}
                   className="flex items-center justify-center transition-opacity duration-200 z-10 flex-shrink-0 hover:opacity-70"
-                  aria-label="Next location"
+                  aria-label="Next image"
                 >
-                  <ChevronRight className="w-8 h-8 text-burgundy-wine" />
+                  <ChevronRight className="w-8 h-8 text-gold" />
                 </button>
               </div>
 
               {/* Dynamic content: updates with current slide */}
               <div className="venue-details-mobile w-full flex flex-col gap-4 px-2">
-                <div className="text-lg sm:text-xl font-boska text-burgundy-dark text-center">
+                <div className="text-lg sm:text-xl font-boska text-forest text-center">
                   {venueSlides[currentIndex].venue.name}
                 </div>
-                <div className="text-sm sm:text-base font-albert font-thin text-burgundy-dark text-center space-y-1">
-                  {currentIndex === 0 ? (
-                    <p>Ceremony: {ceremony.time}</p>
-                  ) : (
-                    <p>Reception: {reception.time} onwards</p>
-                  )}
+                <div className="text-sm sm:text-base font-albert font-thin text-forest text-center space-y-1">
+                  <p>Ceremony & Reception: {ceremony.time} onwards</p>
                 </div>
-                {currentIndex === 0 && (
-                  <div className="flex justify-center">
-                    <SecondaryButton
-                      href={venueSlides[currentIndex].venue.googleMapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      icon={ArrowRight}
-                    >
-                      Get Direction
-                    </SecondaryButton>
-                  </div>
-                )}
+                <div className="flex justify-center">
+                  <SecondaryButton
+                    href={venueSlides[currentIndex].venue.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    icon={ArrowRight}
+                  >
+                    Get Direction
+                  </SecondaryButton>
+                </div>
               </div>
             </div>
 
-            {/* ——— Tablet/Desktop: Two circular images side by side, each with full info ——— */}
-            <div className="hidden md:flex venue-details-desktop gap-6 lg:gap-8 w-full max-w-[640px] lg:max-w-[760px] xl:max-w-[840px] mx-auto justify-center items-stretch">
-              {venueSlides.map((slide, index) => (
+            {/* ——— Tablet/Desktop: Swipeable carousel ——— */}
+            <div className="hidden md:flex venue-details-desktop flex-col gap-6 w-full max-w-[640px] lg:max-w-[760px] xl:max-w-[840px] mx-auto items-center">
+              <div className="w-full flex justify-center items-center gap-4">
+                <button onClick={prevImage} className="hover:opacity-70" aria-label="Previous image">
+                  <ChevronLeft className="w-8 h-8 text-gold" />
+                </button>
                 <div
-                  key={index}
-                  className="flex-1 flex flex-col gap-4 min-w-0 max-w-[320px] lg:max-w-[380px]"
+                  className="w-full max-w-[320px] lg:max-w-[380px] aspect-square relative venue-image-container overflow-hidden rounded-full flex items-center justify-center bg-white/90 border-2 border-gold/20"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
                 >
-                  <div className="w-full aspect-square relative venue-image-container flex-shrink-0 overflow-hidden rounded-full flex items-center justify-center bg-white/90 border-2 border-burgundy-wine/20">
-                    {slide.src ? (
-                      <img
-                        src={slide.src}
-                        alt={slide.alt}
-                        className="w-full h-full object-cover rounded-full"
-                      />
-                    ) : (
-                      <span className="text-center text-base sm:text-lg lg:text-xl font-boska text-burgundy-dark leading-tight px-4">
-                        {slide.fallbackText}
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex flex-col gap-2 text-center flex-1">
-                    <div className="text-lg sm:text-xl lg:text-2xl font-boska text-burgundy-dark">
-                      {slide.venue.name}
-                    </div>
-                    <div className="text-sm sm:text-base font-albert font-thin text-burgundy-dark space-y-1">
-                      {index === 0 ? (
-                        <p>Ceremony: {ceremony.time}</p>
-                      ) : (
-                        <p>Reception: {reception.time} onwards</p>
-                      )}
-                    </div>
-                    {index === 0 && (
-                      <div className="flex justify-center mt-2">
-                        <SecondaryButton
-                          href={slide.venue.googleMapsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          icon={ArrowRight}
-                        >
-                          Get Direction
-                        </SecondaryButton>
+                  <div
+                    className="flex transition-transform duration-500 ease-in-out h-full w-full"
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                  >
+                    {venueSlides.map((slide, index) => (
+                      <div key={index} className="min-w-full h-full">
+                        <img
+                          src={slide.src}
+                          alt={slide.alt}
+                          className="w-full h-full object-cover rounded-full cursor-pointer"
+                          onClick={() => setLightboxImage({ src: slide.src, alt: slide.alt })}
+                        />
                       </div>
-                    )}
+                    ))}
                   </div>
                 </div>
-              ))}
+                <button onClick={nextImage} className="hover:opacity-70" aria-label="Next image">
+                  <ChevronRight className="w-8 h-8 text-gold" />
+                </button>
+              </div>
+              <div className="flex gap-2">
+                {venueSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === currentIndex ? 'bg-burgundy-wine w-6' : 'bg-black/25'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <div className="flex flex-col gap-2 text-center">
+                <div className="text-lg sm:text-xl lg:text-2xl font-boska text-forest">
+                  {ceremony.name}
+                </div>
+                <div className="text-sm sm:text-base font-albert font-thin text-forest space-y-1">
+                  <p>Ceremony & Reception: {ceremony.time} onwards</p>
+                </div>
+                <div className="flex justify-center mt-2">
+                  <SecondaryButton
+                    href={ceremony.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    icon={ArrowRight}
+                  >
+                    Get Direction
+                  </SecondaryButton>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <ImageLightbox
+        isOpen={!!lightboxImage}
+        src={lightboxImage?.src}
+        alt={lightboxImage?.alt ?? ''}
+        onClose={() => setLightboxImage(null)}
+      />
     </>
   )
 }

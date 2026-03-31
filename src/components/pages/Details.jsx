@@ -305,7 +305,7 @@ const Details = () => {
       ref={sectionRef}
       id="details"
       data-section="details"
-      className="relative pb-20 w-full overflow-visible bg-white details-section"
+      className="relative pb-20 w-full overflow-visible bg-sage details-section"
     >
       {/* Flower Banner Image at Top */}
       <ImageBanner 
@@ -319,7 +319,7 @@ const Details = () => {
           {/* Header Section */}
           <div className="text-center">
             <div ref={headerContentRef}>
-              <p className="text-base sm:text-lg font-albert font-thin text-burgundy-dark max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg font-albert font-thin text-obsidian max-w-3xl mx-auto leading-relaxed">
                 Join us as we exchange our vows
               </p>
               <Divider />
@@ -362,7 +362,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#5A1E2A" 
+            stroke="#1F2B20" 
             strokeWidth="2" 
             fill="none"
             opacity="0.4"
@@ -370,18 +370,7 @@ const Details = () => {
         </svg>
       </div> */}
                     
-      {/* Photo Section */}
-      {/* <div ref={photoSectionRef}>
-      <PhotoSection
-        images={[
-          { src: '/assets/images/prenup/Proposal 4.jpg', alt: 'Photo 1', label: 'Memories' },
-          { src: '/assets/images/prenup/Proposal 5.jpg', alt: 'Photo 2', label: 'Together' },
-          { src: '/assets/images/prenup/Proposal 1.jpg', alt: 'Photo 3', label: 'Love' }
-        ]}
-        paragraph="This is where our journey began, a moment captured in time that will forever hold a special place in our hearts."
-        backgroundTexts={['Forever', 'Always', 'Together', 'Love', 'Us']}
-      />
-      </div> */}
+      {/* Photo Section intentionally disabled */}
 
       {/* Curved Line Divider */}
       {/* <div ref={curvedDivider3Ref} className="relative w-full py-8 flex items-center justify-center">
@@ -393,7 +382,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#5A1E2A" 
+            stroke="#1F2B20" 
             strokeWidth="2" 
             fill="none"
             opacity="0.4"
@@ -439,15 +428,15 @@ const Details = () => {
                 return (
                   <div key={index}>
                     <div className="mb-2">
-                      <p className="text-base sm:text-lg font-albert text-burgundy-cream mb-2 faq-question-bold">
+                      <p className="text-base sm:text-lg font-albert text-forest mb-2 faq-question-bold">
                         Q: {text}
                       </p>
-                      <p className="text-sm sm:text-base font-albert font-thin text-burgundy-cream whitespace-pre-line">
+                      <p className="text-sm sm:text-base font-albert font-thin text-obsidian whitespace-pre-line">
                         A: {parseAnswerWithPhoneNumbers(item.answer)}
                       </p>
                     </div>
                     {index < faqItems.faqData.length - 1 && (
-                      <div className="h-px bg-burgundy-cream/30 mt-6"></div>
+                      <div className="h-px bg-gold/40 mt-6"></div>
                     )}
                   </div>
                 )
@@ -485,7 +474,7 @@ const Details = () => {
           navigate('/')
         }
       }}
-      className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-burgundy-dark text-white rounded-full shadow-lg hover:bg-burgundy-tan hover:scale-110 transition-all duration-300 flex items-center justify-center group back-button"
+      className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-gold text-forest rounded-full shadow-lg border border-forest/10 hover:bg-gold-dark hover:text-white hover:scale-110 transition-all duration-300 flex items-center justify-center group back-button"
       aria-label="Back to home"
     >
       <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" />
