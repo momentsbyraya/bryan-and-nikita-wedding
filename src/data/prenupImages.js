@@ -42,7 +42,7 @@ export const prenupImages = {
     PRENUP_IMAGE_POOL[5],
   ],
   gallery: [
-    PRENUP_IMAGE_POOL[0],
+    PRENUP_IMAGE_POOL[10],
     PRENUP_IMAGE_POOL[1],
     PRENUP_IMAGE_POOL[2],
     PRENUP_IMAGE_POOL[3],
@@ -52,7 +52,7 @@ export const prenupImages = {
     PRENUP_IMAGE_POOL[7],
     PRENUP_IMAGE_POOL[8],
     PRENUP_IMAGE_POOL[9],
-    PRENUP_IMAGE_POOL[10],
+    PRENUP_IMAGE_POOL[0],
   ],
   momentsHero: PRENUP_IMAGE_POOL[2],
   momentsGrid: [

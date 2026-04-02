@@ -61,7 +61,7 @@ const Hero = () => {
       <img
         src={prenupImages.hero}
         alt={heroAlt}
-        className="absolute left-1/2 top-1/2 h-[102%] w-[102%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center cursor-pointer"
+        className="absolute left-1/2 top-1/2 h-[102%] w-[102%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center md:inset-0 md:h-full md:w-full md:max-w-none md:translate-x-0 md:translate-y-0 md:object-[center_78%] cursor-pointer"
         fetchPriority="high"
         decoding="async"
         role="button"

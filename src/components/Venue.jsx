@@ -10,6 +10,8 @@ import './pages/Details.css'
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
+const CAROUSEL_CYCLE_MS = 3500
+
 const Venue = () => {
   const venueTitleRef = useRef(null)
   const venueRef = useRef(null)
@@ -17,6 +19,8 @@ const Venue = () => {
   const touchEndX = useRef(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [lightboxImage, setLightboxImage] = useState(null)
+  const [carouselPaused, setCarouselPaused] = useState(false)
+  const pageVisibleRef = useRef(true)
 
   const ceremony = venuesData.ceremony
 
@@ -46,6 +50,26 @@ const Venue = () => {
     if (diff > minSwipe) nextImage()
     else if (diff < -minSwipe) prevImage()
   }
+
+  useEffect(() => {
+    if (venueSlides.length <= 1 || carouselPaused || lightboxImage) return undefined
+
+    const id = window.setInterval(() => {
+      if (!pageVisibleRef.current) return
+      setCurrentIndex((prev) => (prev + 1) % venueSlides.length)
+    }, CAROUSEL_CYCLE_MS)
+
+    return () => window.clearInterval(id)
+  }, [currentIndex, venueSlides.length, carouselPaused, lightboxImage])
+
+  useEffect(() => {
+    const onVisibility = () => {
+      pageVisibleRef.current = !document.hidden
+    }
+    pageVisibleRef.current = !document.hidden
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => document.removeEventListener('visibilitychange', onVisibility)
+  }, [])
 
   useEffect(() => {
     // Venue Title animation
@@ -117,7 +141,11 @@ const Venue = () => {
         <div className="relative overflow-hidden">
           <div className="text-center transition-opacity duration-500 ease-in-out">
             {/* ——— Mobile: Carousel (1 slide) + dynamic location info ——— */}
-            <div className="md:hidden flex flex-col gap-6 items-center">
+            <div
+              className="md:hidden flex flex-col gap-6 items-center"
+              onMouseEnter={() => setCarouselPaused(true)}
+              onMouseLeave={() => setCarouselPaused(false)}
+            >
               <div className="w-full flex justify-center items-center gap-2">
                 <button
                   onClick={prevImage}
@@ -199,7 +227,11 @@ const Venue = () => {
             </div>
 
             {/* ——— Tablet/Desktop: Swipeable carousel ——— */}
-            <div className="hidden md:flex venue-details-desktop flex-col gap-6 w-full max-w-[640px] lg:max-w-[760px] xl:max-w-[840px] mx-auto items-center">
+            <div
+              className="hidden md:flex venue-details-desktop flex-col gap-6 w-full max-w-[640px] lg:max-w-[760px] xl:max-w-[840px] mx-auto items-center"
+              onMouseEnter={() => setCarouselPaused(true)}
+              onMouseLeave={() => setCarouselPaused(false)}
+            >
               <div className="w-full flex justify-center items-center gap-4">
                 <button onClick={prevImage} className="hover:opacity-70" aria-label="Previous image">
                   <ChevronLeft className="w-8 h-8 text-gold" />
