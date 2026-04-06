@@ -7,8 +7,7 @@ const Footer = () => {
 
   return (
     <footer 
-      className="w-full pb-4 pt-2 transition-colors duration-300 cursor-pointer border-t border-forest/15"
-      style={{ backgroundColor: '#F8F4EA' }}
+      className="w-full pb-4 pt-2 transition-colors duration-300 cursor-pointer border-t border-forest/10 bg-wedding-100"
       onClick={handleFooterClick}
     >
       <div className="text-center">

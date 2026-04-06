@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { createPortal } from 'react-dom'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { prenupImages } from '../data'
+import { isPrenupPlaceholder } from '../data/prenupImages'
 import './pages/Details.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -155,7 +156,7 @@ const Gallery = () => {
     <div ref={sectionRef} className="relative pb-8 sm:pb-12 md:pb-16">
       {/* Title strip — same layout / styles as FAQ (Details.css .faq-section, .faq-title-text) */}
       <div
-        className="relative z-20 !py-8 sm:!py-10 bg-forest"
+        className="relative z-20 !py-8 sm:!py-10 bg-gold"
         style={{
           width: '100vw',
           marginLeft: 'calc(-50vw + 50%)',
@@ -168,8 +169,7 @@ const Gallery = () => {
             className="relative inline-block px-6 py-3 text-center w-full"
           >
             <span
-              className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none capitalize"
-              style={{ color: '#CBCBC0' }}
+              className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none capitalize text-[#fff4e6]"
             >
               Gallery
             </span>
@@ -188,7 +188,7 @@ const Gallery = () => {
                 ref={(el) => {
                   imageRefs.current[index] = el
                 }}
-                className="cursor-pointer overflow-hidden max-h-[150px] lg:max-h-[250px]"
+                className="relative min-h-[120px] cursor-pointer overflow-hidden max-h-[150px] sm:min-h-[130px] lg:min-h-[200px] lg:max-h-[250px]"
                 style={{
                   gridColumn,
                   height: '100%',
@@ -201,7 +201,11 @@ const Gallery = () => {
                 <img
                   src={image}
                   alt={`Gallery ${index + 1}`}
-                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                  className={`h-full w-full transition-transform duration-300 hover:scale-105 ${
+                    isPrenupPlaceholder(image)
+                      ? 'bg-sage object-contain object-center p-1'
+                      : 'object-cover object-center'
+                  }`}
                   style={{
                     height: '100%',
                     willChange: 'transform',

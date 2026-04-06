@@ -14,7 +14,7 @@
 
 .venue-title-text {
   line-height: 0.8;
-  color: #1F2B20;
+  color: #d4bae8;
 }
 
 /* Venue Image Container */
@@ -48,7 +48,7 @@
 
 .program-title-text {
   line-height: 0.8;
-  color: #1F2B20;
+  color: #d4bae8;
   display: block;
   text-align: center;
 }
@@ -60,7 +60,7 @@
 /* Date Selector */
 .date-month-year {
   font-style: italic;
-  color: #AA8D5A;
+  color: #d4bae8;
 }
 
 .heart-day-number {
@@ -73,7 +73,7 @@
 }
 
 .timeline-event-time {
-  color: #b88917;
+  color: #c4a8dc;
 }
 
 .timeline-event-description {
@@ -83,7 +83,7 @@
 /* Dress Code */
 .dress-code-title-text {
   line-height: 0.8;
-  color: #1F2B20;
+  color: #d4bae8;
   white-space: nowrap;
 }
 
@@ -133,7 +133,7 @@
 
 .gift-registry-title-text {
   line-height: 0.8;
-  color: #1F2B20;
+  color: #d4bae8;
 }
 
 .gift-button {
@@ -152,7 +152,7 @@
 
 .upload-title-text {
   line-height: 0.8;
-  color: #1F2B20;
+  color: #d4bae8;
 }
 
 .upload-qr-container {
@@ -177,12 +177,12 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  background-color: #AA8D5A;
+  background-color: #e7d0f5;
 }
 
 .faq-title-text {
   line-height: 0.8;
-  color: #1F2B20;
+  color: #fff4e6;
 }
 
 /* Modal */
@@ -215,16 +215,16 @@
 /* Love story — instant-film polaroid frame */
 .love-story-polaroid {
   box-shadow:
-    0 1px 2px rgba(31, 43, 32, 0.06),
-    0 8px 24px rgba(31, 43, 32, 0.12),
+    0 1px 2px rgba(58, 49, 72, 0.06),
+    0 8px 24px rgba(58, 49, 72, 0.12),
     0 2px 6px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .love-story-polaroid:hover {
   box-shadow:
-    0 2px 4px rgba(31, 43, 32, 0.08),
-    0 14px 36px rgba(31, 43, 32, 0.16),
+    0 2px 4px rgba(58, 49, 72, 0.08),
+    0 14px 36px rgba(58, 49, 72, 0.16),
     0 4px 10px rgba(0, 0, 0, 0.1);
 }
 

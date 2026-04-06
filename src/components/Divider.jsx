@@ -3,10 +3,10 @@ import React from 'react'
 const Divider = () => {
   return (
     <div className="flex justify-center items-center" style={{ paddingTop: '2rem', paddingBottom: '1rem' }}>
-      <div className="w-16 h-px bg-gold/70" />
+      <div className="w-16 h-px bg-gold-dark/65" />
       
       <svg 
-        className="w-4 h-4 mx-4 text-gold"
+        className="w-4 h-4 mx-4 text-gold-dark"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -29,7 +29,7 @@ const Divider = () => {
         <circle cx="50" cy="50" r="8" fill="currentColor" />
       </svg>
       
-      <div className="w-16 h-px bg-gold/70" />
+      <div className="w-16 h-px bg-gold-dark/65" />
     </div>
   )
 }

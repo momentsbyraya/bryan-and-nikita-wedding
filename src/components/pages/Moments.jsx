@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import ImageBanner from '../ImageBanner'
 import { loveStory, prenupImages } from '../../data'
+import { isPrenupPlaceholder } from '../../data/prenupImages'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -23,6 +24,7 @@ const Moments = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null)
 
   const firstGalleryImage = [prenupImages.momentsHero]
+  const momentsHeroIsPlaceholder = isPrenupPlaceholder(prenupImages.momentsHero)
 
   const secondGalleryImages = prenupImages.momentsGrid
 
@@ -214,7 +216,11 @@ const Moments = () => {
                 {firstGalleryImage.map((image, index) => (
                   <div
                     key={index}
-                    className="soft-edges relative cursor-pointer overflow-hidden w-full"
+                    className={`soft-edges relative w-full cursor-pointer overflow-hidden${
+                      momentsHeroIsPlaceholder
+                        ? ' aspect-[3/2] min-h-[220px] sm:min-h-[260px] md:min-h-[300px]'
+                        : ''
+                    }`}
                     onClick={() => {
                       setSelectedImage(image)
                       setSelectedImageIndex(index)
@@ -223,7 +229,11 @@ const Moments = () => {
                     <img
                       src={image}
                       alt={`Gallery image ${index + 1}`}
-                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                      className={
+                        momentsHeroIsPlaceholder
+                          ? 'absolute inset-0 h-full w-full bg-sage object-contain object-center transition-transform duration-300 hover:scale-105'
+                          : 'h-auto w-full object-cover object-center transition-transform duration-300 hover:scale-105'
+                      }
                       loading="lazy"
                     />
                   </div>
@@ -304,7 +314,7 @@ const Moments = () => {
                       ref={(el) => {
                         imageRefs.current[index] = el
                       }}
-                      className="cursor-pointer overflow-hidden gallery-image-container max-h-[150px] lg:max-h-[200px]"
+                      className="gallery-image-container relative min-h-[120px] max-h-[150px] cursor-pointer overflow-hidden sm:min-h-[130px] lg:min-h-[180px] lg:max-h-[200px]"
                       style={{
                         gridColumn: gridColumn,
                         height: '100%',
@@ -320,7 +330,11 @@ const Moments = () => {
                       <img
                         src={image}
                         alt={`Gallery ${index + 1}`}
-                        className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300"
+                        className={`h-full w-full transition-transform duration-300 hover:scale-105 ${
+                          isPrenupPlaceholder(image)
+                            ? 'bg-sage object-contain object-center p-1'
+                            : 'object-cover object-center'
+                        }`}
                         style={{
                           height: '100%',
                           willChange: 'transform',

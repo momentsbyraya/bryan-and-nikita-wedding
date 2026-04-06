@@ -32,9 +32,10 @@ const Schedule = () => {
       ScrollTrigger.create({
         trigger: timelineRef.current,
         start: "top 70%",
-        animation: gsap.fromTo(lineRef.current,
-          { scaleY: 0, transformOrigin: "top" },
-          { scaleY: 1, duration: 1.5, ease: "power2.out" }
+        animation: gsap.fromTo(
+          lineRef.current,
+          { scaleY: 0, transformOrigin: 'top center' },
+          { scaleY: 1, transformOrigin: 'top center', duration: 1.5, ease: 'power2.out' }
         ),
         toggleActions: "play none none reverse"
       })
@@ -92,12 +93,21 @@ const Schedule = () => {
       </div>
 
       {/* Vertical Timeline */}
-      <div ref={timelineRef} className="relative max-w-md sm:max-w-xl lg:max-w-2xl w-full mx-auto z-10 timeline-container">
-        {/* Central Vertical Line - Light Grey */}
-        <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-gold/55 transform -translate-x-1/2"></div>
+      <div ref={timelineRef} className="relative z-10 mx-auto w-full max-w-md sm:max-w-xl lg:max-w-2xl timeline-container">
+        {/* Centering wrapper: GSAP scaleY must not replace translateX (would break line position). */}
+        <div
+          className="pointer-events-none absolute inset-y-0 left-1/2 z-[1] w-0 -translate-x-1/2"
+          aria-hidden
+        >
+          <div
+            ref={lineRef}
+            className="h-full w-0.5 rounded-full bg-wedding-400/80"
+            style={{ transformOrigin: 'top center' }}
+          />
+        </div>
 
         {/* Timeline Events */}
-        <div ref={eventsRef} className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
+        <div ref={eventsRef} className="relative z-[2] space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
            {scheduleData.events.map((event, index) => {
              const isLeft = event.position === 'left'
              return (
@@ -108,23 +118,29 @@ const Schedule = () => {
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1 timeline-event-time">
                          {event.time}
               </div>
-              <div className="border-b border-dashed border-gold/50 mb-1"></div>
+              <div className="mb-1 border-b border-dashed border-wedding-400/65"></div>
               <div className="text-sm sm:text-base md:text-lg font-albert timeline-event-description">
                          {event.description}
               </div>
             </div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gold rounded-full border border-forest/20 z-10 shadow-sm"></div>
+            <div
+              className="absolute left-1/2 z-10 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 border-wedding-400 bg-wedding-200 shadow-sm ring-2 ring-wedding-200/70"
+              aria-hidden
+            />
                      <div className="w-1/2 pl-6 text-left"></div>
                    </>
                  ) : (
                    <>
                      <div className="w-1/2 pr-6 text-right"></div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gold rounded-full border border-forest/20 z-10 shadow-sm"></div>
+            <div
+              className="absolute left-1/2 z-10 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 border-wedding-400 bg-wedding-200 shadow-sm ring-2 ring-wedding-200/70"
+              aria-hidden
+            />
             <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1 timeline-event-time">
                          {event.time}
               </div>
-              <div className="border-b border-dashed border-gold/50 mb-1"></div>
+              <div className="mb-1 border-b border-dashed border-wedding-400/65"></div>
               <div className="text-sm sm:text-base md:text-lg font-albert timeline-event-description">
                          {event.description}
               </div>

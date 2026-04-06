@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ImageLightbox from './ImageLightbox'
 import { prenupImages } from '../data'
+import { isPrenupPlaceholder } from '../data/prenupImages'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -27,6 +28,24 @@ const PhotoSection = ({
     { src: prenupImages.pool[2], alt: 'Photo 3', label: 'Love' }
   ]
   const displayImages = images.length > 0 ? images : defaultImages
+
+  const polaroidPhotoStyle = (src) => ({
+    backgroundImage: `url(${src})`,
+    borderTop: '4px solid white',
+    borderLeft: '4px solid white',
+    borderRight: '4px solid white',
+    ...(isPrenupPlaceholder(src)
+      ? {
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#f0e7de',
+        }
+      : {
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }),
+  })
   
   useEffect(() => {
     // Set initial states
@@ -102,7 +121,7 @@ const PhotoSection = ({
           }}
         >
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               top: '5%',
@@ -113,7 +132,7 @@ const PhotoSection = ({
             {texts[0] || texts[0]}
           </p>
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               top: '25%',
@@ -124,7 +143,7 @@ const PhotoSection = ({
             {texts[1] || texts[0]}
           </p>
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               bottom: '25%',
@@ -135,7 +154,7 @@ const PhotoSection = ({
             {texts[2] || texts[0]}
           </p>
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               bottom: '5%',
@@ -146,7 +165,7 @@ const PhotoSection = ({
             {texts[3] || texts[0]}
           </p>
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               top: '50%',
@@ -158,7 +177,7 @@ const PhotoSection = ({
           </p>
           {/* Additional right side text elements */}
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               top: '15%',
@@ -169,7 +188,7 @@ const PhotoSection = ({
             {texts[0] || 'Forever'}
           </p>
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               top: '40%',
@@ -180,7 +199,7 @@ const PhotoSection = ({
             {texts[1] || 'Always'}
           </p>
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               bottom: '40%',
@@ -191,7 +210,7 @@ const PhotoSection = ({
             {texts[2] || 'Together'}
           </p>
           <p 
-            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#800000] whitespace-nowrap"
+            className="font-handwritten text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#5c4d6e] whitespace-nowrap"
             style={{
               position: 'absolute',
               bottom: '15%',
@@ -235,16 +254,11 @@ const PhotoSection = ({
               }}
             >
               <div 
-                className="w-full h-40 sm:h-60 lg:h-72 bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(${displayImages[0].src})`,
-                  borderTop: '4px solid white',
-                  borderLeft: '4px solid white',
-                  borderRight: '4px solid white'
-                }}
-              ></div>
+                className="w-full h-40 sm:h-60 lg:h-72"
+                style={polaroidPhotoStyle(displayImages[0].src)}
+              />
               <div className="p-2 text-center">
-                <div className="text-sm sm:text-lg text-[#800000] font-handwritten">
+                <div className="text-sm sm:text-lg text-[#5c4d6e] font-handwritten">
                   {displayImages[0].label || 'Memories'}
                 </div>
               </div>
@@ -279,16 +293,11 @@ const PhotoSection = ({
               }}
             >
               <div 
-                className="w-full h-40 sm:h-60 lg:h-72 bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(${displayImages[1].src})`,
-                  borderTop: '4px solid white',
-                  borderLeft: '4px solid white',
-                  borderRight: '4px solid white'
-                }}
-              ></div>
+                className="w-full h-40 sm:h-60 lg:h-72"
+                style={polaroidPhotoStyle(displayImages[1].src)}
+              />
               <div className="p-2 text-center">
-                <div className="text-sm sm:text-lg text-[#800000] font-handwritten">
+                <div className="text-sm sm:text-lg text-[#5c4d6e] font-handwritten">
                   {displayImages[1].label || 'Together'}
                 </div>
               </div>
@@ -323,16 +332,11 @@ const PhotoSection = ({
               }}
             >
               <div 
-                className="w-full h-40 sm:h-60 lg:h-72 bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(${displayImages[2].src})`,
-                  borderTop: '4px solid white',
-                  borderLeft: '4px solid white',
-                  borderRight: '4px solid white'
-                }}
-              ></div>
+                className="w-full h-40 sm:h-60 lg:h-72"
+                style={polaroidPhotoStyle(displayImages[2].src)}
+              />
               <div className="p-2 text-center">
-                <div className="text-sm sm:text-lg text-[#800000] font-handwritten">
+                <div className="text-sm sm:text-lg text-[#5c4d6e] font-handwritten">
                   {displayImages[2].label || 'Love'}
                 </div>
               </div>

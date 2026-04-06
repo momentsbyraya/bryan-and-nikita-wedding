@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
-import { prenupImages } from '../data/prenupImages'
+import './OpeningScreen.css'
 
 function OpeningScreen({ onEnvelopeOpen }) {
   const envelopeRef = useRef(null)
@@ -86,45 +86,14 @@ function OpeningScreen({ onEnvelopeOpen }) {
       ref={openingSectionRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center opening-section"
     >
-      <div className="absolute inset-0 grid grid-cols-1 grid-rows-3">
-        <div
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${prenupImages.pool[0] || '/assets/images/prenup/1.jpeg'})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 20%',
-            backgroundRepeat: 'no-repeat',
-            filter: 'grayscale(100%)'
-          }}
-        />
-        <div
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${prenupImages.pool[4] || '/assets/images/prenup/5.jpeg'})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 20%',
-            backgroundRepeat: 'no-repeat',
-            filter: 'grayscale(100%)'
-          }}
-        />
-        <div
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${prenupImages.pool[9] || '/assets/images/prenup/10.jpeg'})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 45%',
-            backgroundRepeat: 'no-repeat',
-            filter: 'grayscale(100%)'
-          }}
-        />
-      </div>
-      <div className="absolute inset-0 bg-black/20 z-[1]" />
+      <div className="opening-screen-textured-layer" aria-hidden />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#f0e7de]/72 via-[#e7d0f5]/48 to-[#f0e7de]/70" />
       <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>
         <div ref={clickMeRef} className="mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-center click-me-container">
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-foglihten uppercase leading-tight" style={{ color: '#EDEDDD' }}>
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-foglihten uppercase leading-tight text-gold-dark drop-shadow-sm">
             YOU ARE GRACIOUSLY
           </p>
-          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight" style={{ fontFamily: 'Pinyon Script, cursive', color: '#F5F5DC' }}>
+          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight text-forest" style={{ fontFamily: 'Pinyon Script, cursive' }}>
             Invited
           </p>
         </div>
@@ -154,7 +123,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           </div>
           {/* Letter that slides up when envelope opens */}
           <div className="envelope-letter envelope-letter-centered">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gold">You are invited!</p>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-forest">You are invited!</p>
             <img 
               src="/assets/images/graphics/cutlery-sketch.png" 
               alt="Cutlery sketch" 
@@ -170,7 +139,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p 
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-foglihten uppercase leading-tight"
             style={{ 
-              color: '#F8F3EA',
+              color: '#7a6299',
               fontSize: 'clamp(1.5rem, 4vw, 48px)',
               textShadow: 'none',
               cursor: 'pointer'

@@ -22,16 +22,16 @@ export const weddingConfig = {
 
   // RSVP Information
   rsvp: {
-    deadline: "2026-05-04",
+    deadline: "2026-05-10",
     email: "",
     phone: "",
     website: "",
-    message: "Please RSVP by May 4th, 2026"
+    message: "Please RSVP by May 10th, 2026"
   },
 
-  // Theme and Styling - Burgundy Red Wine
+  // Theme and Styling - Cream & soft purple
   theme: {
-    primaryColor: "forest",
+    primaryColor: "sage",
     secondaryColor: "gold",
     accentColor: "gold",
     fontFamily: "serif",

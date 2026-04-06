@@ -17,22 +17,17 @@ const DressCode = () => {
   // State for tooltip visibility
   const [activeTooltip, setActiveTooltip] = useState(null)
   
-  const EMERALD_GREEN = '#2E7D32'
-  const SAGE_GREEN = '#9CAF88'
-  const OLIVE_GREEN = '#6B8E23'
-  const BROWN = '#8B5E3C'
-  const BEIGE = '#DCC7A1'
+  /** Theme-aligned palette: crisp white + soft purple (matches Tailwind `gold` / cream–lavender motif). */
+  const WHITE = '#FFFFFF'
+  const SOFT_PURPLE = '#e7d0f5'
 
-  const sponsorColors = [EMERALD_GREEN, SAGE_GREEN]
+  const sponsorColors = [WHITE, SOFT_PURPLE]
 
-  const guestColors = [EMERALD_GREEN, SAGE_GREEN, OLIVE_GREEN, BROWN, BEIGE]
+  const guestColors = [WHITE, SOFT_PURPLE]
 
   const colorNames = {
-    [EMERALD_GREEN]: 'Emerald Green',
-    [SAGE_GREEN]: 'Sage Green',
-    [OLIVE_GREEN]: 'Olive Green',
-    [BROWN]: 'Brown',
-    [BEIGE]: 'Beige',
+    [WHITE]: 'White',
+    [SOFT_PURPLE]: 'Soft Purple',
   }
 
   useEffect(() => {
@@ -163,7 +158,7 @@ const DressCode = () => {
           </h3>
           {/* General Dress Code Description */}
           <p className="text-base sm:text-lg font-albert font-thin italic dress-code-description">
-            {dresscode.mainDressCode?.description || "Formal attire with these colors on our special day."}
+            {dresscode.mainDressCode?.description || "Formal or semi-formal in white and soft purple."}
           </p>
         </div>
       </div>
@@ -187,7 +182,7 @@ const DressCode = () => {
                       {/* Category Name and Description Container */}
                       <div className="w-full">
                         {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska mb-2 text-right lg-custom:text-left" style={{ color: '#b88917' }}>
+                        <div className="text-lg sm:text-xl md:text-2xl font-boska mb-2 text-right lg-custom:text-left" style={{ color: '#d4bae8' }}>
                           {section.title}
             </div>
             
@@ -208,7 +203,14 @@ const DressCode = () => {
                               onMouseLeave={() => setActiveTooltip(null)}
                               onClick={() => setActiveTooltip(activeTooltip === `sponsors-${index}` ? null : `sponsors-${index}`)}
                     >
-                              <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
+                              <div
+                                className={`h-6 w-6 cursor-pointer rounded border sm:h-8 sm:w-8 ${
+                                  color === WHITE
+                                    ? 'border-forest/25 shadow-sm ring-1 ring-forest/10'
+                                    : 'border-wedding-400/45'
+                                }`}
+                                style={{ backgroundColor: color }}
+                              />
                               {activeTooltip === `sponsors-${index}` && (
                                 <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-forest text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
                                   {colorNames[color]}
@@ -280,7 +282,7 @@ const DressCode = () => {
                       {/* Category Name and Description Container */}
                       <div>
                         {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska mb-2 text-left lg-custom:text-left" style={{ color: '#b88917' }}>
+                        <div className="text-lg sm:text-xl md:text-2xl font-boska mb-2 text-left lg-custom:text-left" style={{ color: '#d4bae8' }}>
                           {section.title}
                         </div>
                         
@@ -301,7 +303,14 @@ const DressCode = () => {
                               onMouseLeave={() => setActiveTooltip(null)}
                               onClick={() => setActiveTooltip(activeTooltip === `guests-${index}` ? null : `guests-${index}`)}
                             >
-                              <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
+                              <div
+                                className={`h-6 w-6 cursor-pointer rounded border sm:h-8 sm:w-8 ${
+                                  color === WHITE
+                                    ? 'border-forest/25 shadow-sm ring-1 ring-forest/10'
+                                    : 'border-wedding-400/45'
+                                }`}
+                                style={{ backgroundColor: color }}
+                              />
                               {activeTooltip === `guests-${index}` && (
                                 <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-forest text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
                                   {colorNames[color]}

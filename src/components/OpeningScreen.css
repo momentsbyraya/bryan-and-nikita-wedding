@@ -1,3 +1,15 @@
+/* Full-bleed crumpled paper (same asset as nav); sits under soft lavender tint in JSX */
+.opening-screen-textured-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #f0e7de;
+  background-image: url('/assets/images/graphics/textured-bg-2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .opening-screen {
   position: fixed;
   inset: 0;
@@ -5,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #1F2B20 0%, #2a3a2c 50%, #1F2B20 100%);
+  background: linear-gradient(to bottom, #f0e7de 0%, #ead6f3 48%, #e7d0f5 52%, #f0e7de 100%);
   overflow: hidden;
 }
 
@@ -20,7 +32,7 @@
 .opening-screen-text {
   font-family: 'Nanum Myeongjo', serif;
   font-size: clamp(1rem, 2vw, 1.5rem);
-  color: #AA8D5A;
+  color: #7a6299;
   text-align: center;
   opacity: 0;
   cursor: default;

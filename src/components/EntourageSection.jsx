@@ -13,7 +13,7 @@ const EntourageSection = () => {
       className="w-full py-16 sm:py-20"
     >
       <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto text-center px-4">
-        <h3 className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none capitalize text-forest">
+        <h3 className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none capitalize text-gold-dark drop-shadow-sm">
           Entourage
         </h3>
         <p className="mt-4 text-sm sm:text-base md:text-lg font-albert text-obsidian/85 max-w-2xl mx-auto">

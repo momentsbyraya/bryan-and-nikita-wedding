@@ -92,14 +92,14 @@ const RSVPModal = ({ isOpen, onClose }) => {
         className="relative z-10 flex flex-col flex-1 min-h-0 w-full h-full min-w-0"
         onClick={(e) => e.stopPropagation()}
       >
-        <header className="flex shrink-0 items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 border-b border-gold/25 bg-sage/95 backdrop-blur-md">
+        <header className="flex shrink-0 items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 border-b border-gold-dark/38 bg-sage/95 backdrop-blur-md">
           <h2 className="text-xl sm:text-2xl font-leckerli font-light text-forest">
             RSVP
           </h2>
           <button
             type="button"
             onClick={handleClose}
-            className="p-2 text-forest hover:bg-gold/20 rounded-full transition-colors duration-200"
+            className="p-2 text-forest hover:bg-gold/22 rounded-full transition-colors duration-200"
             aria-label="Close RSVP form"
           >
             <X className="w-6 h-6" />
@@ -108,7 +108,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
 
         <div className="flex-1 min-h-0 flex flex-col bg-sage/90 backdrop-blur-sm">
           <div className="w-full flex-1 min-h-0 border-0 rsvp-modal-content flex items-center justify-center px-6">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-foglihten text-forest text-center">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-foglihten text-gold-dark drop-shadow-sm text-center">
               TO BE ADDED
             </p>
           </div>

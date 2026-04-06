@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ImageLightbox from './ImageLightbox'
+import { isPrenupPlaceholder } from '../data/prenupImages'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -10,6 +11,11 @@ const cellClass =
 
 const splitImgClass =
   'absolute inset-0 m-0 p-0 border-0 w-full h-full object-cover cursor-pointer'
+
+const splitImgClassForSrc = (src) =>
+  isPrenupPlaceholder(src)
+    ? 'absolute inset-0 m-0 w-full h-full cursor-pointer border-0 bg-sage object-contain object-center p-2'
+    : splitImgClass
 
 /**
  * Two images in one full-viewport row, no gap, no outer margin/padding.
@@ -85,7 +91,7 @@ const FullBleedPhotoSplit = ({
               <img
                 src={leftSrc}
                 alt={leftAlt}
-                className={splitImgClass}
+                className={splitImgClassForSrc(leftSrc)}
                 loading="lazy"
                 decoding="async"
                 role="button"
@@ -99,7 +105,7 @@ const FullBleedPhotoSplit = ({
               <img
                 src={rightSrc}
                 alt={rightAlt}
-                className={splitImgClass}
+                className={splitImgClassForSrc(rightSrc)}
                 loading="lazy"
                 decoding="async"
                 role="button"
@@ -116,7 +122,7 @@ const FullBleedPhotoSplit = ({
               <img
                 src={leftSrc}
                 alt={leftAlt}
-                className={splitImgClass}
+                className={splitImgClassForSrc(leftSrc)}
                 loading="lazy"
                 decoding="async"
                 role="button"
@@ -130,7 +136,7 @@ const FullBleedPhotoSplit = ({
               <img
                 src={rightSrc}
                 alt={rightAlt}
-                className={splitImgClass}
+                className={splitImgClassForSrc(rightSrc)}
                 loading="lazy"
                 decoding="async"
                 role="button"

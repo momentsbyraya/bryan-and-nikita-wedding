@@ -23,16 +23,7 @@ const Home = ({ onOpenRSVP }) => {
       {/* Hero Section */}
       <Hero />
 
-      {/* Venue Section Wrapper */}
-      <div
-        className="embossed-bg"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <div>
         {/* Flower Banner - Top */}
         <div className="relative" style={{ width: '100vw' }}>
           <img
@@ -65,15 +56,7 @@ const Home = ({ onOpenRSVP }) => {
         alt={photoAlt}
       />
 
-      {/* Schedule Section Wrapper */}
-      <div
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <div>
         <div className="relative" style={{ width: '100vw' }}>
           <img
             src="/assets/images/graphics/flower-banner-3.png"
@@ -121,18 +104,18 @@ const Home = ({ onOpenRSVP }) => {
         </div>
 
         <div className="w-full max-w-3xl mx-auto px-4 flex items-center gap-3">
-          <div className="h-px bg-gold/50 flex-1" />
-          <div className="w-2 h-2 border border-gold/70 rotate-45 flex-shrink-0" />
-          <div className="h-px bg-gold/50 flex-1" />
+          <div className="h-px bg-gold-dark/55 flex-1" />
+          <div className="w-2 h-2 border border-gold-dark/60 rotate-45 flex-shrink-0" />
+          <div className="h-px bg-gold-dark/55 flex-1" />
         </div>
 
         {/* Entourage Section */}
         <EntourageSection />
 
         <div className="w-full max-w-3xl mx-auto px-4 flex items-center gap-3">
-          <div className="h-px bg-gold/50 flex-1" />
-          <div className="w-2 h-2 border border-gold/70 rotate-45 flex-shrink-0" />
-          <div className="h-px bg-gold/50 flex-1" />
+          <div className="h-px bg-gold-dark/55 flex-1" />
+          <div className="w-2 h-2 border border-gold-dark/60 rotate-45 flex-shrink-0" />
+          <div className="h-px bg-gold-dark/55 flex-1" />
         </div>
 
         <div className="relative z-20 flex items-center justify-center">

@@ -1,20 +1,28 @@
 {
   "faqData": [
     {
-      "question": "What time should I arrive?",
-      "answer": "We’d love to see you between 2:00 PM and 3:00PM! Giving yourself a little extra time ensures you’ll find a great seat before the ceremony begins."
+      "question": "🕒 What time should I arrive?",
+      "answer": "Please arrive at least 30 minutes before the ceremony to ensure everyone is seated on time."
     },
     {
-      "question": "Can I bring a plus one?",
-      "answer": "As much as we’d love to celebrate with everyone, our venue has a limited capacity. We have reserved seats specifically for those named on your invitation and truly appreciate your understanding!"
+      "question": "👗 What is the dress code?",
+      "answer": "White and soft purple. Formal or semi-formal. Light fabrics are fine for the garden. No denim or sneakers."
     },
     {
-      "question": "What if I can't make it?",
-      "answer": "You will be missed! If your plans change, please kindly let us know as soon as possible via Facebook Messenger or at historillopatriciaann@gmail.com and domnikko.neg@gmail.com"
+      "question": "🌿 Is the venue indoor or outdoor?",
+      "answer": "The ceremony will take place in a garden setting, followed by a reception in the same venue."
     },
     {
-      "question": "Can I take photos?",
-      "answer": "Yes, please! Capture all the love you see. All we ask is that you kindly stay clear of the center aisle so our professional photographers can work their magic."
+      "question": "🎁 Gift guide",
+      "answer": "Your presence is already a gift to us 🤍\n\nHowever, if you wish to bless us, a monetary gift would be truly appreciated as we begin our new journey together."
+    },
+    {
+      "question": "👨‍👩‍👧 Can I bring a plus one?",
+      "answer": "Due to limited seating, we can only accommodate guests listed on the invitation. Thank you for understanding 💜"
+    },
+    {
+      "question": "⏰ What time does the celebration end?",
+      "answer": "The program is expected to end around 10:00 PM."
     }
   ]
 }

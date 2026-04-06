@@ -1,81 +1,45 @@
-const PRENUP_IMAGE_POOL = [
-  '/assets/images/prenup/1.jpeg',
-  '/assets/images/prenup/2.jpeg',
-  '/assets/images/prenup/3.jpeg',
-  '/assets/images/prenup/4.jpeg',
-  '/assets/images/prenup/5.jpeg',
-  '/assets/images/prenup/6.png',
-  '/assets/images/prenup/7.jpeg',
-  '/assets/images/prenup/8.jpeg',
-  '/assets/images/prenup/9.jpeg',
-  '/assets/images/prenup/10.jpeg',
-  '/assets/images/prenup/11.jpeg',
-]
+/**
+ * All prenup-driven slots use a single placeholder until real photos are added.
+ * Replace PRENUP_PLACEHOLDER or restore file paths in this module when ready.
+ */
+export const PRENUP_PLACEHOLDER = '/assets/images/placeholders/to-be-added.svg'
+
+/** True when this URL is the shared prenup placeholder (layout can treat it like a photo frame). */
+export function isPrenupPlaceholder(src) {
+  return typeof src === 'string' && src.includes('placeholders/to-be-added')
+}
+
+const POOL_LEN = 11
+const PRENUP_IMAGE_POOL = Array.from({ length: POOL_LEN }, () => PRENUP_PLACEHOLDER)
 
 export const prenupImages = {
   pool: PRENUP_IMAGE_POOL,
-  hero: PRENUP_IMAGE_POOL[6],
-  fullBleedMain: PRENUP_IMAGE_POOL[1],
+  hero: PRENUP_PLACEHOLDER,
+  fullBleedMain: PRENUP_PLACEHOLDER,
   splitA: {
-    left: PRENUP_IMAGE_POOL[2],
-    right: PRENUP_IMAGE_POOL[3],
+    left: PRENUP_PLACEHOLDER,
+    right: PRENUP_PLACEHOLDER,
   },
   splitB: {
-    left: PRENUP_IMAGE_POOL[4],
-    right: PRENUP_IMAGE_POOL[5],
+    left: PRENUP_PLACEHOLDER,
+    right: PRENUP_PLACEHOLDER,
   },
   splitC: {
-    left: PRENUP_IMAGE_POOL[6],
-    right: PRENUP_IMAGE_POOL[7],
+    left: PRENUP_PLACEHOLDER,
+    right: PRENUP_PLACEHOLDER,
   },
-  rsvpBackground: PRENUP_IMAGE_POOL[8],
-  modalBackground: PRENUP_IMAGE_POOL[6],
-  countdownBackground: PRENUP_IMAGE_POOL[2],
-  ogImage: PRENUP_IMAGE_POOL[4],
-  favicon: PRENUP_IMAGE_POOL[0],
-  // Love story section: one polaroid per paragraph, in order (files 4, 8, 5, 10, 6)
+  rsvpBackground: PRENUP_PLACEHOLDER,
+  modalBackground: PRENUP_PLACEHOLDER,
+  countdownBackground: PRENUP_PLACEHOLDER,
+  ogImage: PRENUP_PLACEHOLDER,
   loveStory: [
-    PRENUP_IMAGE_POOL[3],
-    PRENUP_IMAGE_POOL[7],
-    PRENUP_IMAGE_POOL[4],
-    PRENUP_IMAGE_POOL[9],
-    PRENUP_IMAGE_POOL[5],
+    PRENUP_PLACEHOLDER,
+    PRENUP_PLACEHOLDER,
+    PRENUP_PLACEHOLDER,
+    PRENUP_PLACEHOLDER,
+    PRENUP_PLACEHOLDER,
   ],
-  gallery: [
-    PRENUP_IMAGE_POOL[10],
-    PRENUP_IMAGE_POOL[1],
-    PRENUP_IMAGE_POOL[2],
-    PRENUP_IMAGE_POOL[3],
-    PRENUP_IMAGE_POOL[4],
-    PRENUP_IMAGE_POOL[5],
-    PRENUP_IMAGE_POOL[6],
-    PRENUP_IMAGE_POOL[7],
-    PRENUP_IMAGE_POOL[8],
-    PRENUP_IMAGE_POOL[9],
-    PRENUP_IMAGE_POOL[0],
-  ],
-  momentsHero: PRENUP_IMAGE_POOL[2],
-  momentsGrid: [
-    PRENUP_IMAGE_POOL[0],
-    PRENUP_IMAGE_POOL[1],
-    PRENUP_IMAGE_POOL[2],
-    PRENUP_IMAGE_POOL[3],
-    PRENUP_IMAGE_POOL[4],
-    PRENUP_IMAGE_POOL[5],
-    PRENUP_IMAGE_POOL[6],
-    PRENUP_IMAGE_POOL[7],
-    PRENUP_IMAGE_POOL[8],
-    PRENUP_IMAGE_POOL[9],
-    PRENUP_IMAGE_POOL[10],
-    PRENUP_IMAGE_POOL[0],
-    PRENUP_IMAGE_POOL[2],
-    PRENUP_IMAGE_POOL[4],
-    PRENUP_IMAGE_POOL[6],
-    PRENUP_IMAGE_POOL[8],
-    PRENUP_IMAGE_POOL[10],
-    PRENUP_IMAGE_POOL[1],
-    PRENUP_IMAGE_POOL[3],
-    PRENUP_IMAGE_POOL[5],
-  ],
+  gallery: Array.from({ length: 11 }, () => PRENUP_PLACEHOLDER),
+  momentsHero: PRENUP_PLACEHOLDER,
+  momentsGrid: Array.from({ length: 18 }, () => PRENUP_PLACEHOLDER),
 }
-

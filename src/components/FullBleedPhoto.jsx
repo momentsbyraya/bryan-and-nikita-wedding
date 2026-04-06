@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ImageLightbox from './ImageLightbox'
+import { isPrenupPlaceholder } from '../data/prenupImages'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -34,18 +35,38 @@ const FullBleedPhoto = ({ src, alt = '' }) => {
     }
   }, [src])
 
+  const placeholderFrame = isPrenupPlaceholder(src)
+
   return (
     <>
       <div
         ref={wrapRef}
-        className="m-0 p-0 max-w-none overflow-x-clip"
-        style={{ width: '100vw', margin: 0, padding: 0 }}
+        className={`m-0 p-0 max-w-none overflow-x-clip ${placeholderFrame ? 'relative' : ''}`}
+        style={{
+          width: '100vw',
+          margin: 0,
+          padding: 0,
+          ...(placeholderFrame
+            ? {
+                aspectRatio: '3 / 2',
+                minHeight: 'clamp(260px, 52vw, 680px)',
+              }
+            : {}),
+        }}
       >
         <img
           src={src}
           alt={alt}
-          className="m-0 p-0 border-0 align-middle block h-auto max-w-none cursor-pointer"
-          style={{ width: '100vw', margin: 0, padding: 0, display: 'block' }}
+          className={
+            placeholderFrame
+              ? 'absolute inset-0 m-0 block h-full w-full max-w-none cursor-pointer border-0 bg-sage object-contain object-center'
+              : 'm-0 block h-auto max-w-none cursor-pointer border-0 align-middle'
+          }
+          style={
+            placeholderFrame
+              ? { margin: 0, padding: 0, display: 'block' }
+              : { width: '100vw', margin: 0, padding: 0, display: 'block' }
+          }
           loading="lazy"
           decoding="async"
           role="button"

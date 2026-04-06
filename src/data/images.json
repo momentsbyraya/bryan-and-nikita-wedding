@@ -13,6 +13,5 @@
   "venues": {
     "church": "/assets/images/venues/church.svg",
     "reception": "/assets/images/venues/reception.svg"
-  },
-  "favicon": "/assets/images/favicon.png"
-} 
+  }
+}

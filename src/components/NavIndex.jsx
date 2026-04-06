@@ -168,10 +168,10 @@ const NavIndex = ({ onOpenRSVP }) => {
   }
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-forest overflow-hidden relative">
-      {/* Background texture (subtle on forest) */}
-      <div className="absolute inset-0 bg-cover bg-no-repeat nav-index-bg opacity-25" />
-      <div className="absolute inset-0 bg-gradient-to-b from-forest via-forest/95 to-[#162018]" />
+    <div className="min-h-screen w-full flex items-center justify-center bg-sage overflow-hidden relative">
+      {/* Cream canvas + soft lavender wash (accent layer only) */}
+      <div className="absolute inset-0 bg-cover bg-no-repeat nav-index-bg opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-sage via-gold/26 to-wedding-100/50" />
       
       <div 
         ref={navRef}
@@ -229,7 +229,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   <p className="nanum-myeongjo-regular text-forest mb-2 oval-text-for">
                     FOR THE
                   </p>
-                  <p className="imperial-script-regular mb-4 underline oval-text-entourage text-gold">
+                  <p className="imperial-script-regular mb-4 underline oval-text-entourage text-gold-dark">
                     Entourage
                   </p>
                   <p className="nanum-myeongjo-regular text-forest oval-text-click">
@@ -256,7 +256,7 @@ const NavIndex = ({ onOpenRSVP }) => {
             <div 
               ref={polaroidRef}
                className="bg-white relative polaroid-container border-8 flex flex-col p-2"
-               style={{ borderColor: '#AA8D5A', transform: 'none' }}
+               style={{ borderColor: '#d4bae8', transform: 'none' }}
              >
               {/* Date, Month, Year at Top */}
               <div className="flex justify-between items-center w-full mb-2">
@@ -285,7 +285,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   <p className="font-tebranos polaroid-text-name uppercase leading-tight text-forest">
                     {couple.groom.firstName}
                   </p>
-                  <p className="font-ballet polaroid-text-name leading-tight -mt-4 text-gold">
+                  <p className="font-ballet polaroid-text-name leading-tight -mt-4 text-gold-dark">
                     {couple.groom.lastName}
                   </p>
                 </div>
@@ -297,7 +297,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   <p className="font-tebranos polaroid-text-name uppercase leading-tight text-forest">
                     {couple.bride.firstName}
                   </p>
-                  <p className="font-ballet polaroid-text-name leading-tight -mt-4 text-gold">
+                  <p className="font-ballet polaroid-text-name leading-tight -mt-4 text-gold-dark">
                     {couple.bride.lastName}
                   </p>
                 </div>
@@ -378,7 +378,7 @@ const NavIndex = ({ onOpenRSVP }) => {
               <p className="nanum-myeongjo-regular text-forest details-text-view">
                 VIEW THE
               </p>
-                <p className="imperial-script-regular underline details-text-details text-gold">
+                <p className="imperial-script-regular underline details-text-details text-gold-dark">
                   Details
                 </p>
             </div>
@@ -401,7 +401,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   >
                     {/* Box with Section Name */}
                     <div 
-                      className="px-4 py-6 rounded-lg border-2 text-center min-h-[80px] flex items-center justify-center bg-sage/90 border-gold/35 text-forest shadow-sm"
+                      className="px-4 py-6 rounded-lg border-2 text-center min-h-[80px] flex items-center justify-center bg-sage/90 border-gold-dark/42 text-forest shadow-sm"
                     >
                       <span className="text-sm sm:text-base font-albert font-medium">
                         {section.name}
@@ -427,8 +427,8 @@ const NavIndex = ({ onOpenRSVP }) => {
                   <div 
                     className={`px-4 py-6 rounded-lg border-2 transition-all duration-300 text-center min-h-[80px] flex items-center justify-center ${
                       isActive
-                        ? 'bg-gold border-gold text-forest shadow-lg'
-                        : 'bg-sage/90 border-gold/45 text-white hover:border-gold hover:bg-sage shadow-md'
+                        ? 'bg-gold border-gold-dark/40 text-[#fff4e6] shadow-lg'
+                        : 'bg-white/70 border-gold-dark/48 text-forest hover:border-gold-dark hover:bg-gold/38 hover:text-[#fff4e6] shadow-md'
                     }`}
                   >
                     <span className="text-sm sm:text-base font-albert font-medium">
@@ -438,7 +438,7 @@ const NavIndex = ({ onOpenRSVP }) => {
                   
                   {/* Active indicator dot */}
                   {isActive && (
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-gold rounded-full border-2 border-forest" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-gold-dark rounded-full border-2 border-forest" />
                   )}
                 </button>
               )

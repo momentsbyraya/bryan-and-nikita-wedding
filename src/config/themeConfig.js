@@ -1,4 +1,6 @@
-// Enchanted Forest — Forest #104210 | Antique Gold #AA8D5A | Obsidian #000000 | Sage Mist #CBCBC0
+// Color roles: cream #f0e7de = canvas; soft purple #e7d0f5 = primary lavender (fills, buttons, bands);
+// gold-dark #d4bae8 = one-step-deeper hint for borders/lines/headings on cream (same family, not a second “violet” theme);
+// plum #3a3148 = body text & strong UI. Avoid leaning on wedding-500 for large areas — it reads as bright violet against cream.
 export const themeConfig = {
     backgrounds: {
         primary: 'bg-forest',
@@ -12,42 +14,42 @@ export const themeConfig = {
 
     text: {
         primary: 'text-forest',
-        secondary: 'text-gold',
-        accent: 'text-gold',
-        muted: 'text-gold/80',
+        secondary: 'text-wedding-600',
+        accent: 'text-gold-dark',
+        muted: 'text-wedding-600/90',
         dark: 'text-forest',
-        theme: 'text-gold',
+        theme: 'text-gold-dark',
         pause: 'text-white',
         custom: 'text-obsidian',
-        light: '#AA8D5A',
-        lightBlack: '#104210',
-        cream: '#CBCBC0',
-        tan: '#AA8D5A',
-        wine: '#104210',
-        burgundyDark: '#104210',
-        burntOrange: '#104210',
-        sageGreen: '#104210',
+        light: '#d4bae8',
+        lightBlack: '#3a3148',
+        cream: '#f0e7de',
+        tan: '#e7d0f5',
+        wine: '#3a3148',
+        burgundyDark: '#3a3148',
+        burntOrange: '#3a3148',
+        sageGreen: '#3a3148',
     },
 
     borders: {
         primary: 'border-forest',
-        secondary: 'border-gold/60',
-        accent: 'border-gold',
-        theme: 'border-gold/40',
-        garden: 'border-gold/40',
+        secondary: 'border-gold-dark/50',
+        accent: 'border-wedding-400',
+        theme: 'border-wedding-300/80',
+        garden: 'border-wedding-300/80',
     },
 
     buttons: {
-        primary: 'bg-forest hover:bg-wedding-600',
-        secondary: 'border border-gold hover:border-gold-dark',
+        primary: 'bg-forest hover:bg-wedding-800',
+        secondary: 'border border-wedding-500 hover:border-forest',
         text: 'text-forest hover:text-white',
-        theme: 'bg-gold hover:bg-gold-dark',
-        garden: 'bg-gold/90 hover:bg-gold',
+        theme: 'bg-gold text-[#fff4e6] hover:bg-gold-dark hover:text-[#fff4e6]',
+        garden: 'bg-gold/90 text-[#fff4e6] hover:bg-gold hover:text-[#fff4e6]',
     },
 
     hover: {
-        primary: 'hover:bg-wedding-600',
-        secondary: 'hover:border-gold-dark hover:text-white',
+        primary: 'hover:bg-wedding-800',
+        secondary: 'hover:border-forest hover:text-white',
         theme: 'hover:bg-gold-dark',
         garden: 'hover:bg-gold',
     },
@@ -59,12 +61,12 @@ export const themeConfig = {
     },
 
     calendar: {
-        weddingDate: '2026-06-28',
+        weddingDate: '2026-05-23',
         highlightColor: 'bg-gold',
-        heartColor: 'text-gold',
+        heartColor: 'text-forest',
         textColor: 'text-forest',
-        headerColor: 'text-gold',
-        dayNamesColor: 'text-gold/90',
+        headerColor: 'text-wedding-600',
+        dayNamesColor: 'text-wedding-600',
         background: 'bg-sage',
     },
 
@@ -74,21 +76,21 @@ export const themeConfig = {
     },
 
     cssVariables: {
-        '--primary-bg': '#104210',
-        '--secondary-bg': '#AA8D5A',
-        '--accent-bg': '#104210',
-        '--accent-hover': '#8a7045',
+        '--primary-bg': '#3a3148',
+        '--secondary-bg': '#e7d0f5',
+        '--accent-bg': '#3a3148',
+        '--accent-hover': '#d4bae8',
         '--primary-text': '#000000',
-        '--secondary-text': '#AA8D5A',
-        '--accent-text': '#AA8D5A',
-        '--muted-text': '#8a7045',
-        '--border-color': '#000000',
-        '--custom-theme': '#104210',
-        '--cream': '#CBCBC0',
-        '--tan': '#AA8D5A',
-        '--wine': '#104210',
-        '--burgundy-dark': '#104210',
-        '--garden-bg': '#CBCBC0',
+        '--secondary-text': '#7a6299',
+        '--accent-text': '#d4bae8',
+        '--muted-text': '#7a6299',
+        '--border-color': '#3a3148',
+        '--custom-theme': '#3a3148',
+        '--cream': '#f0e7de',
+        '--tan': '#e7d0f5',
+        '--wine': '#3a3148',
+        '--burgundy-dark': '#3a3148',
+        '--garden-bg': '#f0e7de',
     }
 }
 
@@ -114,21 +116,21 @@ export const themePresets = {
         },
         text: {
             primary: 'text-forest',
-            secondary: 'text-gold',
-            accent: 'text-gold',
+            secondary: 'text-wedding-600',
+            accent: 'text-gold-dark',
         }
     },
 
     warmAutumn: {
         backgrounds: {
             primary: 'bg-sage',
-            secondary: 'bg-gold/20',
+            secondary: 'bg-gold/40',
             accent: 'bg-gold',
         },
         text: {
             primary: 'text-forest',
-            secondary: 'text-gold',
-            accent: 'text-gold',
+            secondary: 'text-wedding-600',
+            accent: 'text-gold-dark',
         }
     },
 
@@ -141,9 +143,9 @@ export const themePresets = {
         },
         text: {
             primary: 'text-forest',
-            secondary: 'text-gold',
-            accent: 'text-gold',
-            garden: 'text-gold',
+            secondary: 'text-wedding-600',
+            accent: 'text-gold-dark',
+            garden: 'text-gold-dark',
         }
     }
 }

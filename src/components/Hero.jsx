@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { couple, venues, prenupImages } from '../data'
+import { isPrenupPlaceholder } from '../data/prenupImages'
 import ImageLightbox from './ImageLightbox'
 
 const Hero = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false)
-  const coupleTogetherRef = useRef(null)
+  const coupleNameRef = useRef(null)
   const dateRef = useRef(null)
   const venueRef = useRef(null)
 
@@ -19,11 +20,20 @@ const Hero = () => {
   const venueName = venues.ceremony.name
 
   useEffect(() => {
-    gsap.set(coupleTogetherRef.current, { opacity: 0, y: 30 })
+    gsap.set(coupleNameRef.current, { opacity: 0, y: 24 })
     gsap.set(dateRef.current, { opacity: 0, y: 20 })
     gsap.set(venueRef.current, { opacity: 0, y: 20 })
 
     const tl = gsap.timeline({ delay: 0.3 })
+
+    if (coupleNameRef.current) {
+      tl.to(coupleNameRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.75,
+        ease: "power2.out"
+      })
+    }
 
     if (dateRef.current) {
       tl.to(dateRef.current, {
@@ -31,7 +41,7 @@ const Hero = () => {
         y: 0,
         duration: 0.5,
         ease: "power2.out"
-      })
+      }, "-=0.35")
     }
 
     if (venueRef.current) {
@@ -43,25 +53,20 @@ const Hero = () => {
       }, "-=0.3")
     }
 
-    if (coupleTogetherRef.current) {
-      tl.to(coupleTogetherRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.75,
-        ease: "power2.out"
-      }, "-=0.2")
-    }
-
   }, [])
 
   const heroAlt = couple.together.replace('&', 'and')
+  const heroPlaceholder = isPrenupPlaceholder(prenupImages.hero)
+  const heroImgClass = heroPlaceholder
+    ? 'absolute inset-0 h-full w-full max-w-none cursor-pointer bg-sage object-contain object-center'
+    : 'absolute left-1/2 top-1/2 h-[102%] w-[102%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center md:inset-0 md:h-full md:w-full md:max-w-none md:translate-x-0 md:translate-y-0 md:object-[center_78%] cursor-pointer'
 
   return (
-    <div className="relative w-full overflow-hidden bg-forest" style={{ height: '100vh' }}>
+    <div className="relative w-full overflow-hidden bg-sage" style={{ height: '100vh' }}>
       <img
         src={prenupImages.hero}
         alt={heroAlt}
-        className="absolute left-1/2 top-1/2 h-[102%] w-[102%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center md:inset-0 md:h-full md:w-full md:max-w-none md:translate-x-0 md:translate-y-0 md:object-[center_78%] cursor-pointer"
+        className={heroImgClass}
         fetchPriority="high"
         decoding="async"
         role="button"
@@ -93,22 +98,28 @@ const Hero = () => {
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
           </filter>
           <linearGradient id="topGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(31, 43, 32, 1)" />
-            <stop offset="12%" stopColor="rgba(31, 43, 32, 0.95)" />
-            <stop offset="40%" stopColor="rgba(31, 43, 32, 0.72)" />
-            <stop offset="70%" stopColor="rgba(31, 43, 32, 0.35)" />
-            <stop offset="100%" stopColor="rgba(31, 43, 32, 0)" />
+            <stop offset="0%" stopColor="rgba(240, 231, 222, 0.88)" />
+            <stop offset="25%" stopColor="rgba(240, 231, 222, 0.5)" />
+            <stop offset="55%" stopColor="rgba(240, 231, 222, 0.12)" />
+            <stop offset="100%" stopColor="rgba(240, 231, 222, 0)" />
           </linearGradient>
         </defs>
         <rect width="100%" height="100%" fill="url(#topGradient)" filter="url(#heroBlurTop)" />
       </svg>
       
-      <div className="pointer-events-none absolute top-0 left-0 right-0 pt-8 sm:pt-12 md:pt-16 lg:pt-20 px-4 sm:px-6 md:px-8 z-20">
+      <div className="pointer-events-none absolute top-0 left-0 right-0 pt-6 sm:pt-10 md:pt-14 lg:pt-16 px-4 sm:px-6 md:px-8 z-20">
         <div className="max-w-4xl mx-auto text-center">
-          <p ref={dateRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-foglihten text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.25)' }}>
+          <h1
+            ref={coupleNameRef}
+            className="font-foglihten text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight text-forest tracking-wide"
+            style={{ textShadow: '0 0 20px rgba(240,231,222,0.95), 0 1px 2px rgba(255,255,255,0.9)' }}
+          >
+            {couple.together}
+          </h1>
+          <p ref={dateRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-foglihten text-gold-dark mt-3 sm:mt-4" style={{ textShadow: '0 1px 2px rgba(255,255,255,0.9), 0 0 24px rgba(240,231,222,0.95)' }}>
             {formatDate()}
           </p>
-          <p ref={venueRef} className="text-xs sm:text-sm md:text-base font-albert mt-2 sm:mt-3 text-[#F8F3EA]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.45)' }}>
+          <p ref={venueRef} className="text-xs sm:text-sm md:text-base font-albert mt-2 sm:mt-3 text-forest" style={{ textShadow: '0 0 12px rgba(240,231,222,0.95), 0 1px 1px rgba(255,255,255,0.85)' }}>
             {venueName}
           </p>
         </div>
@@ -125,27 +136,16 @@ const Hero = () => {
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
           </filter>
           <linearGradient id="bottomGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(31, 43, 32, 0)" />
-            <stop offset="30%" stopColor="rgba(31, 43, 32, 0.38)" />
-            <stop offset="60%" stopColor="rgba(31, 43, 32, 0.75)" />
-            <stop offset="88%" stopColor="rgba(31, 43, 32, 0.96)" />
-            <stop offset="100%" stopColor="rgba(31, 43, 32, 1)" />
+            <stop offset="0%" stopColor="rgba(240, 231, 222, 0)" />
+            <stop offset="35%" stopColor="rgba(240, 231, 222, 0.22)" />
+            <stop offset="65%" stopColor="rgba(240, 231, 222, 0.62)" />
+            <stop offset="88%" stopColor="rgba(240, 231, 222, 0.9)" />
+            <stop offset="100%" stopColor="rgba(240, 231, 222, 0.97)" />
           </linearGradient>
         </defs>
         <rect width="100%" height="100%" fill="url(#bottomGradient)" filter="url(#heroBlurBottom)" />
       </svg>
 
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 pb-10 sm:pb-12 md:pb-14 lg:pb-16 px-4 sm:px-6 md:px-8 z-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <p
-            ref={coupleTogetherRef}
-            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-[#F8F3EA]"
-            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.45), 0 0 24px rgba(0,0,0,0.2)' }}
-          >
-            {couple.together}
-          </p>
-        </div>
-      </div>
     </div>
   )
 }

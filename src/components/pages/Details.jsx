@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useMemo, useState } from 'react'
+import React, { useEffect, useRef, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { MapPin, Clock, ArrowLeft, ArrowRight, ChevronDown, UtensilsCrossed, Palette, Users, Mail, Baby, Car, Camera, Gift, Heart } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { themeConfig } from '../../config/themeConfig'
 import { faq as faqData } from '../../data'
 import ImageBanner from '../ImageBanner'
@@ -21,8 +21,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Details = () => {
   const navigate = useNavigate()
-  const [openFaqIndex, setOpenFaqIndex] = useState(null)
-  const [copiedIndex, setCopiedIndex] = useState(null)
   const sectionRef = useRef(null)
   const backButtonRef = useRef(null)
   const headerContentRef = useRef(null)
@@ -34,44 +32,6 @@ const Details = () => {
   const curvedDivider2Ref = useRef(null)
   const curvedDivider3Ref = useRef(null)
   const faqItems = faqData
-
-  // Helper function to get icon and clean text for FAQ questions
-  const getFaqIconAndText = (question) => {
-    // Map question text patterns to icons
-    const questionIconMap = {
-      'Wedding Ceremony Location': MapPin,
-      'Wedding Reception Location': UtensilsCrossed,
-      'What time is the wedding?': Clock,
-      'What is the wedding theme and dress code?': Palette,
-      'Can I bring a plus one?': Users,
-      'What to wear?': Palette,
-      "Where's the reception?": UtensilsCrossed,
-      'Is RSVP required?': Mail,
-      'Are children allowed?': Baby,
-      'Is parking available?': Car,
-      'Can guests take photos or videos during the ceremony?': Camera,
-      'Is there a gift registry?': Gift,
-      'Final Reminder': Heart
-    }
-    
-    // Check for exact match first
-    if (questionIconMap[question]) {
-      return { Icon: questionIconMap[question], text: question }
-    }
-    
-    // Check for partial matches (in case of emoji prefixes or slight variations)
-    for (const [key, Icon] of Object.entries(questionIconMap)) {
-      if (question.includes(key) || key.includes(question.trim())) {
-        return { Icon, text: question.replace(/^[📍🥂⏰🎨👥✉️👶🚗📸🎁❤️]\s*/, '').trim() }
-      }
-    }
-    
-    // Remove any emoji at the start if present
-    const emojiPattern = /^[📍🥂⏰🎨👥✉️👶🚗📸🎁❤️]\s*/
-    const cleanText = question.replace(emojiPattern, '').trim()
-    
-    return { Icon: null, text: cleanText }
-  }
 
   // Helper function to parse answer text and convert phone numbers to clickable links
   const parseAnswerWithPhoneNumbers = (answer) => {
@@ -334,9 +294,6 @@ const Details = () => {
                 <Divider />
               </div>
             </div>
-
-            {/* Venue Section */}
-            <Venue />
           </div>
         </div>
 
@@ -348,6 +305,12 @@ const Details = () => {
             className="w-full h-full object-contain"
             style={{ transform: 'scale(2.5) rotate(5deg)' }}
           />
+        </div>
+      </div>
+
+      <div className="relative z-20 flex items-center justify-center pt-12 sm:pt-16 md:pt-20 pb-12 sm:pb-16 md:pb-20">
+        <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto">
+          <Venue />
         </div>
       </div>
 
@@ -372,7 +335,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#1F2B20" 
+            stroke="#3a3148" 
             strokeWidth="2" 
             fill="none"
             opacity="0.4"
@@ -392,7 +355,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#1F2B20" 
+            stroke="#3a3148" 
             strokeWidth="2" 
             fill="none"
             opacity="0.4"
@@ -422,7 +385,7 @@ const Details = () => {
       </div>
 
       {/* FAQ Section - Outside container */}
-      <div className="relative z-20 faq-section">
+      <div className="relative z-20 faq-section bg-gold">
         <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16">
           <h3 ref={faqTitleRef} className="relative inline-block px-6 py-3 mb-12 text-center w-full">
             <span 
@@ -434,17 +397,16 @@ const Details = () => {
           {faqItems && faqItems.faqData && (
             <div className="faq-items max-w-[600px] mx-auto">
               {faqItems.faqData.map((item, index) => {
-                const { text } = getFaqIconAndText(item.question)
                 return (
                   <div
                     key={index}
-                    className="border-b border-obsidian pb-6 pt-6 first:pt-0 last:border-b-0"
+                    className="border-b border-forest/15 pb-6 pt-6 first:pt-0 last:border-b-0"
                   >
                     <div className="mb-2">
-                      <p className="text-base sm:text-lg font-albert text-forest mb-2 faq-question-bold">
-                        Q: {text}
+                      <p className="text-base sm:text-lg font-albert text-[#fff4e6] mb-2 faq-question-bold">
+                        Q: {item.question}
                       </p>
-                      <p className="text-sm sm:text-base font-albert font-thin text-obsidian whitespace-pre-line">
+                      <p className="text-sm sm:text-base font-albert font-thin text-[#fff4e6] whitespace-pre-line">
                         A: {parseAnswerWithPhoneNumbers(item.answer)}
                       </p>
                     </div>
@@ -484,7 +446,7 @@ const Details = () => {
           navigate('/')
         }
       }}
-      className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-gold text-forest rounded-full shadow-lg border border-forest/10 hover:bg-gold-dark hover:text-white hover:scale-110 transition-all duration-300 flex items-center justify-center group back-button"
+      className="fixed bottom-12 right-6 z-[100] w-14 h-14 bg-gold text-[#fff4e6] rounded-full shadow-lg border border-forest/10 hover:bg-gold-dark hover:text-[#fff4e6] hover:scale-110 transition-all duration-300 flex items-center justify-center group back-button"
       aria-label="Back to home"
     >
       <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" />

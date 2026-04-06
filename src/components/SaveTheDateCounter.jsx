@@ -77,7 +77,8 @@ const SaveTheDateCounter = () => {
         <div className="text-center">
           <h2
             ref={titleRef}
-            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl capitalize text-forest drop-shadow-sm"
+            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl capitalize text-gold drop-shadow-md"
+            style={{ textShadow: '0 1px 4px rgba(58,49,72,0.5), 0 0 20px rgba(231,208,245,0.45)' }}
           >
             Save The Date
           </h2>
@@ -92,7 +93,7 @@ const SaveTheDateCounter = () => {
             <div className="text-xs sm:text-sm font-albert font-medium text-white/90">Days</div>
           </div>
           
-          <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-gold">:</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-gold-dark">:</div>
           
           <div className="text-center">
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-albert font-semibold mb-1 countdown-number tabular-nums">
@@ -101,7 +102,7 @@ const SaveTheDateCounter = () => {
             <div className="text-xs sm:text-sm font-albert font-medium text-white/90">Hours</div>
           </div>
           
-          <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-gold">:</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-gold-dark">:</div>
           
           <div className="text-center">
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-albert font-semibold mb-1 countdown-number tabular-nums">
@@ -110,7 +111,7 @@ const SaveTheDateCounter = () => {
             <div className="text-xs sm:text-sm font-albert font-medium text-white/90">Minutes</div>
           </div>
           
-          <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-gold">:</div>
+          <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-gold-dark">:</div>
           
           <div className="text-center">
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-albert font-semibold mb-1 countdown-number tabular-nums">

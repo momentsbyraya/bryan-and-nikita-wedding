@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1280" viewBox="0 0 1920 1280" role="img" aria-label="Photo placeholder — image to be added">
+  <defs>
+    <linearGradient id="ph-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0e7de"/>
+      <stop offset="55%" stop-color="#ead6f3"/>
+      <stop offset="100%" stop-color="#d4bae8"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#ph-bg)"/>
+  <rect x="120" y="120" width="1680" height="1040" rx="28" fill="none" stroke="#9d7fc4" stroke-width="4" stroke-dasharray="18 14" opacity="0.5"/>
+  <!-- Text block: centered on canvas (960, 640) -->
+  <g transform="translate(960 640)">
+    <text x="0" y="-34" text-anchor="middle" dominant-baseline="middle" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="600" fill="#5c4d6e">Image here</text>
+    <text x="0" y="42" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, sans-serif" font-size="28" fill="#7a6299">Temporary — to be added</text>
+  </g>
+</svg>

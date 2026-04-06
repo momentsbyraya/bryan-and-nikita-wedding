@@ -1,7 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { MapPin, Clock, ArrowLeft, ArrowRight, ChevronDown, UtensilsCrossed, Palette, Users, Mail, Baby, Car, Camera, Gift, Heart } from 'lucide-react'
 import { faq as faqData } from '../data'
 import './pages/Details.css'
 
@@ -9,48 +8,9 @@ import './pages/Details.css'
 gsap.registerPlugin(ScrollTrigger)
 
 const FAQ = () => {
-  const [copiedIndex, setCopiedIndex] = useState(null)
   const faqRef = useRef(null)
   const faqTitleRef = useRef(null)
   const faqItems = faqData
-
-  // Helper function to get icon and clean text for FAQ questions
-  const getFaqIconAndText = (question) => {
-    // Map question text patterns to icons
-    const questionIconMap = {
-      'Wedding Ceremony Location': MapPin,
-      'Wedding Reception Location': UtensilsCrossed,
-      'What time is the wedding?': Clock,
-      'What is the wedding theme and dress code?': Palette,
-      'Can I bring a plus one?': Users,
-      'What to wear?': Palette,
-      "Where's the reception?": UtensilsCrossed,
-      'Is RSVP required?': Mail,
-      'Are children allowed?': Baby,
-      'Is parking available?': Car,
-      'Can guests take photos or videos during the ceremony?': Camera,
-      'Is there a gift registry?': Gift,
-      'Final Reminder': Heart
-    }
-    
-    // Check for exact match first
-    if (questionIconMap[question]) {
-      return { Icon: questionIconMap[question], text: question }
-    }
-    
-    // Check for partial matches (in case of emoji prefixes or slight variations)
-    for (const [key, Icon] of Object.entries(questionIconMap)) {
-      if (question.includes(key) || key.includes(question.trim())) {
-        return { Icon, text: question.replace(/^[📍🥂⏰🎨👥✉️👶🚗📸🎁❤️]\s*/, '').trim() }
-      }
-    }
-    
-    // Remove any emoji at the start if present
-    const emojiPattern = /^[📍🥂⏰🎨👥✉️👶🚗📸🎁❤️]\s*/
-    const cleanText = question.replace(emojiPattern, '').trim()
-    
-    return { Icon: null, text: cleanText }
-  }
 
   // Helper function to parse answer text and convert phone numbers to clickable links
   const parseAnswerWithPhoneNumbers = (answer) => {
@@ -144,12 +104,11 @@ const FAQ = () => {
   }, [])
 
   return (
-    <div className="relative z-20 faq-section bg-forest">
+    <div className="relative z-20 faq-section bg-gold">
       <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16">
         <h3 ref={faqTitleRef} className="relative inline-block px-6 py-3 mb-12 text-center w-full">
           <span 
-            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none capitalize"
-            style={{ color: '#CBCBC0' }}
+            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none capitalize text-[#fff4e6]"
           >
             Frequently Asked Questions
           </span>
@@ -157,17 +116,16 @@ const FAQ = () => {
         {faqItems && faqItems.faqData && (
           <div className="faq-items max-w-[600px] mx-auto">
             {faqItems.faqData.map((item, index) => {
-              const { text } = getFaqIconAndText(item.question)
               return (
                 <div
                   key={index}
-                  className="border-b border-white/30 pb-6 pt-6 first:pt-0 last:border-b-0"
+                  className="border-b border-forest/15 pb-6 pt-6 first:pt-0 last:border-b-0"
                 >
                   <div className="mb-2">
-                    <p className="text-base sm:text-lg font-albert text-[#CBCBC0] mb-2 faq-question-bold">
-                      Q: {text}
+                    <p className="text-base sm:text-lg font-albert text-[#fff4e6] mb-2 faq-question-bold">
+                      Q: {item.question}
                     </p>
-                    <p className="text-sm sm:text-base font-albert font-thin text-[#CBCBC0]/90 whitespace-pre-line">
+                    <p className="text-sm sm:text-base font-albert font-thin text-[#fff4e6] whitespace-pre-line">
                       A: {parseAnswerWithPhoneNumbers(item.answer)}
                     </p>
                   </div>

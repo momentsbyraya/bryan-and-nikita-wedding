@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { loveStory, prenupImages } from '../data'
-import { themeConfig } from '../config/themeConfig'
+import { isPrenupPlaceholder } from '../data/prenupImages'
 import './pages/Details.css'
 
 // Register ScrollTrigger plugin
@@ -15,7 +15,7 @@ const LoveStory = () => {
 
   // Split content into paragraphs
   const paragraphs = loveStory.content.split('\n\n').filter(p => p.trim())
-  const summaryText = 'From schoolmates to workmates, food and travel buddies, and now proud furr parents.'
+  const summaryText = 'From a simple conversation at work to choosing each other for all the days to come.'
 
   const polaroidImages = prenupImages.loveStory
 
@@ -99,6 +99,8 @@ const LoveStory = () => {
           ? '150px'
           : '200px'
 
+    const isPlaceholder = isPrenupPlaceholder(image)
+
     if (peekOnly) {
       return (
         <div
@@ -117,9 +119,13 @@ const LoveStory = () => {
             <img
               src={image}
               alt={`Love story photo ${index + 1}, preview`}
-              className="absolute left-0 top-0 w-full h-[220%] object-cover object-top"
+              className={
+                isPlaceholder
+                  ? 'absolute left-0 top-0 h-full w-full bg-sage object-contain object-center'
+                  : 'absolute left-0 top-0 h-[220%] w-full object-cover object-top'
+              }
               style={{
-                border: '2px solid #CBCBC0',
+                border: '2px solid #d4bae8',
                 borderBottom: 'none',
                 display: 'block',
               }}
@@ -156,9 +162,13 @@ const LoveStory = () => {
           <img
             src={image}
             alt={`Love story moment ${index + 1}`}
-            className="w-full aspect-square object-cover"
+            className={
+              isPlaceholder
+                ? 'aspect-square w-full bg-sage object-contain object-center'
+                : 'aspect-square w-full object-cover object-center'
+            }
             style={{
-              border: '2px solid #CBCBC0',
+              border: '2px solid #d4bae8',
               borderBottom: 'none',
               display: 'block',
             }}
@@ -197,8 +207,7 @@ const LoveStory = () => {
         </div>
         <h3 ref={titleRef} className="relative inline-block px-6 py-3">
           <span
-            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none capitalize"
-            style={{ color: themeConfig.text.wine }}
+            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none capitalize text-gold-dark drop-shadow-sm"
           >
             {loveStory.title}
           </span>
@@ -211,7 +220,7 @@ const LoveStory = () => {
             type="button"
             onClick={() => setShowFullStory((v) => !v)}
             aria-expanded={showFullStory}
-            className="px-5 py-2 rounded-full bg-forest text-white hover:bg-gold hover:text-forest transition-colors duration-200 font-albert text-sm sm:text-base"
+            className="px-5 py-2 rounded-full bg-gold text-[#fff4e6] border border-gold-dark/35 hover:bg-gold-dark hover:text-[#fff4e6] transition-colors duration-200 font-albert text-sm sm:text-base"
           >
             {showFullStory ? 'Show summary' : 'Read full story'}
           </button>
@@ -263,7 +272,7 @@ const LoveStory = () => {
                         >
                           <path
                             d="M 50 0 Q 32 22, 50 45 T 50 100"
-                            stroke="#1F2B20"
+                            stroke="#3a3148"
                             strokeWidth="2"
                             fill="none"
                             strokeDasharray="4,4"
@@ -273,7 +282,7 @@ const LoveStory = () => {
                         <div
                           className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full"
                           style={{
-                            backgroundColor: '#1F2B20',
+                            backgroundColor: '#3a3148',
                             opacity: 0.45,
                           }}
                         />

@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { venues as venuesData } from '../data'
+import { PRENUP_PLACEHOLDER, isPrenupPlaceholder } from '../data/prenupImages'
 import SecondaryButton from './SecondaryButton'
 import ImageLightbox from './ImageLightbox'
 import './pages/Details.css'
@@ -23,12 +24,11 @@ const Venue = () => {
   const pageVisibleRef = useRef(true)
 
   const ceremony = venuesData.ceremony
-
-  const ceremonyPhoto = '/assets/images/venues/for%20envelopes%20%2817%29.png'
+  const reception = venuesData.reception
 
   const venueSlides = [
-    { src: ceremonyPhoto, alt: 'Ceremony venue', venue: ceremony },
-    { src: '/assets/images/venues/for%20envelopes%20%2819%29.png', alt: 'Venue map', venue: ceremony },
+    { src: PRENUP_PLACEHOLDER, alt: 'Ceremony venue — photo to be added', venue: ceremony },
+    { src: PRENUP_PLACEHOLDER, alt: 'Reception venue — photo to be added', venue: reception },
   ]
 
   const nextImage = () => {
@@ -88,10 +88,10 @@ const Venue = () => {
     // Venue animation - animate image and content
     if (venueRef.current) {
       const venueContainer = venueRef.current
-      const venueImage = venueContainer.querySelector('.venue-image-container')
+      const venueImages = venueContainer.querySelectorAll('.venue-image-container')
       const venueContent = venueContainer.querySelector('.venue-details-mobile, .venue-details-desktop')
-      if (venueImage) {
-        gsap.set(venueImage, { opacity: 0, x: -30 })
+      if (venueImages.length) {
+        gsap.set(venueImages, { opacity: 0, x: -30 })
       }
       if (venueContent) {
         gsap.set(venueContent, { opacity: 0, x: 30 })
@@ -100,8 +100,8 @@ const Venue = () => {
         trigger: venueRef.current,
         start: "top 75%",
         onEnter: () => {
-          if (venueImage) {
-            gsap.to(venueImage, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" })
+          if (venueImages.length) {
+            gsap.to(venueImages, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" })
           }
           if (venueContent) {
             gsap.to(venueContent, { opacity: 1, x: 0, duration: 0.8, ease: "power2.out", delay: 0.2 })
@@ -158,24 +158,28 @@ const Venue = () => {
                   <ChevronLeft className="w-8 h-8 text-forest" />
                 </button>
                 <div
-                  className="w-full max-w-[220px] sm:max-w-[240px] aspect-square relative venue-image-container overflow-hidden rounded-full"
+                  className="venue-image-container relative aspect-square w-full max-w-[220px] overflow-hidden rounded-full border-2 border-wedding-400/50 bg-gradient-to-br from-wedding-200/95 via-gold/80 to-wedding-300/50 shadow-md ring-2 ring-forest/8 sm:max-w-[240px]"
                   onTouchStart={handleTouchStart}
                   onTouchEnd={handleTouchEnd}
                 >
                   <div
-                    className="flex transition-transform duration-500 ease-in-out h-full"
+                    className="flex h-full transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                   >
                     {venueSlides.map((slide, index) => (
                       <div
                         key={index}
-                        className={`min-w-full aspect-square flex-shrink-0 ${!slide.src ? 'flex items-center justify-center p-4' : ''}`}
+                        className={`aspect-square min-w-full flex-shrink-0 ${!slide.src ? 'flex items-center justify-center p-4' : ''}`}
                       >
                         {slide.src ? (
                           <img
                             src={slide.src}
                             alt={slide.alt}
-                            className="w-full h-full object-cover rounded-full cursor-pointer"
+                            className={`h-full w-full cursor-pointer rounded-full ${
+                              isPrenupPlaceholder(slide.src)
+                                ? 'bg-wedding-100/60 object-contain object-center p-3'
+                                : 'object-cover'
+                            }`}
                             onClick={() => setLightboxImage({ src: slide.src, alt: slide.alt })}
                           />
                         ) : (
@@ -211,11 +215,11 @@ const Venue = () => {
               {/* Dynamic content: updates with current slide */}
               <div className="venue-details-mobile w-full flex flex-col gap-2 px-2">
                 <div className="flex flex-col gap-0.5">
-                  <div className="text-lg sm:text-xl font-boska text-center" style={{ color: '#b88917' }}>
+                  <div className="text-lg sm:text-xl font-boska text-center" style={{ color: '#d4bae8' }}>
                     {venueSlides[currentIndex].venue.name}
                   </div>
-                  <div className="text-sm sm:text-base font-albert font-thin text-forest text-center space-y-0">
-                    <p>Ceremony & Reception: {ceremony.time} onwards</p>
+                  <div className="space-y-0 text-center text-sm font-albert font-thin text-forest sm:text-base">
+                    <p>{venueSlides[currentIndex].venue.details}</p>
                   </div>
                 </div>
                 <div className="flex justify-center">
@@ -242,20 +246,24 @@ const Venue = () => {
                   <ChevronLeft className="w-8 h-8 text-forest" />
                 </button>
                 <div
-                  className="w-full max-w-[320px] lg:max-w-[380px] aspect-square relative venue-image-container overflow-hidden rounded-full flex items-center justify-center bg-white/90 border-2 border-gold/20"
+                  className="venue-image-container relative flex aspect-square w-full max-w-[320px] items-center justify-center overflow-hidden rounded-full border-2 border-wedding-400/50 bg-gradient-to-br from-wedding-200/95 via-gold/80 to-wedding-300/50 shadow-md ring-2 ring-forest/8 lg:max-w-[380px]"
                   onTouchStart={handleTouchStart}
                   onTouchEnd={handleTouchEnd}
                 >
                   <div
-                    className="flex transition-transform duration-500 ease-in-out h-full w-full"
+                    className="flex h-full w-full transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                   >
                     {venueSlides.map((slide, index) => (
-                      <div key={index} className="min-w-full h-full">
+                      <div key={index} className="h-full min-w-full">
                         <img
                           src={slide.src}
                           alt={slide.alt}
-                          className="w-full h-full object-cover rounded-full cursor-pointer"
+                          className={`h-full w-full cursor-pointer rounded-full ${
+                            isPrenupPlaceholder(slide.src)
+                              ? 'bg-wedding-100/60 object-contain object-center p-4'
+                              : 'object-cover'
+                          }`}
                           onClick={() => setLightboxImage({ src: slide.src, alt: slide.alt })}
                         />
                       </div>
@@ -279,15 +287,15 @@ const Venue = () => {
                 ))}
               </div>
               <div className="flex flex-col gap-2 text-center">
-                <div className="text-lg sm:text-xl lg:text-2xl font-boska" style={{ color: '#b88917' }}>
-                  {ceremony.name}
+                <div className="text-lg sm:text-xl lg:text-2xl font-boska" style={{ color: '#d4bae8' }}>
+                  {venueSlides[currentIndex].venue.name}
                 </div>
-                <div className="text-sm sm:text-base font-albert font-thin text-forest space-y-1">
-                  <p>Ceremony & Reception: {ceremony.time} onwards</p>
+                <div className="space-y-1 text-sm font-albert font-thin text-forest sm:text-base">
+                  <p>{venueSlides[currentIndex].venue.details}</p>
                 </div>
-                <div className="flex justify-center mt-2">
+                <div className="mt-2 flex justify-center">
                   <SecondaryButton
-                    href={ceremony.googleMapsUrl}
+                    href={venueSlides[currentIndex].venue.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     icon={ArrowRight}
