@@ -10,16 +10,20 @@ export const AudioProvider = ({ children }) => {
   useEffect(() => {
     // Initialize audio - handle special characters in filename
     // Create a proper URL that handles emoji and special characters
+    const baseUrl = window.location.origin
+    const rawPath = audio.background.startsWith('/') ? audio.background : '/' + audio.background
+    const encodedPath =
+      '/' +
+      rawPath
+        .split('/')
+        .filter(Boolean)
+        .map((segment) => encodeURIComponent(segment))
+        .join('/')
     try {
-      // Use URL constructor to properly handle special characters
-      const baseUrl = window.location.origin
-      const audioPath = audio.background.startsWith('/') ? audio.background : '/' + audio.background
-      const audioUrl = new URL(audioPath, baseUrl).href
-      audioRef.current = new Audio(audioUrl)
+      audioRef.current = new Audio(new URL(encodedPath, baseUrl).href)
     } catch (error) {
-      // Fallback to direct path if URL constructor fails
-      console.warn('Failed to create URL for audio, using direct path:', error)
-      audioRef.current = new Audio(audio.background)
+      console.warn('Failed to create URL for audio, using encoded path:', error)
+      audioRef.current = new Audio(encodedPath)
     }
     audioRef.current.loop = false
     audioRef.current.volume = audio.volume

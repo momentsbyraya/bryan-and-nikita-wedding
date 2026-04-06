@@ -109,7 +109,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
         <div className="flex-1 min-h-0 flex flex-col bg-sage/90 backdrop-blur-sm">
           <div className="w-full flex-1 min-h-0 border-0 rsvp-modal-content flex items-center justify-center px-6">
             <p className="text-2xl sm:text-3xl md:text-4xl font-foglihten text-gold-dark drop-shadow-sm text-center">
-              TO BE ADDED
+              Text To be added
             </p>
           </div>
         </div>

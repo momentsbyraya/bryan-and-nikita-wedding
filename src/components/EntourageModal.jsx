@@ -6,10 +6,6 @@ import { X } from 'lucide-react'
 const EntourageModal = ({ isOpen, onClose }) => {
   const overlayRef = useRef(null)
   const contentRef = useRef(null)
-  const entourageImages = [
-    '/assets/images/entourage/entourage-1.png',
-    '/assets/images/entourage/entourage-2.png'
-  ]
 
   useEffect(() => {
     if (isOpen) {
@@ -66,18 +62,10 @@ const EntourageModal = ({ isOpen, onClose }) => {
           <X className="w-6 h-6" />
         </button>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-12 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {entourageImages.map((image, index) => (
-              <div key={index} className="relative rounded-lg overflow-hidden shadow-lg">
-                <img
-                  src={image}
-                  alt={`Entourage ${index + 1}`}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="min-h-screen flex flex-col items-center justify-center px-6 py-24 text-center">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-foglihten text-gold-dark drop-shadow-sm">
+            To be added
+          </p>
         </div>
       </div>
     </div>,

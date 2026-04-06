@@ -146,6 +146,12 @@ const Hero = () => {
         <rect width="100%" height="100%" fill="url(#bottomGradient)" filter="url(#heroBlurBottom)" />
       </svg>
 
+      {/* Soft translucent banner with smooth fade (reference style) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[11] h-16 sm:h-20 md:h-24 border-t border-white/35 bg-gradient-to-t from-white/72 via-white/42 to-white/0 backdrop-blur-lg"
+      />
+
     </div>
   )
 }
