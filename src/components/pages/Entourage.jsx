@@ -388,7 +388,9 @@ const Entourage = () => {
 
   const principalSponsors = entourage.entourageList.find(item => item.category === "Principal Sponsors")
   const secondarySponsors = entourage.entourageList.find(item => item.category === "Secondary Sponsors")
-  const bestman = entourage.entourageList.find(item => item.category === "Bestman")
+  const bestman = entourage.entourageList.find(
+    item => item.category === "Best Man" || item.category === "Bestman"
+  )
   const maidOfHonor = entourage.entourageList.find(item => item.category === "Maid of Honor")
   const bibleBearer = entourage.entourageList.find(item => item.category === "Bible Bearer")
   const ringBearer = entourage.entourageList.find(item => item.category === "Ring Bearer")
@@ -601,7 +603,7 @@ const Entourage = () => {
                     <div className="flex-1 min-w-0">
                       <p className="text-[10px] sm:text-[13px] md:text-[15px] caudex-bold mb-2 text-left uppercase" style={{ color: '#3a3148' }}>Bridesmaids</p>
                       <div className="space-y-1.5">
-                        {secondarySponsors.bridesmaid && secondarySponsors.bridesmaid.map((name, index) => (
+                        {(secondarySponsors.bridesmaids || secondarySponsors.bridesmaid || []).map((name, index) => (
                           <p key={index} className="bridesmaids-item text-[7.5px] sm:text-[11px] md:text-[13px] font-poppins uppercase text-forest text-left">{name}</p>
                         ))}
                       </div>

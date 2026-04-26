@@ -52,7 +52,7 @@ const Home = ({ onOpenRSVP }) => {
       </div>
 
       <FullBleedPhoto
-        src={prenupImages.pool[8]}
+        src={prenupImages.fullBleedMain}
         alt={photoAlt}
       />
 
@@ -84,7 +84,7 @@ const Home = ({ onOpenRSVP }) => {
       </div>
 
       <FullBleedPhoto
-        src={prenupImages.pool[4]}
+        src={prenupImages.splitA.left}
         alt={photoAlt}
       />
 
@@ -126,7 +126,7 @@ const Home = ({ onOpenRSVP }) => {
       </div>
 
       <FullBleedPhoto
-        src={prenupImages.pool[10]}
+        src={prenupImages.splitA.right}
         alt={photoAlt}
       />
 

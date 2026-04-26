@@ -1,26 +1,26 @@
 {
   "ceremony": {
-    "ceremonyPhoto": "/assets/images/placeholders/to-be-added.svg",
-    "name": "Nazareth Hub Garden",
+    "ceremonyPhoto": "/assets/images/venues/imgs.jpg",
+    "name": "Nazareth Hub Garden & Pavilion",
     "address": "",
     "city": "",
     "state": "",
     "zip": "",
     "time": "4:30 PM",
-    "details": "Schedule: 4:30 PM",
+    "details": "Ceremony: 4:30 PM • Reception: 6:00 PM onwards",
     "googleMapsUrl": "https://maps.app.goo.gl/dABQ2UwhKP1QK4nx9",
     "directionsUrl": "https://maps.app.goo.gl/dABQ2UwhKP1QK4nx9"
   },
   "reception": {
-    "receptionPhoto": "/assets/images/placeholders/to-be-added.svg",
-    "name": "Nazareth Hub Pavillion",
+    "receptionPhoto": "/assets/images/venues/pavillion.jpg",
+    "name": "Nazareth Hub Garden & Pavilion",
     "address": "",
     "city": "",
     "state": "",
     "zip": "",
     "time": "6:00 PM",
-    "details": "Schedule: 6:00 PM onwards",
-    "landmark": "Following ceremony at Nazareth Hub Garden",
+    "details": "Ceremony: 4:30 PM • Reception: 6:00 PM onwards",
+    "landmark": "",
     "googleMapsUrl": "https://maps.app.goo.gl/dABQ2UwhKP1QK4nx9",
     "directionsUrl": "https://maps.app.goo.gl/dABQ2UwhKP1QK4nx9"
   }

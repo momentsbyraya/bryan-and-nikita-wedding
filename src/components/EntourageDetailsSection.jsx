@@ -31,7 +31,9 @@ const EntourageDetailsSection = () => {
 
   const principalSponsors = entourage.entourageList.find(item => item.category === 'Principal Sponsors')
   const secondarySponsors = entourage.entourageList.find(item => item.category === 'Secondary Sponsors')
-  const bestman = entourage.entourageList.find(item => item.category === 'Bestman')
+  const bestman = entourage.entourageList.find(
+    item => item.category === 'Best Man' || item.category === 'Bestman'
+  )
   const maidOfHonor = entourage.entourageList.find(item => item.category === 'Maid of Honor') || entourage.entourageList.find(item => item.category === 'Matron')
   const bibleBearer = entourage.entourageList.find(item => item.category === 'Bible Bearer')
   const ringBearer = entourage.entourageList.find(item => item.category === 'Ring Bearer')
@@ -279,7 +281,7 @@ const EntourageDetailsSection = () => {
             <div className="flex flex-row gap-4 sm:gap-6 justify-center items-center mb-4">
               {bestman && (
                 <div ref={bestmanRef} className="flex-1 min-w-0">
-                  <p className="text-[10px] sm:text-sm md:text-base alice-regular mb-2 text-right uppercase" style={{ color: accentColor }}>Bestman</p>
+                  <p className="text-[10px] sm:text-sm md:text-base alice-regular mb-2 text-right uppercase" style={{ color: accentColor }}>Best Man</p>
                   {bestman.names?.map((name, index) => (
                     <p key={index} className="text-[9px] sm:text-[13px] md:text-[15px] font-poppins uppercase text-forest text-right">{name}</p>
                   ))}
@@ -306,7 +308,7 @@ const EntourageDetailsSection = () => {
               <div className="flex-1 min-w-0">
                 <p className="text-[10px] sm:text-sm md:text-base alice-regular mb-2 text-left uppercase" style={{ color: accentColor }}>Bridesmaids</p>
                 <div className="space-y-2">
-                  {secondarySponsors.bridesmaid?.map((name, index) => (
+                  {(secondarySponsors.bridesmaids || secondarySponsors.bridesmaid || []).map((name, index) => (
                     <p key={index} className="bridesmaids-item text-[9px] sm:text-[13px] md:text-[15px] font-poppins uppercase text-forest text-left">{name}</p>
                   ))}
                 </div>

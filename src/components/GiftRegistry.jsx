@@ -19,8 +19,8 @@ const GiftRegistry = () => {
             Gift Guide
           </h3>
           <p className="mt-4 text-sm sm:text-base md:text-lg font-albert text-obsidian/85 max-w-2xl mx-auto">
-            As we blend our two houses into one, we have all the belongings we could need. For those who wish to
-            give, a gift of cash to help us build our first home together would be a wonderful blessing.
+            Your presence is already a gift to us. 🤍 However, if you wish to bless us, a monetary gift would be truly
+            appreciated as we begin our new journey together.
           </p>
         </div>
       </section>

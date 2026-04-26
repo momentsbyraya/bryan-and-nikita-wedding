@@ -166,9 +166,9 @@ function AppContent() {
     preloadImages()
   }, [])
 
-  const handleEnvelopeOpen = async () => {
-    // Start playing music when invitation is revealed (user interaction allows auto-play)
-    await play()
+  const handleEnvelopeOpen = () => {
+    // Reveal invitation immediately; don't block UI on media playback readiness.
+    play().catch(() => {})
     setShowInvitation(true)
     navigate('/')
   }

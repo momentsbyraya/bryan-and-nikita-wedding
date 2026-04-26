@@ -1,108 +1,92 @@
 {
   "couple": {
-    "groom": { "name": "BRYAN ANTHONY GAMBOA" },
-    "bride": { "name": "NIKITA M. LAGURA" }
+    "groom": { "name": "Bryan Anthony Gamboa" },
+    "bride": { "name": "Nikita M. Lagura" }
   },
   "parents": {
     "groom": {
-      "father": "Domingo R. Negrite (+)",
-      "mother": "Marina O. Negrite"
+      "father": "Mr. Boyd Yrad",
+      "mother": "Ms. Mona Liza Anckermann"
     },
     "bride": {
-      "father": "Rodel O. Historillo",
-      "mother": "Rosiel B. Historillo"
+      "father": "Mr. Francis Julius C. Lagura",
+      "mother": "Mrs. Zarina M. Lagura"
     }
   },
   "entourageList": [
     {
-      "category": "Officiating Minister",
-      "names": ["Rev. Miguelito P. Pabilonia, Jr."]
-    },
-    {
-      "category": "Parents of the Groom",
-      "names": [
-        "Domingo R. Negrite (+)",
-        "Santos C. Oliva",
-        "Marina O. Negrite"
-      ]
-    },
-    {
-      "category": "Parents of the Bride",
-      "names": [
-        "Rodel O. Historillo",
-        "Rosiel B. Historillo"
-      ]
+      "category": "Officiant",
+      "names": ["Rev. Melecio S. Matabella, Jr."]
     },
     {
       "category": "Principal Sponsors",
       "ninong": [
-        "Epitacio B. Mendiola",
-        "Ruel D. Elias",
-        "Aries Martin G. Giron",
-        "Mark Gerad A. Oliva",
-        "Christian O. Buyet",
-        "Nicki Abram Padrez, JP"
+        "Mr. Antonio Gamboa Jr.",
+        "Mr. Jerry Combate"
       ],
       "ninang": [
-        "Carol Belandres",
-        "Jackie-Anne G. Bayhon",
-        "Evelyn M. Abapo",
-        "Junelyn Kate O. Monge",
-        "Josephine M. Esguerra"
+        "Mrs. Annabelle Gamboa",
+        "Mrs. Sheryl Condeno",
+        "Mrs. Jane Yrad",
+        "Mrs. Lanibelle Cui",
+        "Mrs. Vernecita Combate"
       ]
     },
     {
-      "category": "Bestman",
-      "names": ["Dom Igon O. Negrite"]
-    },
-    {
-      "category": "Matron",
-      "names": ["To be added"]
+      "category": "Best Man",
+      "names": ["Gabriel Luis Anckermann"]
     },
     {
       "category": "Maid of Honor",
-      "names": ["Kristine Marife M. De Leon"]
+      "names": ["Franchesca M. Lagura"]
     },
     {
       "category": "Candle Sponsors",
-      "names": ["Russel Ace J. Popioco", "Wilma G. Baldebar"]
+      "names": [
+        "Mrs. Jane Yrad",
+        "Mr. Joven Cahaban",
+        "Mrs. Cheryll Anckermann"
+      ]
     },
     {
       "category": "Cord Sponsors",
-      "names": ["Ivan Johnel B Historillo", "Daisy Jean Miranda"]
+      "names": ["Mrs. Annabelle Gamboa", "Mr. Antonio Gamboa Jr."]
     },
     {
       "category": "Veil Sponsors",
-      "names": ["Mark Joseph P. Gloria", "Marie Elaine D. Negrete"]
+      "names": ["Mrs. Annabelle Gamboa", "Mr. Antonio Gamboa Jr."]
     },
     {
       "category": "Secondary Sponsors",
       "groomsmen": [
-        "Michael M. Faegane",
-        "Van Darryl A. De Guzman"
+        "Jethro Yrad",
+        "Sandro Abad",
+        "Ferjohn Rodriguez",
+        "Joshua Undang",
+        "Gibi Requieron"
       ],
-      "bridesmaid": [
-        "Jasmine Kaye M. Historillo"
+      "bridesmaids": [
+        "Kassandra M Lagura",
+        "Sieraiah Lagura",
+        "Khryss Gambong",
+        "Jen Sampan",
+        "Jessica Barbra Yrad"
       ]
     },
     {
       "category": "Ring Bearer",
-      "names": ["Moises F. Bajamundi"]
-    },
-    {
-      "category": "Bible Bearer",
-      "names": ["Leone Vasilios Kaeyl Monge"]
+      "names": ["Luis Lagura"]
     },
     {
       "category": "Coin Bearer",
-      "names": ["Gabriel Ron Yohan E. Canimo"]
+      "names": ["Luis Lagura"]
     },
     {
       "category": "Flower Girls",
       "names": [
-        "Leanh Neriz F. Oliva",
-        "Lauren Gabrielle DL. Garcia",
-        "Audfile Lira P. Alcaraz"
+        "Julie Antonette Lagura",
+        "Jilian Lagura",
+        "Angel Timbal"
       ]
     }
   ]

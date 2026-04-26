@@ -1,21 +1,21 @@
 {
   "mainDressCode": {
     "title": "Attire Guide",
-    "description": "Formal or semi-formal. Please wear white and soft purple (cream, ivory, and lavender count)."
+    "description": "Formal or semi-formal. Please wear cream and soft purple (cream, ivory, and lavender count)."
   },
   "sections": [
     {
-      "title": "Principal Sponsors",
+      "title": "Principal & Secondary Sponsors",
       "type": "text",
-      "description": "Men: Dark suit, white shirt, soft purple tie or pocket square. Women: Floor-length gown in white, ivory, or soft purple.",
-      "image": "/assets/images/dresscode/principal%20sponsor.png"
+      "description": "Men: Cream Barong, off white Polo, Ivory or pocket square. Women: Any type of dress or top in lavender or soft purple.",
+      "image": "/assets/images/dresscode/sponsor.png"
     },
     {
       "title": "Guests",
       "type": "image",
-      "shortDescription": "Men: Long sleeves, trousers, dress shoes. Women: Dress in white or soft purple. No denim, t-shirts, or sneakers.",
-      "description": "Men: Long sleeves, trousers, dress shoes. Women: Dress in white or soft purple. No denim, t-shirts, or sneakers.",
-      "image": "/assets/images/dresscode/guests.png"
+      "shortDescription": "Men: Long sleeves, trousers, dress shoes. Women: Any type of dress or top in lavender or soft purple. No denim, t-shirts, sneakers, or dark color outfit.",
+      "description": "Men: Long sleeves, trousers, dress shoes. Women: Any type of dress or top in lavender or soft purple. No denim, t-shirts, sneakers, or dark color outfit.",
+      "image": "/assets/images/dresscode/guest.png"
     }
   ]
 }

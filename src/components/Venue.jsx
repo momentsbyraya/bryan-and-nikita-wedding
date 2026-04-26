@@ -23,12 +23,24 @@ const Venue = () => {
   const [carouselPaused, setCarouselPaused] = useState(false)
   const pageVisibleRef = useRef(true)
 
-  const ceremony = venuesData.ceremony
-  const reception = venuesData.reception
+  const sharedVenue = venuesData.ceremony
 
   const venueSlides = [
-    { src: PRENUP_PLACEHOLDER, alt: 'Ceremony venue — photo to be added', venue: ceremony },
-    { src: PRENUP_PLACEHOLDER, alt: 'Reception venue — photo to be added', venue: reception },
+    {
+      src: '/assets/images/venues/imgs.jpg',
+      alt: 'Nazareth Hub Garden and Pavilion exterior',
+      venue: sharedVenue,
+    },
+    {
+      src: '/assets/images/venues/pavillion.jpg',
+      alt: 'Nazareth Hub Garden and Pavilion entrance',
+      venue: sharedVenue,
+    },
+    {
+      src: '/assets/images/venues/pool.jpg',
+      alt: 'Nazareth Hub Garden and Pavilion pool area',
+      venue: sharedVenue,
+    },
   ]
 
   const nextImage = () => {
