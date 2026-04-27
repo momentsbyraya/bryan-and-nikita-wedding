@@ -209,12 +209,25 @@ const LoveStory = () => {
     )
   }
 
-  const storySegments = paragraphs.map((paragraph, i) => ({
-    paragraph,
-    index: i,
-    imageCount: polaroidImages[i] ? 1 : 0,
-    imageIndices: polaroidImages[i] ? [i] : [],
-  }))
+  // Curate image flow so photos match the story progression without changing text.
+  const paragraphImageMap = [
+    [0],      // where it began
+    [1, 2],   // friendship to dates
+    [3, 4],   // feelings deepened
+    [5, 6],   // choosing each other
+  ]
+
+  const storySegments = paragraphs.map((paragraph, i) => {
+    const mappedIndices = paragraphImageMap[i] || []
+    const imageIndices = mappedIndices.filter((imgIdx) => Boolean(polaroidImages[imgIdx]))
+
+    return {
+      paragraph,
+      index: i,
+      imageCount: imageIndices.length,
+      imageIndices,
+    }
+  })
 
   return (
     <div ref={sectionRef} className="relative pt-12 sm:pt-16 md:pt-20">

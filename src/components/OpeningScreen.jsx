@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import './OpeningScreen.css'
 
-function OpeningScreen({ onEnvelopeOpen }) {
+function OpeningScreen({ onEnvelopeOpen, onEnvelopeInteract }) {
   const envelopeRef = useRef(null)
   const openingSectionRef = useRef(null)
   const clickMeRef = useRef(null)
@@ -64,6 +64,10 @@ function OpeningScreen({ onEnvelopeOpen }) {
     const openingSection = openingSectionRef.current
     
     if (envelope) {
+      // Fire immediately inside user gesture to satisfy autoplay policies.
+      if (onEnvelopeInteract) {
+        onEnvelopeInteract()
+      }
       envelope.classList.add('active')
       // Letter translation: 0.3s delay + 0.8s duration = 1.1s total
       // Wait 1 second after letter finishes translating

@@ -1,13 +1,13 @@
 {
   "paymentMethods": [
     {
-      "name": "Bank of the Philippine Islands",
-      "image": "/assets/images/monetary-gifts/BPIQR_BPI.png",
+      "name": "GoTyme Bank",
+      "image": "/assets/images/qr/screenshot_20260422_144503_gotyme_ph_720 (1).jpg",
       "accountInfo": {
-        "provider": "BPI",
+        "provider": "GoTyme",
         "accountNumber": "",
         "accountName": "",
-        "qrCode": "/assets/images/monetary-gifts/BPIQR_BPI.png"
+        "qrCode": "/assets/images/qr/screenshot_20260422_144503_gotyme_ph_720 (1).jpg"
       }
     }
   ]

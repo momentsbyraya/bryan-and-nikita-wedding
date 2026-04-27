@@ -51,7 +51,7 @@ const Hero = () => {
         src={prenupImages.hero}
         alt={heroAlt}
         className={heroImgClass}
-        fetchPriority="high"
+        fetchpriority="high"
         decoding="async"
       />
 

@@ -27,7 +27,15 @@ const PRENUP_PHOTOS = [
   '/assets/images/prenup/DSC05887.jpg',
 ]
 const PRENUP_IMAGE_POOL = PRENUP_PHOTOS.slice(0, POOL_LEN)
-const LOVE_STORY_PHOTOS = PRENUP_PHOTOS.slice(0, 5)
+const LOVE_STORY_PHOTOS = [
+  '/assets/images/prenup/20230405_163433.jpg',
+  '/assets/images/prenup/DSC06815.jpg',
+  '/assets/images/prenup/45923.jpeg',
+  '/assets/images/prenup/DSC06745.jpg',
+  '/assets/images/prenup/DSC06686.jpg',
+  '/assets/images/prenup/DSC06668.jpg',
+  '/assets/images/prenup/DSC06470.jpg',
+]
 const GALLERY_PHOTOS = [HERO_PHOTO, ...PRENUP_PHOTOS, HERO_PHOTO]
 const MOMENTS_GRID_PHOTOS = PRENUP_PHOTOS.filter((_, index) => index !== 11)
 

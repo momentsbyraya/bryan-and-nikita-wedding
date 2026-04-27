@@ -30,6 +30,22 @@ const DressCode = () => {
     [SOFT_PURPLE]: 'Soft Purple',
   }
 
+  const renderGenderDescription = (text) => {
+    if (!text || typeof text !== 'string') return text
+    const womenIndex = text.indexOf(' Women:')
+    if (womenIndex === -1) return text
+
+    const menPart = text.slice(0, womenIndex).trimEnd()
+    const womenPart = text.slice(womenIndex + 1)
+
+    return (
+      <>
+        {menPart}
+        <span className="block lg-custom:inline lg-custom:ml-1">{womenPart}</span>
+      </>
+    )
+  }
+
   useEffect(() => {
     // Dress Code Title animation
     if (dressCodeTitleRef.current) {
@@ -189,7 +205,7 @@ const DressCode = () => {
                         {/* Description */}
                         {section.description && (
                           <p className="text-sm sm:text-base font-albert font-thin italic text-forest mb-3 text-right lg-custom:text-left">
-                            {section.description}
+                            {renderGenderDescription(section.description)}
                           </p>
                         )}
                         
@@ -289,7 +305,7 @@ const DressCode = () => {
                         {/* Short General Description */}
                         {section.shortDescription && (
                           <p className="text-sm sm:text-base font-albert font-thin italic text-forest mb-3 text-left lg-custom:text-left">
-                            {section.shortDescription}
+                            {renderGenderDescription(section.shortDescription)}
                           </p>
                         )}
                         

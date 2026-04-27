@@ -22,6 +22,13 @@ const GiftRegistry = () => {
             Your presence is already a gift to us. 🤍 However, if you wish to bless us, a monetary gift would be truly
             appreciated as we begin our new journey together.
           </p>
+          <button
+            type="button"
+            onClick={() => setIsGiftModalOpen(true)}
+            className="mt-6 rounded-full border border-gold-dark/45 bg-gold px-6 py-2 text-sm sm:text-base font-albert text-[#fff4e6] transition-colors duration-200 hover:bg-gold-dark"
+          >
+            View QR Codes
+          </button>
         </div>
       </section>
 
@@ -46,14 +53,15 @@ const GiftRegistry = () => {
 
             <div className="p-6">
               {paymentMethods && paymentMethods.length > 0 && (
-                <div className="flex items-center justify-center">
+                <div className="flex flex-wrap items-start justify-center gap-6">
                   {paymentMethods.map((method, index) => (
-                    <div key={index} className="flex items-center justify-center">
+                    <div key={index} className="flex flex-col items-center justify-center gap-2">
+                      <p className="text-sm sm:text-base font-albert text-gray-700">{method.name}</p>
                       {method.image && (
                         <img
                           src={method.image}
-                          alt="Gift payment method"
-                          className="w-full max-w-md h-auto object-contain"
+                          alt={`${method.name} QR code`}
+                          className="w-full max-w-md h-auto object-contain rounded-lg border border-gray-200"
                         />
                       )}
                     </div>

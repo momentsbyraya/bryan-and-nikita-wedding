@@ -167,10 +167,13 @@ function AppContent() {
   }, [])
 
   const handleEnvelopeOpen = () => {
-    // Reveal invitation immediately; don't block UI on media playback readiness.
-    play().catch(() => {})
     setShowInvitation(true)
     navigate('/')
+  }
+
+  const handleEnvelopeInteract = () => {
+    // Must run directly from user interaction for reliable autoplay across browsers.
+    play().catch(() => {})
   }
 
   return (
@@ -191,7 +194,10 @@ function AppContent() {
       )}
       {/* OpeningScreen - shows after loading, before invitation */}
       {!isLoading && !showInvitation && (
-        <OpeningScreen onEnvelopeOpen={handleEnvelopeOpen} />
+        <OpeningScreen
+          onEnvelopeOpen={handleEnvelopeOpen}
+          onEnvelopeInteract={handleEnvelopeInteract}
+        />
       )}
       {/* Main content - shows after invitation is opened (stamp clicked) */}
       {!isLoading && showInvitation && (

@@ -1,32 +1,56 @@
 import React, { createContext, useContext, useRef, useState, useEffect } from 'react'
 import { audio } from '../data'
+import bundledBackgroundMusic from '../assets/music/background.mp3'
 
 const AudioContext = createContext(null)
 
 export const AudioProvider = ({ children }) => {
   const audioRef = useRef(null)
+  const sourceIndexRef = useRef(0)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  useEffect(() => {
-    // Initialize audio - handle special characters in filename
-    // Create a proper URL that handles emoji and special characters
+  const getEncodedSources = () => {
     const baseUrl = window.location.origin
     const rawPath = audio.background.startsWith('/') ? audio.background : '/' + audio.background
-    const encodedPath =
-      '/' +
-      rawPath
-        .split('/')
-        .filter(Boolean)
-        .map((segment) => encodeURIComponent(segment))
-        .join('/')
-    try {
-      audioRef.current = new Audio(new URL(encodedPath, baseUrl).href)
-    } catch (error) {
-      console.warn('Failed to create URL for audio, using encoded path:', error)
-      audioRef.current = new Audio(encodedPath)
-    }
-    audioRef.current.loop = false
-    audioRef.current.volume = audio.volume
+    const fallbackPath = rawPath.replace(/^\/assets\//, '/')
+    const rawSources = [...new Set([bundledBackgroundMusic, rawPath, fallbackPath])]
+
+    return rawSources.map((source) => {
+      if (typeof source === 'string' && /^https?:\/\//.test(source)) {
+        return source
+      }
+      const encodedPath =
+        '/' +
+        source
+          .split('/')
+          .filter(Boolean)
+          .map((segment) => encodeURIComponent(segment))
+          .join('/')
+      try {
+        return new URL(encodedPath, baseUrl).href
+      } catch (error) {
+        console.warn('Failed to build absolute audio URL, using encoded path:', error)
+        return encodedPath
+      }
+    })
+  }
+
+  const createAudioElement = (src) => {
+    // Initialize audio with URL-safe encoding for special characters in file names.
+    const audioSrc = src || getEncodedSources()[sourceIndexRef.current]
+
+    let audioElement
+    audioElement = new Audio(audioSrc)
+
+    audioElement.preload = 'auto'
+    audioElement.loop = false
+    audioElement.volume = audio.volume
+
+    return audioElement
+  }
+
+  useEffect(() => {
+    audioRef.current = createAudioElement()
 
     const loopStart = typeof audio.loopStart === 'number' ? audio.loopStart : 0
     const loopEnd = typeof audio.loopEnd === 'number' ? audio.loopEnd : null
@@ -62,15 +86,35 @@ export const AudioProvider = ({ children }) => {
   }, [])
 
   const play = async () => {
-    if (audioRef.current) {
-      try {
-        const loopStart = typeof audio.loopStart === 'number' ? audio.loopStart : 0
-        audioRef.current.currentTime = loopStart
-        await audioRef.current.play()
-        setIsPlaying(true)
-      } catch (error) {
-        console.log('Could not play music:', error)
+    try {
+      // Safety net: in case user taps before effect initialization completes.
+      if (!audioRef.current) {
+        audioRef.current = createAudioElement()
       }
+
+      const loopStart = typeof audio.loopStart === 'number' ? audio.loopStart : 0
+      audioRef.current.currentTime = loopStart
+      await audioRef.current.play()
+      setIsPlaying(true)
+    } catch (error) {
+      const sources = getEncodedSources()
+      const nextIndex = sourceIndexRef.current + 1
+
+      if (nextIndex < sources.length) {
+        sourceIndexRef.current = nextIndex
+        audioRef.current = createAudioElement(sources[nextIndex])
+        try {
+          const loopStart = typeof audio.loopStart === 'number' ? audio.loopStart : 0
+          audioRef.current.currentTime = loopStart
+          await audioRef.current.play()
+          setIsPlaying(true)
+          return
+        } catch (retryError) {
+          console.log('Could not play music after retry:', retryError)
+        }
+      }
+
+      console.log('Could not play music:', error)
     }
   }
 
