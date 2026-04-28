@@ -6,7 +6,7 @@ import { couple, prenupImages } from '../data'
 
 const RSVP_FORM_EMBED_URL =
   couple.rsvpGoogleFormEmbedUrl ||
-  'https://docs.google.com/forms/d/e/1FAIpQLScigmo-gY2rNBfFwyrPvs9o932AVIQDCFisMVGpf16wsaD7KA/viewform?embedded=true'
+  'https://docs.google.com/forms/d/e/1FAIpQLSf3VgjsuQtwTY49jbvbSWvX0sxPlFakfPclujuLF1BFwJLESQ/viewform?embedded=true'
 
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
@@ -107,10 +107,12 @@ const RSVPModal = ({ isOpen, onClose }) => {
         </header>
 
         <div className="flex-1 min-h-0 flex flex-col bg-sage/90 backdrop-blur-sm">
-          <div className="w-full flex-1 min-h-0 border-0 rsvp-modal-content flex items-center justify-center px-6">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-foglihten text-gold-dark drop-shadow-sm text-center">
-              Text To be added
-            </p>
+          <div className="w-full flex-1 min-h-0 border-0 rsvp-modal-content flex flex-col px-2 py-3 sm:px-4 sm:py-4">
+            <iframe
+              title="RSVP — Google Form"
+              src={RSVP_FORM_EMBED_URL}
+              className="w-full flex-1 min-h-[min(70vh,640px)] sm:min-h-[72vh] border-0 rounded-lg bg-white shadow-md"
+            />
           </div>
         </div>
       </div>
